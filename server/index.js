@@ -8,10 +8,9 @@ const wsManager = require("./WSManager")
 const app = express();
 app.use(express.static('public'));
 
-app.use('/', require('./routes/index'));
+// app.use('/', require('./routes/index'));
 
-app.use('/stripe', require('./routes/stripe'));
-
+// app.use('/stripe', require('./routes/stripe'));
 crudController.WSManager(wsManager);
 const server = createServer(app);
 server.on('upgrade', function upgrade(request, socket, head) {

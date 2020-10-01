@@ -3,7 +3,9 @@ var utils= require('../utils');
 
 class CoCreateXXX {
 	constructor(wsManager) {
+		this.wsManager = wsManager;
 		this.init();
+		
 	}
 	
 	init() {
