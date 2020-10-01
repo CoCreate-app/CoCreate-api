@@ -5,7 +5,14 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "querystring": "^0.2.0",
+    "uuid": "^8.1.0",
+    "ws": "^7.3.0"
   },
   "repository": {
     "type": "git",
