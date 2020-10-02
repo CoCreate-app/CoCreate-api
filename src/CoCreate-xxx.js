@@ -1,12 +1,12 @@
 var CoCreateXXX = function() {
 	this.endPoint = 'xxx';
 	this.mainAttribute = 'data-xxx';
-	CoCreateApiSocket.call(this);
-	
 	this.actions = [
 		'xxxCreateRequest',
 		'xxxRender'
 	];
+	
+	CoCreateApiSocket.call(this);
 };
 
 CoCreateXXX.prototype = Object.create(CoCreateApiSocket.prototype);
@@ -18,13 +18,17 @@ CoCreateXXX.prototype = Object.assign(CoCreateXXX.prototype, {
 		console.log('prefix----', data)
 	},
 	
-	actionxxxCreateRequest: function(element, data) {
-		this.sendData('xxxCreateRequest', {name: 'jin', description: 'okay'});	
+	actionxxxCreateRequest: function(element) {
+		let data = this.getFormData(element);
+		this.sendData('xxxCreateRequest', [data]);
 	},
 
 	actionxxxRender: function(element, data) {
 		//. data
-		console.log('second action', data, element);
+		CoCreateRender.render('[data-template_id=abc1]',{
+			render2: data
+		});
+		console.log('second action', data);
 	}
 })
 
