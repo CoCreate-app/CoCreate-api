@@ -1,25 +1,35 @@
-var CoCreateApiSocket = function() {
-	this.init();
-};
-
-CoCreateApiSocket.prototype = {
-
-	init: function() {
-		let self = this;
-		
-		CoCreateSocket.listen(this.endPoint, (data) => {
-			console.log("ResponseSocket", data)
-			self.resultProcess(data);
-		})
+const CoCreateApi = {
+	modules: { },
+	
+	register: function(name, m_instance) {
+		const self = this;
+		if (typeof this.modules[name] === 'undefined') {
+			this.modules[name] = m_instance;
+			
+			CoCreateSocket.listen(name, (data) => {
+				self.__responseProcess(name, data);
+			})
+			
+			//. register actions
+			
+			if (Array.isArray(m_instance['actions'])) {
+				m_instance['actions'].forEach((action) => {
+					if (typeof m_instance[`action_${action}`] === 'function') {
+						CoCreateAction.registerEvent(action, m_instance[`action_${action}`], m_instance, action);
+					}
+				})
+			}
+		}
 	},
 	
-	resultProcess: function(data) {
+	__responseProcess: function(m_name, data) {
 		const {type, response} = data;
+		const m_instance = this.modules[m_name]
 		
-		if (type && response) {
-
-			if (this['pre' + type]) {
-				this['pre' + type].call(this, response);
+		if (type && response && m_instance) {
+		
+			if ( typeof m_instance[`pre_${type}`] === 'function') {
+				m_instance[`pre_${type}`](response);
 			}
 
 			document.dispatchEvent(new CustomEvent(type, {
@@ -30,69 +40,89 @@ CoCreateApiSocket.prototype = {
 		}
 	},
 	
-	// validateKeysJson: function(json, rules) {
-	// 	let keys_json = Object.keys(json);
-	// 	keys_json.forEach((key) => {
-	// 		const index = rules.indexOf(key);
-	// 		if(index != -1) {
-	// 			rules.splice(index, 1);
-	// 		}
-	// 	});
-	// 	if(rules.length ) {
-	// 		throw "Requires the following "+ rules.toString();
-	// 	}
-	// },
 	
-	getFormData : function(btn){
-		const mainAttr = this.mainAttribute;
-		const container = btn.closest("form") || document;
-		let inputs = container.querySelectorAll(`[${mainAttr}]`);
+	getFormData : function(m_name, action, container){
+		const mainAttr = `data-${m_name}`;
+		const self = this;
+		const elements = container.querySelectorAll(`[${mainAttr}]`);
+
 		let data = {}
-		inputs.forEach(input => {
-			const name = input.getAttribute(mainAttr);
-			if( name.indexOf('[]') != -1 ){
-				if( typeof data[name] == 'undefined' ){
-					data[name] = []
-				}
-				switch (input.getAttribute('type').toLocaleLowerCase()) {
-					case 'checkbox':
-						if(input.checked)
-							data[name].push(input.value)    
-						break;
-					default:
-						data[input.getAttribute(mainAttr)].push(input.value)
+		elements.forEach(element => {
+			let name = element.getAttribute(mainAttr);
+			let array_name = element.getAttribute(mainAttr + "_array");
+			let value = self.__getElValue(element);
+			
+			if (!name) return
+
+			if (action) {
+				let re = new RegExp(`^${action}.`, 'i');
+				if (re.test(name)) {
+					name = name.replace(re, "");
+				} else {
+					return;
 				}
 			}
-			else 
-				data[input.getAttribute(mainAttr)] = input.value;
+			
+			if (array_name) {
+				if (!data[name]) {
+					data[name] = [];
+				}
+				data[name].push(self.getFormData(m_name, array_name, element));
+			} else if (value != null) {
+				data[name] = value;
+			}
 		});
+		
+		let keys = Object.keys(data)
+		
+		keys.forEach((k) => {
+			if (k.split('.').length > 1) {
+				let newData = self.__createObject(data[k], k);
+				delete data[k]
+				
+				data = Object.assign(data, newData);
+			}
+		})
 		return data;
 	},
 	
-	sendData: function(type, data){ 
-		console.log(".... Sending Request Socket to endPint ["+this.endPoint+"].....");
-		CoCreateSocket.send(this.endPoint, {type, data});
+	__getElValue: function(element) {
+		let value = null;
+		if (typeof element.value !== "undefined") {
+			switch (element.type.toLocaleLowerCase()) {
+				case 'checkbox':
+					if (element.checked) {
+						value = element.value
+					}
+					break;
+				default:
+					value = element.value;
+					break;
+			}
+		} else {
+			value = element.getAttribute('value');
+		}
+		
+		return value;
 	},
 	
-	/**
-	 * @param object : data object
-	 * @param attributeName : data attribute name of input <- object key
-	 * @param addInfo : additional selector of input
-	 * @param parentInfo : parent selector of input
-	 */
-	// objToAtt: function(object, attributeName, addInfo = "", parentInfo = "") {
-	// 	let inputs = document.querySelectorAll(`${parentInfo} [data-${attributeName}]${addInfo}, ${parentInfo} [name]${addInfo}`);
-	// 	for (let input of inputs) {
-	// 		let key;
-	// 		key = input.dataset[attributeName];
-	// 		if (!key) key = input.getAttribute("name");
-	// 		let type = input.getAttribute("type");
-	// 		if (type == "button" || type == "submit" || type == "reset") continue;
-	// 		if (type == "radio" && key in object) input.checked = object[key] == input.getAttribute("value") ? true : false;
-	// 		else if (type == "checkbox" && key in object) input.checked = (object[key] == input.getAttribute("value")) || (Array.isArray(object[key]) && object[key].includes(input.getAttribute("value"))) ? true : false; // checked value = on
-	// 		else if (key in object)
-	// 			if (input.tagName == "input" || input.tagName == "textarea")input.value = object[key];
-	// 			else input.innerHTML = object[key];
-	// 	}
-	// }
+	__createObject: function (data, path) {
+		if (!path) return data;
+		
+		let keys = path.split('.')
+		let newObject = data;
+
+		for (var  i = keys.length - 1; i >= 0; i--) {
+			newObject = {[keys[i]]: newObject}				
+		}
+		return newObject;
+	},
+	
+	send : function(module, action, data){ 
+		CoCreateSocket.send(module, {type: action, data});
+	},
+	
+	render: function(m_name, action, data) {
+		CoCreateRender.render(`[data-template_id=${action}]`, data);
+	}
 }

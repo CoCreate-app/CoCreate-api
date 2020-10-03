@@ -1,42 +1,81 @@
-var CoCreateXXX = function() {
-	this.endPoint = 'xxx';
-	this.mainAttribute = 'data-xxx';
-	this.actions = [
+
+const CoCreateXXX = {
+	id: 'xxx',
+	actions: [
 		'xxxCreateRequest',
-		'xxxRender'
-	];
+		'xxxRender',
+		'xxxCreateCard'
+	],
 	
-	CoCreateApiSocket.call(this);
-};
+	/**
+	 * 
+	 * CoCreate-xxx action chain
+	 * Ex: action name: xxxCreateRequest
+	 * 1. call action_xxxCreateRequest() function
+	 *   - get the data from form
+	 *   - send data and action into server 
+	 * 2. Server processing
+	 * 3. Received the response from server
+	 * 4. If pre_xxxCreateRequest function exist, call pre_xxxCreateRequest() function
+	 * 5. Fire the event for end (event name is xxxCreateRequest)
+	 * 6. Run the next action by cocreate-action
+	 * 
+	 **/
+	
+	/**
+	 * ---------- Pre-processing function -----------------
+	 * When receive response, these function will call.
+	 * 
+	 * These functions has name rule
+	 * --- rule: pre_{actionname}(data) {}
+	 * 
+	 **/
 
-CoCreateXXX.prototype = Object.create(CoCreateApiSocket.prototype);
-CoCreateXXX.prototype.constructor = CoCreateXXX;
+	pre_xxxCreateRequest: function(data) {
+		console.log(JSON.stringify(data));
+	},
 
-CoCreateXXX.prototype = Object.assign(CoCreateXXX.prototype, {
-
-	prexxxCreateRequest: function (data) {
-		console.log('prefix----', data)
+	pre_xxxCreateCard: function(data) {
+		console.log('Card --- ', data);
 	},
 	
-	actionxxxCreateRequest: function(element) {
-		let data = this.getFormData(element);
-		this.sendData('xxxCreateRequest', [data]);
+	
+	/**
+	 * --------- Action processing function  -----------
+	 * These function will call by cocreate-render when click button (data-actions)
+	 * 
+	 * Action functions has name rule
+	 * ---- rule: action_{actionname}(element[, data]) {}
+	 * 
+	 * Input parameter: 
+	 *    element: Dom Element (actioin button)
+	 *    data: data from before stage action
+	 * 
+	 * 
+	 **/
+	action_xxxCreateRequest: function(btn) {
+		const container = btn.closest("form") || document;
+		
+		//. get from data
+		let data = CoCreateApi.getFormData(this.id, 'xxxCreateRequest',  container);
+		
+		//. send the action and data into server
+		CoCreateApi.send(this.id, 'xxxCreateRequest', [data]);
 	},
-
-	actionxxxRender: function(element, data) {
-		//. data
-		CoCreateRender.render('[data-template_id=abc1]',{
-			render2: data
-		});
-		console.log('second action', data);
+	
+	action_xxxCreateCard: function(btn, data) {
+		const container = btn.closest("form") || document;
+		let secondData = CoCreateApi.getFormData(this.id, 'xxxCreateCard',  container);
+		CoCreateApi.send(this.id, 'xxxCreateRequest', [secondData]);
+	},
+	
+	action_xxxRender: function(element, data) {
+		
+		//. data rendering by cocreate-render
+		CoCreateApi.render(this.id, 'xxxCreateCard', {render2: data});
 	}
-})
+// END CreacteCard endpoint	
+}
 
 
-const cocreateXXXInstance = new CoCreateXXX();
-
-cocreateXXXInstance.actions.forEach((action) => {
-	if (cocreateXXXInstance['action' + action]) {
-		CoCreateAction.registerEvent(action, cocreateXXXInstance['action' + action], cocreateXXXInstance, action);
-	}
-})
+CoCreateApi.register(CoCreateXXX.id, CoCreateXXX);
