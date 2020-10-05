@@ -53,24 +53,8 @@ const CoCreateXXX = {
 	 * 
 	 * 
 	 **/
-	action_xxxCreateRequest: function(btn) {
-		const container = btn.closest("form") || document;
-		
-		//. get from data
-		let data = CoCreateApi.getFormData(this.id, 'xxxCreateRequest',  container);
-		
-		//. send the action and data into server
-		CoCreateApi.send(this.id, 'xxxCreateRequest', [data]);
-	},
-	
-	action_xxxCreateCard: function(btn, data) {
-		const container = btn.closest("form") || document;
-		let secondData = CoCreateApi.getFormData(this.id, 'xxxCreateCard',  container);
-		CoCreateApi.send(this.id, 'xxxCreateRequest', [secondData]);
-	},
-	
+
 	action_xxxRender: function(element, data) {
-		
 		//. data rendering by cocreate-render
 		CoCreateApi.render(this.id, 'xxxCreateCard', {render2: data});
 	}

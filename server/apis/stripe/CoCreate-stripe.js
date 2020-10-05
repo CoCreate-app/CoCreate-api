@@ -1,7 +1,7 @@
 'use strict'
 var utils= require('../utils');
 
-class CoCreateXXX {
+class CoCreateStripe {
 	constructor(wsManager) {
 		this.wsManager = wsManager;
 		this.init();
@@ -10,16 +10,16 @@ class CoCreateXXX {
 	
 	init() {
 		if (this.wsManager) {
-			this.wsManager.on('xxx',		(socket, data) => this.sendXXX(socket, data));
+			this.wsManager.on('stripe',		(socket, data) => this.sendXXX(socket, data));
 		}
 	}
 	async sendXXX(socket, data) {
 	    let that = this;
-	    let send_response ='xxx';
+	    let send_response ='stripe';
         let type = data['type'];
 
         switch (type) {
-            case 'xxxCreateRequest':
+            case 'preTesting':
                 utils.send_response(that.wsManager, socket, {"type":type,"response":data.data}, send_response)
                 break;
         }
@@ -27,4 +27,4 @@ class CoCreateXXX {
 	}// end sendStripe
 	
 }//end Class 
-module.exports = CoCreateXXX;
+module.exports = CoCreateStripe;

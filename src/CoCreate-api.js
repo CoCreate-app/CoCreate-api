@@ -14,9 +14,12 @@ const CoCreateApi = {
 			
 			if (Array.isArray(m_instance['actions'])) {
 				m_instance['actions'].forEach((action) => {
-					if (typeof m_instance[`action_${action}`] === 'function') {
-						CoCreateAction.registerEvent(action, m_instance[`action_${action}`], m_instance, action);
-					}
+					if (typeof m_instance[`action_${action}`] !== 'function') {
+						m_instance[`action_${action}`] = function(element) {
+							self.__commonAction(m_instance.id, action, element)
+						}
+					} 
+					CoCreateAction.registerEvent(action, m_instance[`action_${action}`], m_instance, action);
 				})
 			}
 		}
@@ -31,13 +34,21 @@ const CoCreateApi = {
 			if ( typeof m_instance[`pre_${type}`] === 'function') {
 				m_instance[`pre_${type}`](response);
 			}
-
+			
+			this.render(type, response);
+			
 			document.dispatchEvent(new CustomEvent(type, {
 				detail: {
 					data: response
 				}
 			}))
 		}
+	},
+	
+	__commonAction: function(id, action, element) {
+		const container = element.closest("form") || document;
+		let data = CoCreateApi.getFormData(id, action,  container);
+		CoCreateApi.send(id, action, data);
 	},
 	
 	
@@ -122,7 +133,7 @@ const CoCreateApi = {
 		CoCreateSocket.send(module, {type: action, data});
 	},
 	
-	render: function(m_name, action, data) {
-		CoCreateRender.render(`[data-template_id=${action}]`, data);
+	render: function(action, data) {
+		CoCreateRender.render(`[data-template_id="${action}"]`, data);
 	}
 }
