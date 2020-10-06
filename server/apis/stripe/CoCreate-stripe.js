@@ -4,23 +4,21 @@ var utils= require('../utils');
 class CoCreateStripe {
 	constructor(wsManager) {
 		this.wsManager = wsManager;
+		this.module_id = "stripe";
 		this.init();
-		
 	}
 	
 	init() {
 		if (this.wsManager) {
-			this.wsManager.on('stripe',		(socket, data) => this.sendXXX(socket, data));
+			this.wsManager.on(this.moude_id,		(socket, data) => this.sendXXX(socket, data));
 		}
 	}
 	async sendXXX(socket, data) {
 	    let that = this;
-	    let send_response ='stripe';
-        let type = data['type'];
-
-        switch (type) {
-            case 'preTesting':
-                utils.send_response(that.wsManager, socket, {"type":type,"response":data.data}, send_response)
+        let action = data['type'];
+        switch (action) {
+            case 'CreateCustomer':
+                utils.send_response(that.wsManager, socket, {"type":action,"response":data.data}, this.module_id)
                 break;
         }
         
