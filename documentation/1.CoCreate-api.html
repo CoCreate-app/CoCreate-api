@@ -68,91 +68,120 @@
 				    </code></pre>
 				</p>
 
-				<h3 class="border-bottom:1px_solid_lightgrey margin-top:40px padding:5px_0px">Example</h3>
-				<p class="padding:10px_0px">
-				</p>
+<!--				<h3 class="border-bottom:1px_solid_lightgrey margin-top:40px padding:5px_0px">CoCreate-api functions</h3>-->
+<!--				<p class="padding:10px_0px">-->
+<!--				</p>-->
 
-				<h4 class="margin-top:20px padding:5px_0px">Fetch Array case</h4>
-<div class="margin-top:10px">
+<!--				<h4 class="margin-top:20px padding:5px_0px">Fetch Array case</h4>-->
+<!--<div class="margin-top:10px">-->
 	
-					<pre><code class="language-html">
-&lt;div class="card"
-	data-template_id="temp2"
-	data-fetch_collection="render_test"
-	data-filter_value="5f5aeace3a7246b7cf2e3ffc"
-	data-filter_name="_id"
-	data-filter_operator="$eq"
-	data-fetch_name="jsonArray"&gt;
-	&lt;div class="template" data-template_id="temp2" data-value="{{email}}"&gt;
-		&lt;h4 value="{{email}}" name="email"&gt;&lt;/h4&gt;
-		&lt;h4 value="{{home}}" name="home"&gt;&lt;/h4&gt;
-	&lt;/div&gt;	
-&lt;/div&gt;
-				</code></pre> 
-</div>
+<!--					<pre><code class="language-html">-->
+<!--&lt;div class="card"-->
+<!--	data-template_id="temp2"-->
+<!--	data-fetch_collection="render_test"-->
+<!--	data-filter_value="5f5aeace3a7246b7cf2e3ffc"-->
+<!--	data-filter_name="_id"-->
+<!--	data-filter_operator="$eq"-->
+<!--	data-fetch_name="jsonArray"&gt;-->
+<!--	&lt;div class="template" data-template_id="temp2" data-value="{{email}}"&gt;-->
+<!--		&lt;h4 value="{{email}}" name="email"&gt;&lt;/h4&gt;-->
+<!--		&lt;h4 value="{{home}}" name="home"&gt;&lt;/h4&gt;-->
+<!--	&lt;/div&gt;	-->
+<!--&lt;/div&gt;-->
+<!--				</code></pre> -->
+<!--</div>-->
 
-				<h4 class="margin-top:20px padding:5px_0px">Documents fetch case</h4>
-					<pre><code class="language-html">
-&lt;div class="card"
-	data-template_id="render_testing"
-	data-fetch_collection="render_test"
-	data-filter_value="render"
-	data-filter_name="type"
-	data-redner_id="testing"
-	data-filter_operator="$eq"&gt;
-	&lt;div class="template" data-template_id="render_test" data-value="{{testing.data._id}}" data-render_array="testing.data"&gt;
-		&lt;h3 data-attribute="email" data-value="{{testing.data.email}}" name="email" value="{{testing.data.email}}"&gt;&lt;/h3&gt;
-		&lt;h4 data-collection="{{testing.collection}}" name="home" value="{{testing.data.home}}"&gt;&lt;/h4&gt;
-		&lt;h4 name="other_email" value="{{testing.data.personal_info.email}}"&gt;&lt;/h4&gt;
-		&lt;div class="template display:flex justify-content:space-between" data-render_array="testing.data.jsonArray" data-render_key="sub_jsonArray"&gt;
-			&lt;h5 name="email" value="{{sub_jsonArray.email}}"&gt;&lt;/h5&gt;
-			&lt;h5 name="home" value="{{sub_jsonArray.home}}"&gt;&lt;/h5&gt;
-		&lt;/div&gt;
-		&lt;div class="template display:flex justify-content:space-between" data-render_array="testing.data.stringArray" data-value="--"&gt;
-			&lt;h5 name="email" value="--"&gt;&lt;/h5&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-				</code></pre>
+<!--				<h4 class="margin-top:20px padding:5px_0px">Documents fetch case</h4>-->
+<!--					<pre><code class="language-html">-->
+<!--&lt;div class="card"-->
+<!--	data-template_id="render_testing"-->
+<!--	data-fetch_collection="render_test"-->
+<!--	data-filter_value="render"-->
+<!--	data-filter_name="type"-->
+<!--	data-redner_id="testing"-->
+<!--	data-filter_operator="$eq"&gt;-->
+<!--	&lt;div class="template" data-template_id="render_test" data-value="{{testing.data._id}}" data-render_array="testing.data"&gt;-->
+<!--		&lt;h3 data-attribute="email" data-value="{{testing.data.email}}" name="email" value="{{testing.data.email}}"&gt;&lt;/h3&gt;-->
+<!--		&lt;h4 data-collection="{{testing.collection}}" name="home" value="{{testing.data.home}}"&gt;&lt;/h4&gt;-->
+<!--		&lt;h4 name="other_email" value="{{testing.data.personal_info.email}}"&gt;&lt;/h4&gt;-->
+<!--		&lt;div class="template display:flex justify-content:space-between" data-render_array="testing.data.jsonArray" data-render_key="sub_jsonArray"&gt;-->
+<!--			&lt;h5 name="email" value="{{sub_jsonArray.email}}"&gt;&lt;/h5&gt;-->
+<!--			&lt;h5 name="home" value="{{sub_jsonArray.home}}"&gt;&lt;/h5&gt;-->
+<!--		&lt;/div&gt;-->
+<!--		&lt;div class="template display:flex justify-content:space-between" data-render_array="testing.data.stringArray" data-value="--"&gt;-->
+<!--			&lt;h5 name="email" value="--"&gt;&lt;/h5&gt;-->
+<!--		&lt;/div&gt;-->
+<!--	&lt;/div&gt;-->
+<!--&lt;/div&gt;-->
+<!--				</code></pre>-->
 
-				<h3 class="border-bottom:1px_solid_lightgrey margin-top:20px padding:5px_0px">Attributes</h3>
+				<h3 class="border-bottom:1px_solid_lightgrey margin-top:20px padding:5px_0px">CoCreate-api functions</h3>
 				
                 <ul class="list-style-type:none ">
 					<li class="padding:15px_0px border-bottom:1px_solid_lightgrey">
-		        		<h4><span>data-template_id</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge danger">required</span></h4>
-	        			<p>Template identifier. This attribute should be define.</p>
+		        		<h4><span>register(module_name, instance)</span><span class="cocreate-badge success">string</span> <span class="cocreate-badge danger">required</span></h4>
+	        			<p>The function that register cocreate-api module.</p>
+	        			<p class="padding:10px_0px">
+							<pre><code class="language-javascript">CoCreateApi.register('stripe', CoCreateStripe)</code></pre>
+						</p>
+	        			
 					</li>
 					<li class="padding:15px_0px border-bottom:1px_solid_lightgrey">
-		        		<h4><span>data-fetch_collection</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge danger">required</span></h4>
-	        			<p>Collection name to fetch data. It is required. </p>
+		        		<h4><span>send(module_name, action_name, data)</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge danger">required</span></h4>
+	        			<p>The function that send the data into server by module_name and action</p>
+	        			<p class="padding:10px_0px">
+							<pre><code class="language-javascript">CoCreateApi.send('stripe', 'createCustomer', {
+	name: 'Name', 
+	email: 'test@gmail.com', 
+	...
+})</code></pre>
+						</p>
 					</li>
 					<li class="padding:15px_0px border-bottom:1px_solid_lightgrey">
-		        		<h4><span>data-fetch_name</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge warning">optional</span></h4>
-	        			<p>Define the field name to fetch array</p>
-	        			<p>If this value defined, it will fetch the special field's value</p>
+		        		<h4><span>render(module_name, action_name, data)</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge warning">optional</span></h4>
+	        			<p>The function to render data into template</p>
+	        			<p class="padding:10px_0px">
+							<pre><code class="language-javascript">CoCreateApi.render('stripe', 'createCustomer', {name: 'Name', email: 'test@gmail.com', ...})</code></pre>
+						</p>
 					</li>
 					<li class="padding:15px_0px border-bottom:1px_solid_lightgrey">
-		        		<h4><span>data-fetch_value_type</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge warning">optional</span></h4>
-	        			<p>collection</p>
-	        			<p>colleciton: whole collections list fetch.</p>
-					</li>
-					<li class="padding:15px_0px border-bottom:1px_solid_lightgrey">
-		        		<h4><span>data-fetch_count</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge warning">optional</span></h4>
-	        			<p>Fetch the item's count on page load or when updated. If attribute is empty or not used, total items will be fetch.</p>
-					</li>
-					<li class="padding:15px_0px border-bottom:1px_solid_lightgrey">
-		        		<h4><span>data-order_by</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge warning">optional</span></h4>
-	        			<p>Field name to sorting.</p>
-					</li>
-					<li class="padding:15px_0px border-bottom:1px_solid_lightgrey">
-		        		<h4><span>data-order_type</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge warning">optional</span></h4>
-	        			<p>Available value: asc | desc.</p>
-	        			<p>Fetch order value on page load or when updated. If attribute is empty or not used Default's to asc.</p>
-					</li>
-					<li class="padding:15px_0px border-bottom:1px_solid_lightgrey">
-		        		<h4><span>data-render_id</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge warning">optional</span></h4>
-	        			<p>This value should define in template wrapper. </p>
-	        			<p>Mulitple template case, data-render_id would use that generate new object by this value</p>
+		        		<h4><span>getFormData(moudle_name, action_name, container)</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge warning">optional</span></h4>
+	        			<p>The function is that get module data from form</p>
+	        			<p class="padding:10px_0px">
+		        			<pre><code class="language-javascript">
+let container = btn.closest("form") || document;
+let data = CoCreateApi.getFormData('stripe', 'createCustomer',  container);
+CoCreateApi.send(this.id, 'createCustomer', [data]);
+
+</code></pre>
+						</p>
+						
+						<p>HTML Example</p>
+						<p class="padding:10px_0px">
+							<pre><code class="language-html">
+&lt;form&gt;  
+   &lt;input data-stripe=&quot;createCustomer.name&quot;&gt;
+   &lt;div data-stripe=&quot;createCustomer.address&quot; data-stripe_array=&quot;address&quot;&gt;
+    	&lt;input data-stripe=&quot;address.home.city&quot;&gt;
+    	&lt;input data-stripe=&quot;address.work&quot;&gt;
+    &lt;/div&gt;
+    
+    &lt;div data-stripe=&quot;createCustomer.address&quot; data-xxx_array=&quot;address&quot;&gt;
+    	&lt;input data-stripe=&quot;address.home.city&quot;&gt;
+    	&lt;input data-stripe=&quot;address.name&quot;&gt;
+    	&lt;input data-stripe=&quot;address.line1&quot;&gt;
+
+    	&lt;div data-stripe=&quot;address.billing&quot; data-xxx_array=&quot;b&quot;&gt;
+    	    &lt;input data-stripe=&quot;b.address1&quot;&gt;
+    	    &lt;input data-stripe=&quot;b.city&quot;&gt;
+    	    &lt;input data-stripe=&quot;b.code.zip&quot;&gt;
+    	    &lt;input data-stripe=&quot;b.code.postal&quot;&gt;
+    	&lt;/div&gt;
+    &lt;/div&gt;
+   &lt;button data-actions=&#39;createCustomer&#39;&gt;Create Form&lt;/button&gt;
+&lt;/form&gt;
+							</code></pre> 
+						</p>				
 					</li>
                 </ul>
 
@@ -164,7 +193,7 @@
 				<h2 class="border-bottom:1px_solid_lightgrey margin-top:20px padding:5px_0px">Effects and Styles</h2>
                 
 				<h2 class="border-bottom:1px_solid_lightgrey margin-top:20px padding:5px_0px">Events</h2>
-				<h4><span>fetchedTemplate</span><span class="cocreate-badge success"></span></h4>
+				<h4><span></span><span class="cocreate-badge success"></span></h4>
 				
 			</div>
 			
