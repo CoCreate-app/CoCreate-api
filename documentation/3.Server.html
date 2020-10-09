@@ -68,6 +68,7 @@ module.exports.WSManager = function(manager) {
 }
 </code></pre>
 				<h4>(4). Rebuild CoCreate-{moudle}.js by endpoint and action</h4>
+				<p>Action function name should be same the type name in switch case.</p>
 <pre><code class="language-javascript">
 var utils= require('../utils');
 class CoCreateStripe {
@@ -85,11 +86,14 @@ class CoCreateStripe {
         let type = data['type'];
         switch (type) {
             case 'CreateCustomer':  //. action name
-            	... Get result by processing
-                utils.send_response(this.wsManager, socket, {"type":type,"response":result}, this.module_id)
-                break;
+            	this.CreateCustomer(socket, type, {}); break;
             ....
         }
+	}
+	
+	CreateCustomer(socket, type, param1) {
+    	... Get result by processing
+        utils.send_response(this.wsManager, socket, {"type":type,"response":result}, this.module_id)
 	}
 }//end Class 
 module.exports = CoCreateStripe;

@@ -20,11 +20,17 @@ class CoCreateXXX {
 
         switch (type) {
             case 'CreateCustomerBtn':
-                utils.send_response(that.wsManager, socket, {"type":type,"response":data.data}, send_response)
+                this.CreateCustomer(socket, type, {});
                 break;
         }
         
 	}// end sendStripe
+	
+	CreateCustomer(socket, type, param1) {
+    	///... Get result by processing
+    	var result = {};
+        utils.send_response(this.wsManager, socket, {"type":type,"response":result}, this.module_id)
+	}
 	
 }//end Class 
 module.exports = CoCreateXXX;
