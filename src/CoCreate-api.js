@@ -31,8 +31,8 @@ const CoCreateApi = {
 		
 		if (type && response && m_instance) {
 		
-			if ( typeof m_instance[`pre_${type}`] === 'function') {
-				m_instance[`pre_${type}`](response);
+			if ( typeof m_instance[`render_${type}`] === 'function') {
+				m_instance[`render_${type}`](response);
 			}
 			
 			this.render(type, response);

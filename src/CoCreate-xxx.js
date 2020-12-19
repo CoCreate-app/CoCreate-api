@@ -16,26 +16,26 @@ const CoCreateXXX = {
 	 *   - send data and action into server 
 	 * 2. Server processing
 	 * 3. Received the response from server
-	 * 4. If pre_xxxCreateRequest function exist, call pre_xxxCreateRequest() function
+	 * 4. If render_xxxCreateRequest function exist, call render_xxxCreateRequest() function
 	 * 5. Fire the event for end (event name is xxxCreateRequest)
 	 * 6. Run the next action by cocreate-action
 	 * 
 	 **/
 	
 	/**
-	 * ---------- Pre-processing function -----------------
+	 * ---------- Render-processing function -----------------
 	 * When receive response, these function will call.
 	 * 
 	 * These functions has name rule
-	 * --- rule: pre_{actionname}(data) {}
+	 * --- rule: render_{actionname}(data) {}
 	 * 
 	 **/
 
-	pre_xxxCreateRequest: function(data) {
+	render_xxxCreateRequest: function(data) {
 		console.log(JSON.stringify(data));
 	},
 
-	pre_xxxCreateCard: function(data) {
+	render_xxxCreateCard: function(data) {
 		console.log('Card --- ', data);
 	},
 	
