@@ -10,13 +10,13 @@ const CoCreateStripe = {
 		'preTesting'
 	],
 	
-	"pre_.getBalanceBtn": function(data) {
+	render_getBalanceBtn: function(data) {
 		console.log(data);
 	},
-	pre_balanceTransactionBtn: function(data) {
+	render_balanceTransactionBtn: function(data) {
 		console.log(data);
 	},
-	pre_preTesting: function(data) {
+	render_preTesting: function(data) {
 		console.log(data)
 	},
 	
