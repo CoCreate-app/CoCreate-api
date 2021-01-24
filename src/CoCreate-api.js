@@ -137,3 +137,5 @@ const CoCreateApi = {
 		CoCreateRender.render(`[data-template_id="${action}"]`, data);
 	}
 }
+
+export default CoCreatApi;
