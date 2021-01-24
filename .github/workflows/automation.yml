@@ -59,12 +59,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
           
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
-      
       - name: upload cdn
         uses: CoCreate-app/CoCreate-s3@master
         with:
           aws-key-id: ${{ secrets.AWSACCESSKEYID }}
           aws-access-key: ${{ secrets.AWSSECERTACCESSKEY }}
-          source: './dist/CoCreate-actions.min.js'
+          source: './dist/CoCreate-api.min.js'
