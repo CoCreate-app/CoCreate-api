@@ -1,5 +1,5 @@
 # CoCreate-api
-A simple HTML5 and pure javascript component. Easy configuration using data-attributes and highly styleable.
+A simple api helper component in vanilla javascript. Easily intergrate thirdparty apis. Makes thirdparty api accessible using HTML5 data-attributes and/or JavaScript API. Take it for a spin in our [playground!](https://cocreate.app/docs/api)
 
 ![GitHub file size in bytes](https://img.shields.io/github/size/CoCreate-app/CoCreate-api/dist/CoCreate-api.min.js?label=minified%20size&style=for-the-badge) 
 ![GitHub latest release](https://img.shields.io/github/v/release/CoCreate-app/CoCreate-api?style=for-the-badge)
