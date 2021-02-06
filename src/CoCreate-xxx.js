@@ -56,10 +56,15 @@ const CoCreateXXX = {
 
 	action_xxxRender: function(element, data) {
 		//. data rendering by cocreate-render
-		CoCreateApi.render(this.id, 'xxxCreateCard', {render2: data});
+		CoCreate.api.render(this.id, 'xxxCreateCard', {render2: data});
 	}
 // END CreacteCard endpoint	
 }
 
 
-CoCreateApi.register(CoCreateXXX.id, CoCreateXXX);
+// CoCreateApi.register(CoCreateXXX.id, CoCreateXXX);
+
+CoCreate.api.add({
+	name: CoCreateXXX.id,
+	module: CoCreateXXX
+})

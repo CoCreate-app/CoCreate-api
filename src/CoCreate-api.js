@@ -1,12 +1,16 @@
 const CoCreateApi = {
 	modules: { },
 	
+	add: function({name, module}) {
+		this.register(name, module)	
+	},
+	
 	register: function(name, m_instance) {
 		const self = this;
 		if (typeof this.modules[name] === 'undefined') {
 			this.modules[name] = m_instance;
 			
-			CoCreateSocket.listen(name, (data) => {
+			CoCreate.socket.listen(name, (data) => {
 				self.__responseProcess(name, data);
 			})
 			
@@ -19,7 +23,13 @@ const CoCreateApi = {
 							self.__commonAction(m_instance.id, action, element)
 						}
 					} 
-					CoCreateAction.registerEvent(action, m_instance[`action_${action}`], m_instance, action);
+					CoCreate.actions.add({
+						action: action,
+						endEvent: action,
+						callback: (btn) => {
+							m_instance[`action_${action}`](btn);
+						},
+					})
 				})
 			}
 		}
@@ -130,12 +140,12 @@ const CoCreateApi = {
 	},
 	
 	send : function(module, action, data){ 
-		CoCreateSocket.send(module, {type: action, data});
+		CoCreate.socket.send(module, {type: action, data});
 	},
 	
 	render: function(action, data) {
-		CoCreateRender.render(`[data-template_id="${action}"]`, data);
+		CoCreate.render.data(`[data-template_id="${action}"]`, data);
 	}
 }
 
-export default CoCreatApi;
+export default CoCreateApi;
