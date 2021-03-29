@@ -1,10 +1,11 @@
+import api from '@cocreate/api'
 
 const CoCreateXXX = {
 	id: 'xxx',
 	actions: [
-		'xxxCreateRequest',
+		'xxxGetKeysFromBd',
 		'xxxRender',
-		'xxxCreateCard'
+		'xxxCreateCard',
 	],
 	
 	/**
@@ -31,7 +32,7 @@ const CoCreateXXX = {
 	 * 
 	 **/
 
-	render_xxxCreateRequest: function(data) {
+	render_xxxGetKeysFromBd: function(data) {
 		console.log(JSON.stringify(data));
 	},
 
@@ -56,15 +57,14 @@ const CoCreateXXX = {
 
 	action_xxxRender: function(element, data) {
 		//. data rendering by cocreate-render
-		CoCreate.api.render(this.id, 'xxxCreateCard', {render2: data});
-	}
-// END CreacteCard endpoint	
+		api.render(this.id, 'xxxCreateCard', {render2: data});
+	},
+	
 }
 
-
-// CoCreateApi.register(CoCreateXXX.id, CoCreateXXX);
-
-CoCreate.api.add({
+api.init({
 	name: CoCreateXXX.id,
 	module: CoCreateXXX
 })
+
+export default CoCreateXXX;

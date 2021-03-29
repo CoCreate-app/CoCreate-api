@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Stripe</title>
+
+    <style type="text/css">
+      .template{display:none}
+    </style>
+
+</head>
+<body>
+    
+<h1>Form Demo</h1>
+
+<form>
+    <input data-key="renderKey.name">
+    <div data-template_id="renderKey">
+      <div>This is <b>{{data.name}}</b></div>
+      <p>This {{data.name}}</p>
+      <p value="{{data.name}}">uuu</p>
+    </div>
+
+    <button data-actions='renderKey'>Create Form</button>
+</form>
+
+<script type="text/javascript" >
+</script>
+
+
+<script>
+var config = {
+      apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
+      securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
+      organization_Id: '5de0387b12e200ea63204d6c'
+}
+
+</script>
+
+<!--CoCreateJS-->
+<script src="https://server.cocreate.app/CoCreateJS/dist/CoCreate.js"></script>
+
+<!--CoCreate Plugins-->
+<script src="../dist/CoCreate-api.js"></script>
+<script src="../src/CoCreate-action-render.js"></script>
+
+<script>
+//     var data = CoCreateApi.getFormData('stripe', 'createCustomer', document)
+    
+//     console.log(data)
+    
+</script>
+
+</body>
+
+</html>
