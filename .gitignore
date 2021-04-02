@@ -1,2 +1,4 @@
 # ignore
 node_modules
+dist/*
+!dist/CoCreate-api.min.js
