@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple api helper component in vanilla javascript. Easily intergrate thirdparty apis. Makes thirdparty api accessible using HTML5 data-attributes and/or JavaScript API",
   "keywords": [
     "thirdparty-api-intergration",

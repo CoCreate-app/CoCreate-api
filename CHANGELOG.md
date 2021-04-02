@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.2...v1.0.3) (2021-04-02)
+
+
+### Bug Fixes
+
+* replace @cocraete/socket with socket-client ([0574897](https://github.com/CoCreate-app/CoCreate-api/commit/05748974a4feae4418ff87d9b66a5bb9f77d4fc4))
+
 ## [1.0.2](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.1...v1.0.2) (2021-03-29)
 
 
