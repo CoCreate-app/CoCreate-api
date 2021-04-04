@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.3...v1.0.4) (2021-04-04)
+
+
+### Bug Fixes
+
+* update socket to socket-lient and crud to crud client" ([7bd3dbc](https://github.com/CoCreate-app/CoCreate-api/commit/7bd3dbcf54060f491efcf0a39e75ab21211d2dba))
+
 ## [1.0.3](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.2...v1.0.3) (2021-04-02)
 
 
