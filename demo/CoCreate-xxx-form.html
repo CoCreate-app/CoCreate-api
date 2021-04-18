@@ -1,112 +1,75 @@
  <!DOCTYPE html>
 <html>
-<head>
-    <title>Stripe</title>
-
-    <style type="text/css">
-      .template{display:none}
-    </style>
-
-</head>
-<body>
+    <head>
+        <title>CoCreate-api | CoCreateJS</title>
+        
+        <!-- CoCreate CSS CDN -->
+        <link rel="stylesheet" href="https://cdn.cocreate.app/latest/CoCreate.min.css" type="text/css" />
     
-<h1>Form Demo</h1>
-
-<form>
-    <input data-xxx="xxxCreateRequest.name">
-
-    <div data-xxx="xxxCreateRequest.address" data-xxx_array="address">
-    	<input data-xxx="address.home.city">
-    	<input data-xxx="address.work">
-    </div>
+        <style type="text/css">
+          .template{display:none}
+        </style>
     
-    <div data-xxx="xxxCreateRequest.address" data-xxx_array="address">
-    	<input data-xxx="address.home.city">
-    	<input data-xxx="address.name">
-    	<input data-xxx="address.line1">
-
-    	<div data-xxx="address.billing" data-xxx_array="b">
-    	    <input data-xxx="b.address1">
-    	    <input data-xxx="b.city">
-    	    <input data-xxx="b.code.zip">
-    	    <input data-xxx="b.code.postal">
-    	</div>
-    </div>
-    <input data-xxx="xxxCreateRequest.email">
+    </head>
+    <body>
+        
+        <h1>Form Demo</h1>
+        
+        <form>
+            <input data-xxx="xxxCreateRequest.name">
+        
+            <div data-xxx="xxxCreateRequest.address" data-xxx_array="address">
+            	<input data-xxx="address.home.city">
+            	<input data-xxx="address.work">
+            </div>
+            
+            <div data-xxx="xxxCreateRequest.address" data-xxx_array="address">
+            	<input data-xxx="address.home.city">
+            	<input data-xxx="address.name">
+            	<input data-xxx="address.line1">
+        
+            	<div data-xxx="address.billing" data-xxx_array="b">
+            	    <input data-xxx="b.address1">
+            	    <input data-xxx="b.city">
+            	    <input data-xxx="b.code.zip">
+            	    <input data-xxx="b.code.postal">
+            	</div>
+            </div>
+            <input data-xxx="xxxCreateRequest.email">
+            
+            <div data-template_id="xxxCreateCard" data-render_array="data.card" data-render_key="c"  data-xxx="xxxCreateCard.card" data-xxx_array="card">
+                <input data-xxx="card.number" value="c.number">
+                <input data-xxx="card.cvv" value="c.cvv">
+                <input data-xxx="card.expiry" value="c.expiry">
+            </div>
+            <!--<div data-xxx="xxxCreateCard.card" data-xxx_array="card">-->
+            <!--    <input data-xxx="card.number">-->
+            <!--    <input data-xxx="card.cvv">-->
+            <!--    <input data-xxx="card.expiry">-->
+            <!--</div>-->
+            <!--<div data-xxx="xxxCreateCard.card" data-xxx_array="card">-->
+            <!--    <input data-xxx="card.number">-->
+            <!--    <input data-xxx="card.cvv">-->
+            <!--    <input data-xxx="card.expiry">-->
+            <!--</div>-->
+            
+            
+            <button data-actions='xxxCreateRequest, xxxCreateCard'>Create Form</button>
+        </form>
+        
+        <h1>Result</h1>
+        
+        <script>
+        var config = {
+              apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
+              securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
+              organization_Id: '5de0387b12e200ea63204d6c'
+        }
+        
+        </script>
+        
+        <!--CoCreateJS   CDN-->
+        <script src="https://cdn.cocreate.app/action/latest/CoCreate-action.min.js"></script>
     
-    <div data-template_id="xxxCreateCard" data-render_array="data.card" data-render_key="c"  data-xxx="xxxCreateCard.card" data-xxx_array="card">
-        <input data-xxx="card.number" value="c.number">
-        <input data-xxx="card.cvv" value="c.cvv">
-        <input data-xxx="card.expiry" value="c.expiry">
-    </div>
-    <!--<div data-xxx="xxxCreateCard.card" data-xxx_array="card">-->
-    <!--    <input data-xxx="card.number">-->
-    <!--    <input data-xxx="card.cvv">-->
-    <!--    <input data-xxx="card.expiry">-->
-    <!--</div>-->
-    <!--<div data-xxx="xxxCreateCard.card" data-xxx_array="card">-->
-    <!--    <input data-xxx="card.number">-->
-    <!--    <input data-xxx="card.cvv">-->
-    <!--    <input data-xxx="card.expiry">-->
-    <!--</div>-->
-    
-    
-    <button data-actions='xxxCreateRequest, xxxCreateCard'>Create Form</button>
-</form>
-
-<h1>Result</h1>
-xxxCreateRequestaction{
-    name: '',
-    address: [{
-        home: {
-            city: ''
-        },
-        work: '',
-        home: {
-            city: ''
-        },
-        name: '',
-        line1: '',
-        billing: [{
-            address1,
-            city,
-            code: {
-                zip: '',
-                postal: '',
-            }
-        }]
-    }],
-    email: '',
-}
-
-
-<script type="text/javascript" >
-</script>
-
-
-<script>
-var config = {
-      apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
-      securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
-      organization_Id: '5de0387b12e200ea63204d6c'
-}
-
-</script>
-
-<!--CoCreateJS-->
-<script src="https://server.cocreate.app/CoCreateJS/dist/CoCreate.js"></script>
-
-<!--CoCreate Plugins-->
-<script src="../dist/CoCreate-api.js"></script>
-<script src="../src/CoCreate-xxx.js"></script>
-
-<script>
-//     var data = CoCreateApi.getFormData('stripe', 'createCustomer', document)
-    
-//     console.log(data)
-    
-</script>
-
-</body>
-
+    </body>
 </html>
