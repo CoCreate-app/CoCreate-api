@@ -1,3 +1,18 @@
+## [1.0.6](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.5...v1.0.6) (2021-04-19)
+
+
+### Bug Fixes
+
+* add missing packages ([9255ea7](https://github.com/CoCreate-app/CoCreate-api/commit/9255ea718bb1dac39fcba4c8d6e70e730734c915))
+
+## [1.0.5](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.4...v1.0.5) (2021-04-19)
+
+
+### Bug Fixes
+
+* ci and build process ([1fd8582](https://github.com/CoCreate-app/CoCreate-api/commit/1fd85822b7a4711cd456661d024ff5a07e5b848a))
+* npm publish and cdn deployment ([d367ae4](https://github.com/CoCreate-app/CoCreate-api/commit/d367ae48dc387dccf289cf44acedab8091db7c8f))
+
 ## [1.0.4](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.3...v1.0.4) (2021-04-04)
 
 

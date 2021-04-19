@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/api",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "A simple api helper component in vanilla javascript used by JavaScript developers to create thirdparty api intergrations. CoCreate-api includes the client component and server side for api processing. Thirdparty apis can be accessible using HTML5 data-attributes and/or JavaScript API. ",
   "keywords": [
     "thirdparty-api-intergration",
@@ -50,16 +50,20 @@
     "@babel/preset-env": "^7.9.6",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.24.4",
     "webpack-cli": "^4.5.0",
-    "webpack-log": "^3.0.1",
-    "file-loader": "^6.2.0",
-    "style-loader": "^2.0.0",
-    "terser-webpack-plugin": "^5.1.1"
+    "webpack-log": "^3.0.1"
   },
   "dependencies": {
-    "@cocreate/docs": "^1.0.3"
+    "@cocreate/action": "^1.1.1",
+    "@cocreate/docs": "^1.0.3",
+    "@cocreate/render": "^1.0.2",
+    "@cocreate/socket-client": "^1.0.4",
+    "mini-css-extract-plugin": "^1.5.0"
   }
 }
