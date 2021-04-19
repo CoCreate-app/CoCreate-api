@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.5...v1.0.6) (2021-04-19)
+
+
+### Bug Fixes
+
+* add missing packages ([9255ea7](https://github.com/CoCreate-app/CoCreate-api/commit/9255ea718bb1dac39fcba4c8d6e70e730734c915))
+
 ## [1.0.5](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.4...v1.0.5) (2021-04-19)
 
 
