@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.6...v1.0.7) (2021-04-21)
+
+
+### Bug Fixes
+
+* Will work as client and server package ([99d3e5e](https://github.com/CoCreate-app/CoCreate-api/commit/99d3e5e38fafe9c154dd51c5711a301213fccebe))
+
 ## [1.0.6](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.5...v1.0.6) (2021-04-19)
 
 
