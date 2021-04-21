@@ -1,4 +1,4 @@
-import CoCreateSocket from "@cocreate/socket"
+import CoCreateSocket from "@cocreate/socket-client"
 import CoCreateAction from '@cocreate/action'
 import CoCreateRender from '@cocreate/render'
 
