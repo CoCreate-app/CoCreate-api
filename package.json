@@ -61,6 +61,7 @@
   },
   "dependencies": {
     "@cocreate/action": "^1.1.1",
+    "@cocreate/crud-client": "^1.0.5",
     "@cocreate/docs": "^1.0.3",
     "@cocreate/render": "^1.0.2",
     "@cocreate/socket-client": "^1.0.4",
