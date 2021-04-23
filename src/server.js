@@ -19,7 +19,7 @@ var api = ( ()=> {
 	      this.send_response(wsManager, socket, { type, response }, module_id);
 	},
 	getOrg : async (config, module) =>{
-	 	console.log("config WS utils ==== ",config)
+	 	console.log("config WS utils==== ",config)
 	    const socket_config = { 
 		    "config": {
 		        "apiKey": config["apiKey"],
