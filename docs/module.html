@@ -26,16 +26,18 @@
 		<div id="api-section" class="display:flex flex-wrap:wrap">
 			<div class="flex-grow:1 width:300px padding:0px_10px margin:20px_0px">
 
-				<div>
-			       <h2 id="api-installation" data-hover="display:block" data-target="" class="border-bottom:1px_solid_lightgrey padding:5px_0px">Install</h2>
-			       <a class="display:none" href="#api-installation"><i class="fas fa-link"></i></a>
-			    </div>
+				<div id="api-install" class="border-bottom:1px_solid_lightgrey">
+                        <span class="display:flex align-items:center" data-hover="display:block!important" data-hover_target='[href="#api-install"]'>
+                            <h2 class="padding:5px_0px">Install</h2>
+                            <a class="margin-left:10px display:none" href="#api-install"><i class="fas fa-link"></i></a>
+                        </span>
+                    </div>
 			    
 				<p class="padding:10px_0px">
-					<pre><code class="language-bash">npm install @cocreate/api</code></pre>
+					<pre><code class="language-bash">npm i @cocreate/api</code></pre>
 				</p>
 				<p class="padding:10px_0px">Or you can use cdn link:</p>
-                <pre><code class="language-javascript">https://cdn.cocreate.app/CoCreate-action.min.js</code></pre>
+                <pre><code class="language-html">&lt;script&gt;https://cdn.cocreate.app/api/latest/CoCreate-api.min.js&lt;/script&gt;</code></pre>
 
 				<div>
 			       <h2 id="api-dependencies" data-hover="display:block" data-target="" class="border-bottom:1px_solid_lightgrey margin-top:80px padding:5px_0px">Dependencies components</h2>
@@ -145,10 +147,13 @@ pre_CreateCard: function(data) {
 			<div class="flex-grow:1 width:300px padding:0px_10px margin:20px_0px  border-bottom:1px_solid_lightgrey">
 				
 				<!-- SandBox -->
-				<div>
-			       <h2 id="api-demo" data-hover="display:block" data-target="" class="border-bottom:1px_solid_lightgrey margin-top:80px padding:5px_0px">Demo</h2>
-			       <a class="display:none" href="#api-demo"><i class="fas fa-link"></i></a>
-			    </div>
+				<div id="api-demo" class="border-bottom:1px_solid_lightgrey">
+                        <span class="display:flex align-items:center" data-hover="display:block!important" data-hover_target='[href="#api-demo"]'>
+                            <h2 class="padding:5px_0px">Demo</h2>
+                            <a class="margin-left:10px display:none" href="#api-demo"><i class="fas fa-link"></i></a>
+                        </span>
+                    </div>
+                    
 			    
 				<div class="position:sticky top:0 padding:15px_0px height:100vh">
 					<div class="container svColumn overflow:hidden card border-radius:2px width:auto height:100%" id="sandbox">
