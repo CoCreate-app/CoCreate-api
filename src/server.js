@@ -22,9 +22,9 @@ var api = ( ()=> {
 	 	console.log("config WS utils==== ",config)
 	    const socket_config = { 
 		    "config": {
-		        "apiKey": config["apiKey"],
-		        "securityKey": config["securityKey"],
-		        "organization_id": config["organization_id"],
+  		        "apiKey": config["apiKey"],
+  		        "securityKey": config["securityKey"],
+  		        "organization_Id": config["organization_id"],
 		    },
 		    "prefix": "ws",
 		    "host": "server.cocreate.app:8088"
@@ -42,10 +42,9 @@ var api = ( ()=> {
 	        event,
 	        apiKey: config["apiKey"],
 		    securityKey: config["securityKey"],
-		    organization_id: config["organization_id"]
+		    // organization_id: config["organization_id"]
 	    });
 	    let org_row = await crud.listenAsync(event);
-	    console.log(org_row)
 	    try{
 			org_row =org_row["data"];
 		  }catch(e){
