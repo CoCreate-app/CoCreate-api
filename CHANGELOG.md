@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.7...v1.0.8) (2021-04-23)
+
+
+### Bug Fixes
+
+* remove securityKey ([c4e2334](https://github.com/CoCreate-app/CoCreate-api/commit/c4e23343113387ede8fb9b60e195482167474071))
+
 ## [1.0.7](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.6...v1.0.7) (2021-04-21)
 
 
