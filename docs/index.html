@@ -42,7 +42,7 @@
                     <a href="https://github.com/CoCreate-app/CoCreate-dnd" target="_blank" class=""><i class="fab fa-github"></i></a>
                 </div>
 				</div>
-				<p class="max-width:500px margin:20px_10px">CoCreate-api is a simple api helper component in vanilla javascript used by JavaScript developers to create thirdparty api intergrations. Thirdparty apis can be accessible using HTML5 data-attributes and/or JavaScript API. CoCreate-api includes the client component and server side for api processing.</p>
+				<p class="max-width:500px margin:20px_10px line-height:1.5">CoCreate-api is a simple api helper component in vanilla javascript used by JavaScript developers to create thirdparty api intergrations. Thirdparty apis can be accessible using HTML5 data-attributes and/or JavaScript API. CoCreate-api includes the client component and server side for api processing.</p>
 				<div id="api-section" class="display:flex flex-wrap:wrap">
 					<div class="flex-grow:1 width:400px width:300px@xs padding:0px_10px margin-top:60px">
 	                    
@@ -54,7 +54,7 @@
 	                    </div>
 					     
 					<pre><code class="language-bash">npm i @cocreate/api</code></pre>
-					<p class="padding:10px_0px">Or you can use cdn link:</p>
+					<p class="padding:10px_0px line-height:1.5">Or you can use cdn link:</p>
 	                <pre><code class="language-html">&lt;script&gt;https://cdn.cocreate.app/api/latest/CoCreate-api.min.js&lt;/script&gt;</code></pre>
 	
 					<div>
@@ -62,7 +62,7 @@
 				       <a class="display:none" href="#api-dependencies"><i class="fas fa-link"></i></a>
 				     </div>
 					
-					<p class="padding:10px_0px">
+					<p class="padding:10px_0px line-height:1.5">
 					    <strong>CoCreate.js</strong>, 
 					    <strong>CoCreate-action.js</strong>, 
 					    <strong>CoCreate-render.js</strong>, 
@@ -77,10 +77,10 @@
 	                </div>
 	                
 					<h4 class="margin-top:20px padding:5px_0px">Install package</h4>
-					<p class="padding:10px_0px">
+					<p class="padding:10px_0px line-height:1.5">
 						<pre><code class="language-bash">npm i @cocreate/api</code></pre>
 					</p>
-					<p class="padding:10px_0px">Or you can use cdn link:</p>
+					<p class="padding:10px_0px line-height:1.5">Or you can use cdn link:</p>
 	                <pre><code class="language-html">&lt;script&gt;https://cdn.cocreate.app/api/latest/CoCreate-api.min.js&lt;/script&gt;</code></pre>
 					
 					<div>
@@ -88,13 +88,13 @@
 				       <a class="display:none" href="#api-server-run"><i class="fas fa-link"></i></a>
 				    </div>
 					
-					<p class="padding:10px_0px">
+					<p class="padding:10px_0px line-height:1.5">
 						<pre><code class="language-javascript">npm run start</code></pre>
 						<p>Server's default port is 8081.</p>
 					</p>
 	
 					<h4 class="margin-top:20px padding:5px_0px">Client side</h4>
-					<p class="padding:10px_0px">
+					<p class="padding:10px_0px line-height:1.5">
 					    In order to the client to use the local server, it should be set as follows.
 						<pre><code class="language-javascript">
 		var config = {
@@ -114,7 +114,7 @@
 						<li class="padding:15px_0px border-bottom:1px_solid_lightgrey">
 			        		<h4><span>register(module_name, instance)</span><span class="cocreate-badge success">string</span> <span class="cocreate-badge danger">required</span></h4>
 		        			<p>The function that register cocreate-api module.</p>
-		        			<p class="padding:10px_0px">
+		        			<p class="padding:10px_0px line-height:1.5">
 								<pre><code class="language-javascript">CoCreateApi.register('stripe', CoCreateStripe)</code></pre>
 							</p>
 		        			
@@ -122,7 +122,7 @@
 						<li class="padding:15px_0px border-bottom:1px_solid_lightgrey">
 			        		<h4><span>send(module_name, action_name, data)</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge danger">required</span></h4>
 		        			<p>The function that send the data into server by module_name and action</p>
-		        			<p class="padding:10px_0px">
+		        			<p class="padding:10px_0px line-height:1.5">
 								<pre><code class="language-javascript">CoCreateApi.send('stripe', 'createCustomer', {
 		name: 'Name', 
 		email: 'test@gmail.com', 
@@ -133,14 +133,14 @@
 						<li class="padding:15px_0px border-bottom:1px_solid_lightgrey">
 			        		<h4><span>render(module_name, action_name, data)</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge warning">optional</span></h4>
 		        			<p>The function to render data into template</p>
-		        			<p class="padding:10px_0px">
+		        			<p class="padding:10px_0px line-height:1.5">
 								<pre><code class="language-javascript">CoCreate.api.render('stripe', 'createCustomer', {name: 'Name', email: 'test@gmail.com', ...})</code></pre>
 							</p>
 						</li>
 						<li class="padding:15px_0px border-bottom:1px_solid_lightgrey">
 			        		<h4><span>getFormData(moudle_name, action_name, container)</span> <span class="cocreate-badge success">string</span> <span class="cocreate-badge warning">optional</span></h4>
 		        			<p>The function is that get module data from form</p>
-		        			<p class="padding:10px_0px">
+		        			<p class="padding:10px_0px line-height:1.5">
 			        			<pre><code class="language-javascript">
 	let container = btn.closest("form") || document;
 	let data = CoCreateApi.getFormData('stripe', 'createCustomer',  container);
@@ -150,7 +150,7 @@
 							</p>
 							
 							<p>HTML Example</p>
-							<p class="padding:10px_0px">
+							<p class="padding:10px_0px line-height:1.5">
 								<pre><code class="language-html">
 	&lt;form&gt;  
 	   &lt;input data-stripe=&quot;createCustomer.name&quot;&gt;
@@ -225,11 +225,12 @@
 			var config = {
 				apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
 				organization_Id: '5de0387b12e200ea63204d6c',
-				host: 'server.cocreate.app:8080'
+                host: 'wss://server.cocreate.app:8088'
 			}
 		</script>
 		<!--CoCreateJS-->
-		<script src="https://cdn.cocreate.app/latest/CoCreate.min.js" ></script>
+        <script src="https://cdn.cocreate.app/latest/CoCreate.min.js" ></script>
+        <!--<script src="https://server.cocreate.app/CoCreateJS/dist/CoCreate.min.js" ></script>-->
 	</body>
 
 </html>
