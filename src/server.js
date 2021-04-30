@@ -20,29 +20,21 @@ var api = ( ()=> {
 	},
 	getOrg : async (config, module) =>{
 	 	console.log("config WS utils==== ",config)
-	    const socket_config = { 
-		    "config": {
-  		        "apiKey": config["apiKey"],
-  		        "securityKey": config["securityKey"],
-  		        "organization_Id": config["organization_id"],
-		    },
-		    "prefix": "ws",
-		    "host": "server.cocreate.app:8088"
-		}
+
 		socket.create({
-			namespace: socket_config.config.organization_id,
+			namespace: config["organization_id"],
 			room: null,
-			host: socket_config.host
+			host: "server.cocreate.app:8088"
 		})
 	    const event = "getOrg";
 	    
 	    crud.readDocument({
 	        collection: "organizations",
+	        name:"name",
 	        document_id: config["organization_id"],
 	        event,
 	        apiKey: config["apiKey"],
-		    securityKey: config["securityKey"],
-		    // organization_id: config["organization_id"]
+		    organization_id: config["organization_id"]
 	    });
 	    let org_row = await crud.listenAsync(event);
 	    try{
@@ -57,7 +49,7 @@ var api = ( ()=> {
  		var socket_config = {
   		    "config": {
   		        "apiKey": config["config"]["apiKey"],
-  		        "securityKey": config["config"]["securityKey"],
+  		        // "securityKey": config["config"]["securityKey"],
   		        "organization_Id": config["config"]["organization_id"],
   		    },
   		    "prefix": "ws",
@@ -87,7 +79,7 @@ var api = ( ()=> {
 		        event: eventGetOrg,
 		        is_collection: false,
 		        apiKey: config["config"]["apiKey"],
-			    securityKey: config["config"]["securityKey"],
+			    // securityKey: config["config"]["securityKey"],
 			    organization_id: config["config"]["organization_id"]
 		    });
 
@@ -99,7 +91,7 @@ var api = ( ()=> {
 		 var socket_config = {
 			    "config": {
 			        "apiKey": org["apiKey"],
-			        "securityKey": org["securityKey"],
+			        // "securityKey": org["securityKey"],
 			        "organization_Id": org["_id"].toString(),
 			    },
 			    "prefix": "ws",
@@ -127,7 +119,7 @@ var api = ( ()=> {
 	         "event": "getDataOrg",
 	         is_collection: false,
 	         apiKey: org["apiKey"],
-		    securityKey: org["securityKey"],
+		    // securityKey: org["securityKey"],
 		    organization_id: org["_id"]
 		});
 	    let myOrg = await crud.listenAsync("getDataOrg");
