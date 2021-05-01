@@ -7,12 +7,12 @@ module.exports = {
 	},
 
     "sources": [{
-            "path": "./docs/index.html",
+            "entry": "./docs/index.html",
             "collection": "files",
             "document_id": "601f02625803e43d00589077",
             "key": "src",
             "data":{
-                "name": "api Doc",
+                "name": "Api Doc",
                 "domains": ["cocreate.app", "server.cocreate.app", "ws.cocreate.app"],
                 "path": "/docs/api"
             }

@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js add @cocreate/client
+  /usr/bin/node /usr/share/yarn/bin/yarn.js hosting
 
 PATH: 
   /home/ubuntu/.rvm/gems/ruby-2.6.3/bin:/home/ubuntu/.rvm/gems/ruby-2.6.3@global/bin:/home/ubuntu/.rvm/rubies/ruby-2.6.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ubuntu/.local/bin:/home/ubuntu/bin:/home/ubuntu/.rvm/bin:/home/ubuntu/.local/bin:/home/ubuntu/bin:/home/ubuntu/.rvm/bin:/home/ubuntu/.rvm/bin:/home/ubuntu/.local/bin:/home/ubuntu/bin:/home/ubuntu/.rvm/bin:/home/ubuntu/.rvm/bin
@@ -14,22 +14,17 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@cocreate%2fclient: Not found
-      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66988:18)
-      at Request.self.callback (/usr/share/yarn/lib/cli.js:140749:22)
-      at Request.emit (events.js:315:20)
-      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:141721:10)
-      at Request.emit (events.js:315:20)
-      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:141643:12)
-      at Object.onceWrapper (events.js:421:28)
-      at IncomingMessage.emit (events.js:327:22)
-      at endReadableNT (internal/streams/readable.js:1327:12)
-      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+  SyntaxError: /home/ubuntu/environment/public/CoCreate-components/CoCreate-api/package.json: Unexpected string in JSON at position 1093
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:310:30)
+      at /usr/share/yarn/lib/cli.js:321:13
 
 npm manifest: 
   {
     "name": "@cocreate/api",
-    "version": "1.0.7",
+    "version": "1.0.10",
     "description": "A simple api helper component in vanilla javascript used by JavaScript developers to create thirdparty api intergrations. CoCreate-api includes the client component and server side for api processing. Thirdparty apis can be accessible using HTML5 data-attributes and/or JavaScript API. ",
     "keywords": [
       "thirdparty-api-intergration",
@@ -58,6 +53,7 @@ npm manifest:
       "build": "NODE_ENV=production npx webpack --config webpack.config.js",
       "dev": "npx webpack --config webpack.config.js --watch",
       "docs": "node ./node_modules/@cocreate/docs/src/index.js"
+      "hosting": "node ./node_modules/@cocreate/hosting/src/index.js"
     },
     "repository": {
       "type": "git",
@@ -92,6 +88,7 @@ npm manifest:
       "@cocreate/action": "^1.1.1",
       "@cocreate/crud-client": "^1.0.5",
       "@cocreate/docs": "^1.0.3",
+      "@cocreate/hosting": "^1.0.0",
       "@cocreate/render": "^1.0.2",
       "@cocreate/socket-client": "^1.0.4",
       "mini-css-extract-plugin": "^1.5.0"
