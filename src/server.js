@@ -72,9 +72,9 @@ var api = ( ()=> {
 		  					operator: "$in",
 		  					value: [hostname]
 		  				}],
-		  				orders: [],
-		  				startIndex: 0,
-		  				search: { type: 'or', value: []}
+		  				// orders: [],
+		  				// startIndex: 0,
+		  				// search: { type: 'or', value: []}
 		        },
 		        event: eventGetOrg,
 		        is_collection: false,
