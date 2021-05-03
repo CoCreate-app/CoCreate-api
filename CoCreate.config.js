@@ -12,7 +12,7 @@ module.exports = {
             "document_id": "601f02625803e43d00589077",
             "key": "src",
             "data":{
-                "name": "Api Doc",
+                "name": "api Doc",
                 "domains": ["cocreate.app", "server.cocreate.app", "ws.cocreate.app"],
                 "path": "/docs/api"
             }
