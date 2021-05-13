@@ -16,7 +16,8 @@ var api = ( ()=> {
 	        'object': 'error',
 	        'data':error || error.response || error.response.data || error.response.body || error.message || error,
 	      };
-	      this.send_response(wsManager, socket, { type, response }, module_id);
+	      wsManager.send(socket, module_id, { type, response })
+	      //send_response(wsManager, socket, { type, response }, module_id);
 	},
 	getOrg : async (config, module) =>{
 	 	console.log("config WS utils==== ",config)
@@ -28,13 +29,16 @@ var api = ( ()=> {
 		})
 	    const event = "getOrg";
 	    
+	    
+	    console.log("Org_id => ",config["organization_id"])
+	    
 	    crud.readDocument({
 	        collection: "organizations",
 	        name:"name",
 	        document_id: config["organization_id"],
 	        event,
 	        apiKey: config["apiKey"],
-		    organization_id: config["organization_id"]
+		    organization_id: '5de0387b12e200ea63204d6c'
 	    });
 	    let org_row = await crud.listenAsync(event);
 	    try{
