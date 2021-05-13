@@ -1,87 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>CoCreate-api form Documentation | CoCreateJS </title>
-		<link rel="icon" type="image/png" sizes="32x32" href="https://cocreate.app/images/favicon.ico">
-		<meta name="description" content="An api helper component in vanilla javascript to setup thirdparty api intergrations. Apis can be accessible using HTML5 data-attributes and/or JavaScript API" />
-		<meta name="keywords" content="drag and drop, colaboration, dnd utility, drag and drop utility" />
-	    <meta name="robots" content="index,follow" />
-	   	<meta property="og:image" content="https://cdn.cocreate.app/docs/api.png">
-	
-		<!-- CoCreate CSS -->
-		<link rel="stylesheet" href="https://cdn.cocreate.app/latest/CoCreate.min.css" type="text/css"/>
-        <link rel="stylesheet" href="https://ws.cocreate.app/docs.css" data-collection="apples" data-document_id="6069ff5042ef8ff5175a5c8d" name="css" type="text/css"  />
-	</head>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CoCreate-api form Documentation | CoCreateJS </title>
+	<link rel="icon" type="image/png" sizes="32x32" href="https://cocreate.app/images/favicon.ico">
+	<meta name="description" content="An api helper component in vanilla javascript to setup thirdparty api intergrations. Apis can be accessible using HTML5 data-attributes and/or JavaScript API" />
+	<meta name="keywords" content="drag and drop, colaboration, dnd utility, drag and drop utility" />
+	<meta name="robots" content="index,follow" />
+	<meta property="og:image" content="https://cdn.cocreate.app/docs/api.png">
 
-	<body>
-		<nav class="nav display:flex align-items:center background:whitesmoke padding-top:10px padding-bottom:10px" data-main_content_id="content" data-scroll="sticky-nav,hide-nav" data-scroll_up="10" data-scroll_down="10" data-collection="components" data-document_id="60395ef42b3ac232657040fd" name="html">
-		</nav>
-		<sidenav id="menuL" class="cocreate-sidenav background:whitesmoke" data-main_content="content" sidenav-default_desktop="expanded" sidenav-default_tablet="offcanvas" sidenav-ontoggle_desktop="offcanvas" sidenav-ontoggle_tablet="expanded">
-			<menu data-collection="components" data-document_id="603717b07de7fb350ae9fec8" name="html"></menu>
-			<div class="resizeHandler"></div>
-	    </sidenav>
-        <main class="padding-top:15px padding:15px@lg@xl" data-main_content_id="content" id="CoCreate-api-form">
-			<div class="display:flex flex-wrap:wrap justify-content:space-between position:relative margin:10px">
-				<div class="display:flex align-items:center">
-					<h2>CoCreate-api server</h2>
-				</div>
-				<div class="display:flex align-items:center font-size:20px position:absolute right:0 padding:5px background:white">
-                    <div class="display:flex align-items:center transition:0.3s padding-left:10px" data-share_network="true" data-share_text="Enter decription here" data-share_title="testing im a title" data-share_height="600" data-share_width="700" data-share_media="https://cdn.cocreate.app/docs/api.png" data-hover="display:block!important" data-hover_target=".social-networks">
-                        <div class="display:none social-networks">
-                            <a class="margin-right:15px" data-share_network='twitter' title="Share on twitter"><i class="fab fa-twitter"></i></a>
-                            <a class="margin-right:15px" data-share_network='facebook' title="Share on Facebook"><i class="fab fa-facebook"></i></a>
-                            <a class="margin-right:15px" data-share_network='instagram' title="Share on instagram"><i class="fab fa-instagram"></i></a>
-                        </div>
-                        <a class="margin-right:15px" data-share_network='share' title="Share on share"><i class="fas fa-share-alt"></i></a>
-                    </div>
-                    <a href="https://github.com/CoCreate-app/CoCreate-dnd" target="_blank" class=""><i class="fab fa-github"></i></a>
-                </div>
+	<!-- CoCreate CSS -->
+	<link rel="stylesheet" href="https://cdn.cocreate.app/latest/CoCreate.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://ws.cocreate.app/docs.css" data-collection="apples" data-document_id="6069ff5042ef8ff5175a5c8d" name="css" type="text/css" />
+</head>
+
+<body>
+	<nav class="nav display:flex align-items:center background:whitesmoke padding-top:10px padding-bottom:10px" data-main_content_id="content" data-scroll="sticky-nav,hide-nav" data-scroll_up="10" data-scroll_down="10" data-collection="components" data-document_id="60395ef42b3ac232657040fd"
+	 name="html">
+	</nav>
+	<sidenav id="menuL" class="cocreate-sidenav background:whitesmoke" data-main_content="content" sidenav-default_desktop="expanded" sidenav-default_tablet="offcanvas" sidenav-ontoggle_desktop="offcanvas" sidenav-ontoggle_tablet="expanded">
+		<menu data-collection="components" data-document_id="603717b07de7fb350ae9fec8" name="html"></menu>
+		<div class="resizeHandler"></div>
+	</sidenav>
+	<main class="padding-top:15px padding:15px@lg@xl" data-main_content_id="content" id="CoCreate-api-form">
+		<div class="display:flex flex-wrap:wrap justify-content:space-between position:relative margin:10px">
+			<div class="display:flex align-items:center">
+				<h2>CoCreate-api form</h2>
 			</div>
-			<p class="max-width:500px margin:20px_10px line-height:1.5">CoCreate-api is a simple api helper component in vanilla javascript used by JavaScript developers to create thirdparty api intergrations. Thirdparty apis can be accessible using HTML5 data-attributes and/or JavaScript API. CoCreate-api includes the client component and server side for api processing.</p>
-			<div id="api-section" class="display:flex flex-wrap:wrap">
-				<div class="flex-grow:1 width:400px width:300px@xs padding:0px_10px margin-top:60px">
-					
-					
-					<div id="api-install" class="border-bottom:1px_solid_lightgrey" data-scroll data-scroll_intersect="color:dodgerblue" data-scroll_target="#api-install-section">
-	                        <span class="display:flex align-items:center width:fit-content" data-hover="display:block!important" data-hover_target='[href="#api-install"]'>
+			<div class="display:flex align-items:center font-size:20px position:absolute right:0 padding:5px background:white">
+				<div class="display:flex align-items:center transition:0.3s padding-left:10px" data-share_network="true" data-share_text="An api helper component in vanilla javascript to setup thirdparty api intergrations. Apis can be accessible using HTML5 data-attributes and/or JavaScript API"
+				 data-share_title="CoCreate API form" data-share_height="600" data-share_width="700" data-share_media="https://cdn.cocreate.app/docs/api.png" data-hover="display:block!important" data-hover_target=".social-networks">
+					<div class="display:none social-networks">
+						<a class="margin-right:15px" data-share_network='twitter' title="Share on twitter"><i class="fab fa-twitter"></i></a>
+						<a class="margin-right:15px" data-share_network='facebook' title="Share on Facebook"><i class="fab fa-facebook"></i></a>
+						<a class="margin-right:15px" data-share_network='instagram' title="Share on instagram"><i class="fab fa-instagram"></i></a>
+					</div>
+					<a class="margin-right:15px" data-share_network='share' title="Share on share"><i class="fas fa-share-alt"></i></a>
+				</div>
+				<a href="https://github.com/CoCreate-app/CoCreate-dnd" target="_blank" class=""><i class="fab fa-github"></i></a>
+			</div>
+		</div>
+		<p class="max-width:500px margin:20px_10px line-height:1.5">CoCreate-api is a simple api helper component in vanilla javascript used by JavaScript developers to create thirdparty api intergrations. Thirdparty apis can be accessible using HTML5 data-attributes and/or JavaScript API. CoCreate-api includes the
+			client component and server side for api processing.</p>
+		<div id="api-section" class="display:flex flex-wrap:wrap">
+			<div class="flex-grow:1 width:400px width:300px@xs padding:0px_10px margin-top:60px">
+
+
+				<div id="api-install" class="border-bottom:1px_solid_lightgrey" data-scroll data-scroll_intersect="color:dodgerblue" data-scroll_target="#api-install-section">
+					<span class="display:flex align-items:center width:fit-content" data-hover="display:block!important" data-hover_target='[href="#api-install"]'>
 	                            <h2 class="padding:5px_0px">Install</h2>
 	                            <a class="margin-left:10px display:none" href="#api-install"><i class="fas fa-link"></i></a>
 	                        </span>
-	                    </div>
-					
-					<p class="padding:10px_0px line-height:1.5">
-						<pre><code class="language-bash">npm i @cocreate/api</code></pre>
-					</p>
-					<p class="padding:10px_0px line-height:1.5">Or you can use cdn link:</p>
-	                <pre><code class="language-html">&lt;script&gt;https://cdn.cocreate.app/api/latest/CoCreate-api.min.js&lt;/script&gt;</code></pre>
-					
-					<div>
-				       <h2 id="api-server-run" data-hover="display:block" data-target="" class="border-bottom:1px_solid_lightgrey padding:5px_0px">Server run</h2>
-				       <a class="display:none" href="#api-server-run"><i class="fas fa-link"></i></a>
-				    </div>
-					<pre><code class="language-javascript">npm run start</code></pre>
-	
-					<div>
-				       <h2 id="api-dependencies" data-hover="display:block" data-target="" class="border-bottom:1px_solid_lightgrey margin-top:80px padding:5px_0px">Dependencies components</h2>
-				       <a class="display:none" href="#api-dependencies"><i class="fas fa-link"></i></a>
-				    </div>
-					<p class="padding:10px_0px line-height:1.5">
-					    <strong>CoCreate.js</strong>, 
-					    <strong>CoCreate-api.js</strong>, 
-					</p>
-					
-	
-					<div>
-				       <h2 id="api-development" data-hover="display:block" data-target="" class="border-bottom:1px_solid_lightgrey margin-top:80px padding:5px_0px">Development Guide</h2>
-				       <a class="display:none" href="#api-development"><i class="fas fa-link"></i></a>
-				    </div>
-	
-					<h3 class="margin-top:20px padding:5px_0px">1. Directory structure</h3>
-	<pre><code class="language-javascript">
+				</div>
+
+				<p class="padding:10px_0px line-height:1.5">
+					<pre><code class="language-bash">npm i @cocreate/api</code></pre>
+				</p>
+				<p class="padding:10px_0px line-height:1.5">Or you can use cdn link:</p>
+				<pre><code class="language-html">&lt;script&gt;https://cdn.cocreate.app/api/latest/CoCreate-api.min.js&lt;/script&gt;</code></pre>
+
+				<div>
+					<h2 id="api-server-run" data-hover="display:block" data-target="" class="border-bottom:1px_solid_lightgrey padding:5px_0px">Server run</h2>
+					<a class="display:none" href="#api-server-run"><i class="fas fa-link"></i></a>
+				</div>
+				<pre><code class="language-javascript">npm run start</code></pre>
+
+				<div>
+					<h2 id="api-dependencies" data-hover="display:block" data-target="" class="border-bottom:1px_solid_lightgrey margin-top:80px padding:5px_0px">Dependencies components</h2>
+					<a class="display:none" href="#api-dependencies"><i class="fas fa-link"></i></a>
+				</div>
+				<p class="padding:10px_0px line-height:1.5">
+					<strong>CoCreate.js</strong>,
+					<strong>CoCreate-api.js</strong>,
+				</p>
+
+
+				<div>
+					<h2 id="api-development" data-hover="display:block" data-target="" class="border-bottom:1px_solid_lightgrey margin-top:80px padding:5px_0px">Development Guide</h2>
+					<a class="display:none" href="#api-development"><i class="fas fa-link"></i></a>
+				</div>
+
+				<h3 class="margin-top:20px padding:5px_0px">1. Directory structure</h3>
+				<pre><code class="language-javascript">
 	|- server
 	  |- apis
 	     |- {module_name}  //. module directory
@@ -91,18 +94,18 @@
 	     index.js
 	     WSManger.js
 	</code></pre>
-					<h3 class="margin-top:20px padding:5px_0px">2. Development stage</h3>
-					<h4>(1). Add the module direcotry into server/apis</h4>
-					<h4>(2). Create CoCreate-{module}.js from CoCreate-xxx.js template</h4>
-					<h4>(3). Register the module in crud.js</h4>
-	<pre><code class="language-javascript">
+				<h3 class="margin-top:20px padding:5px_0px">2. Development stage</h3>
+				<h4>(1). Add the module direcotry into server/apis</h4>
+				<h4>(2). Create CoCreate-{module}.js from CoCreate-xxx.js template</h4>
+				<h4>(3). Register the module in crud.js</h4>
+				<pre><code class="language-javascript">
 	const CoCreateStripe = require('./apis/stripe/Cocreate-stripe')
 	module.exports.WSManager = function(manager) {
 		new CoCreate.stripe(manager) //. register
 	}
 	</code></pre>
-					<h4>(4). Rebuild CoCreate-{moudle}.js by endpoint and action</h4>
-	<pre><code class="language-javascript">
+				<h4>(4). Rebuild CoCreate-{moudle}.js by endpoint and action</h4>
+				<pre><code class="language-javascript">
 	var utils= require('../utils');
 	class CoCreateStripe {
 		constructor(wsManager) {
@@ -128,85 +131,85 @@
 	}//end Class 
 	module.exports = CoCreateStripe;
 	</code></pre>
-	
-					<h3 class="margin-top:20px padding:5px_0px">3. Notes</h3>
-					<h4>(1). Response should be object that have <code class="language-js">type</code> and <code class="language-js">response</code> </h4>
-					<div class="padding-left:1rem">
-						<p><code class="language-js">type</code>: action name</p>
-						<p><code class="language-js">response</code>: result</p>
-	<pre><code class="language-javascript">{
+
+				<h3 class="margin-top:20px padding:5px_0px">3. Notes</h3>
+				<h4>(1). Response should be object that have <code class="language-js">type</code> and <code class="language-js">response</code> </h4>
+				<div class="padding-left:1rem">
+					<p><code class="language-js">type</code>: action name</p>
+					<p><code class="language-js">response</code>: result</p>
+					<pre><code class="language-javascript">{
 		type: action_name,  	//. string
 		response: result  		//. object or array
 	}
-	</code></pre>					
-					</div>
-					<h4>(2). Endpoint and moudle_id is same</h4>
-					<h4>(3). Send response</h4>
-	<pre><code class="language-javascript">
+	</code></pre>
+				</div>
+				<h4>(2). Endpoint and moudle_id is same</h4>
+				<h4>(3). Send response</h4>
+				<pre><code class="language-javascript">
 	utils.send_response(that.wsManager, socket, {"type":action_name,"response":result}, moudle_id)
 	</code></pre>
-					<h4>(4). Request data structure </h4>
-	<pre><code class="language-javascript">{
+				<h4>(4). Request data structure </h4>
+				<pre><code class="language-javascript">{
 		type: action_name,  	//. string
 		data: request_data  	//. object or array
 	}
 	</code></pre>
-	
-					<h2 class="border-bottom:1px_solid_lightgrey margin-top:20px padding:5px_0px">How Does It Works</h2>
-					<p>CoCreate-api server module works based on cocreate.api. </p>
-					
-					<p>xxxxxx <code class="language-js">action_{action_name}</code>. <code class="language-js">pre_{action_name}</code></p>
-	
-					<h2 class="border-bottom:1px_solid_lightgrey margin-top:20px padding:5px_0px">Effects and Styles</h2>
-	                
-					<h2 class="border-bottom:1px_solid_lightgrey margin-top:20px padding:5px_0px">Events</h2>
-					<h4><span></span><span class="cocreate-badge success"></span></h4>
-					
-				</div>
-				
-				<div class="flex-grow:1 width:300px padding:0px_10px margin-top:60px border-bottom:1px_solid_lightgrey">
-					
-					<!-- SandBox -->
-					<div id="api-demo" class="border-bottom:1px_solid_lightgrey" data-scroll data-scroll_intersect="color:dodgerblue" data-scroll_target="#api-demo-section">
-	                        <span class="display:flex align-items:center width:fit-content" data-hover="display:block!important" data-hover_target='[href="#api-demo"]'>
+
+				<h2 class="border-bottom:1px_solid_lightgrey margin-top:20px padding:5px_0px">How Does It Works</h2>
+				<p>CoCreate-api server module works based on cocreate.api. </p>
+
+				<p>xxxxxx <code class="language-js">action_{action_name}</code>. <code class="language-js">pre_{action_name}</code></p>
+
+				<h2 class="border-bottom:1px_solid_lightgrey margin-top:20px padding:5px_0px">Effects and Styles</h2>
+
+				<h2 class="border-bottom:1px_solid_lightgrey margin-top:20px padding:5px_0px">Events</h2>
+				<h4><span></span><span class="cocreate-badge success"></span></h4>
+
+			</div>
+
+			<div class="flex-grow:1 width:300px padding:0px_10px margin-top:60px border-bottom:1px_solid_lightgrey">
+
+				<!-- SandBox -->
+				<div id="api-demo" class="border-bottom:1px_solid_lightgrey" data-scroll data-scroll_intersect="color:dodgerblue" data-scroll_target="#api-demo-section">
+					<span class="display:flex align-items:center width:fit-content" data-hover="display:block!important" data-hover_target='[href="#api-demo"]'>
 	                            <h2 class="padding:5px_0px">Demo</h2>
 	                            <a class="margin-left:10px display:none" href="#api-demo"><i class="fas fa-link"></i></a>
 	                        </span>
-	                    </div>
-	                    
-					<div class="position:sticky top:0 padding:15px_0px height:100vh">
-						<div class="container svColumn overflow:hidden card border-radius:2px width:auto height:100%" id="sandbox">
-							<div class="font-size:20px position:absolute top:10px right:10px opacity:0.6 z-index:7"> <a class="margin-right:10px" id="preview" data-show="preview" data-hide="code"><i class="far fa-eye"></i></a> <a class="margin-right:10px hidden" id="code" data-show="code" data-hide="preview"><i class="fas fa-code"></i></a>
-								<!--<a class="margin-right:10px"><i class="far fa-window-maximize"></i></a>--><a target="modal" href="module_activity_datatable.html" data-pass_collection="modules" data-pass_document_id="" data-pass_fetch_value="" data-pass_prefix="" data-pass_to="render" data-modal_width="600px" data-modal_height="400px"
-									data-modal_color="#229954" data-modal_header="false" class="margin-right:10px">
+				</div>
+
+				<div class="position:sticky top:0 padding:15px_0px height:100vh">
+					<div class="container svColumn overflow:hidden card border-radius:2px width:auto height:100%" id="sandbox">
+						<div class="font-size:20px position:absolute top:10px right:10px opacity:0.6 z-index:7"> <a class="margin-right:10px" id="preview" data-show="preview" data-hide="code"><i class="far fa-eye"></i></a> <a class="margin-right:10px hidden" id="code" data-show="code" data-hide="preview"><i class="fas fa-code"></i></a>
+							<!--<a class="margin-right:10px"><i class="far fa-window-maximize"></i></a>--><a target="modal" href="module_activity_datatable.html" data-pass_collection="modules" data-pass_document_id="" data-pass_fetch_value="" data-pass_prefix="" data-pass_to="render" data-modal_width="600px" data-modal_height="400px" data-modal_color="#229954"
+							 data-modal_header="false" class="margin-right:10px">
 								<i class="fas fa-external-link-alt"></i>
 							 </a> <a class="margin-right:5px" data-fullscreen target="#sandbox"><i class="fas fa-expand"></i></a> </div>
-							<div class="svRow">
-								<div class="svColumn">
-									<div class="svPanel">
-										<div data-realtime="false" data-collection="modules" data-document_id="5eefe30952c6e94c75fb5e3f" name="html" id="7" class="codemirror height:100% min-width:300px"> </div>
-									</div>
-									<div class="svSplitter svHorizontal"> </div>
-									<div class="svPanel"> <iframe data-get_value="7" frameBorder="0" height="100%" width="100%" class="min-width:300px"></iframe> </div>
+						<div class="svRow">
+							<div class="svColumn">
+								<div class="svPanel">
+									<div data-realtime="false" data-collection="modules" data-document_id="5eefe30952c6e94c75fb5e3f" name="html" id="7" class="codemirror height:100% min-width:300px"> </div>
 								</div>
+								<div class="svSplitter svHorizontal"> </div>
+								<div class="svPanel"> <iframe data-get_value="7" frameBorder="0" height="100%" width="100%" class="min-width:300px"></iframe> </div>
 							</div>
 						</div>
-						<!-- End SandBox -->
 					</div>
+					<!-- End SandBox -->
 				</div>
 			</div>
-			<button href="https://github.com/CoCreate-app/CoCreate-api/tree/master/docs/index.html?message=docs%3A%20describe%20your%20change..." target="_blank" class="position:fixed bottom:15px right:15px padding:15px background:dodgerblue grow-hover border-radius:50%">
+		</div>
+		<button href="https://github.com/CoCreate-app/CoCreate-api/tree/master/docs/index.html?message=docs%3A%20describe%20your%20change..." target="_blank" class="position:fixed bottom:15px right:15px padding:15px background:dodgerblue grow-hover border-radius:50%">
 		        <i class="fas fa-pencil-alt"></i>
 	        </button>
-		</main>
-		<script>
-			var config = {
-				apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
-				organization_Id: '5de0387b12e200ea63204d6c'
-			}
-		</script>
-		<!--CoCreateJS CDN-->
-		<script src="https://cdn.cocreate.app/latest/CoCreate.min.js" ></script>
-	</body>
+	</main>
+	<script>
+		var config = {
+			apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
+			organization_Id: '5de0387b12e200ea63204d6c'
+		}
+	</script>
+	<!--CoCreateJS CDN-->
+	<script src="https://cdn.cocreate.app/latest/CoCreate.min.js"></script>
+</body>
 
 </html>
