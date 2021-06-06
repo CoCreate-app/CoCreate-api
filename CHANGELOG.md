@@ -1,3 +1,10 @@
+## [1.0.13](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.12...v1.0.13) (2021-06-06)
+
+
+### Bug Fixes
+
+* update packages, add uuid, add data-parse to demos ([a731971](https://github.com/CoCreate-app/CoCreate-api/commit/a7319718eb938331bc625d3d98bf39b67ba95329))
+
 ## [1.0.12](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.11...v1.0.12) (2021-05-12)
 
 
