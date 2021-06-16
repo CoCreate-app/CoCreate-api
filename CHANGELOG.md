@@ -1,3 +1,10 @@
+## [1.0.14](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.13...v1.0.14) (2021-06-16)
+
+
+### Bug Fixes
+
+* added header for seo ([b920342](https://github.com/CoCreate-app/CoCreate-api/commit/b920342d2bee787ffc4efbd2ce020792122a012f))
+
 ## [1.0.13](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.12...v1.0.13) (2021-06-06)
 
 
