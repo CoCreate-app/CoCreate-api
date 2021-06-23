@@ -1,3 +1,11 @@
+## [1.0.15](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.14...v1.0.15) (2021-06-23)
+
+
+### Bug Fixes
+
+* package.json syntax error ([49528bb](https://github.com/CoCreate-app/CoCreate-api/commit/49528bb006aff9d66430b5211da3e20c63519467))
+* update to new crud.save and crud.read ([28b967b](https://github.com/CoCreate-app/CoCreate-api/commit/28b967b3d7774ff2f4ba4ae56885bb787e5ad5ed))
+
 ## [1.0.14](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.13...v1.0.14) (2021-06-16)
 
 
