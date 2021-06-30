@@ -1,3 +1,10 @@
+## [1.0.20](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.19...v1.0.20) (2021-06-30)
+
+
+### Bug Fixes
+
+* Update readme.md ([172b801](https://github.com/CoCreate-app/CoCreate-api/commit/172b8017e11a495d63aa48e494802bc17e2f2eb6))
+
 ## [1.0.19](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.18...v1.0.19) (2021-06-30)
 
 
