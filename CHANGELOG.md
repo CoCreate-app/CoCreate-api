@@ -1,3 +1,10 @@
+## [1.0.22](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.21...v1.0.22) (2021-07-10)
+
+
+### Bug Fixes
+
+* gitignore all logs ([608a251](https://github.com/CoCreate-app/CoCreate-api/commit/608a251e7baea045ed5ac0c3c75499d2f5d3ef34))
+
 ## [1.0.21](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.20...v1.0.21) (2021-07-07)
 
 
