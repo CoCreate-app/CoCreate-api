@@ -1,3 +1,10 @@
+## [1.0.25](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.24...v1.0.25) (2021-07-17)
+
+
+### Bug Fixes
+
+* workflows ([d44dbc4](https://github.com/CoCreate-app/CoCreate-api/commit/d44dbc4a89791690fb7ad22f86283b5e6a2f7687))
+
 ## [1.0.24](https://github.com/CoCreate-app/CoCreate-api/compare/v1.0.23...v1.0.24) (2021-07-14)
 
 
