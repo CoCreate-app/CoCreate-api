@@ -170,7 +170,7 @@ const CoCreateApi = {
 	
 	render: function(action, data) {
 		CoCreateRender.data({
-			selector: `[data-template_id="${action}"]`, 
+			selector: `[template_id="${action}"]`, 
 			data: data
 		});
 	},
