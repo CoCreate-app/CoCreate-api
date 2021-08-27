@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.6...v1.1.7) (2021-08-27)
+
+
+### Bug Fixes
+
+* updaed dependencies ([b32e7ef](https://github.com/CoCreate-app/CoCreate-api/commit/b32e7efb4cc423e43307cf0d334d0302f08e240a))
+
 ## [1.1.6](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.5...v1.1.6) (2021-08-23)
 
 
