@@ -1,3 +1,10 @@
+## [1.1.11](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.10...v1.1.11) (2021-09-09)
+
+
+### Bug Fixes
+
+* CoCreate.config directory, path, name and  public ([0871919](https://github.com/CoCreate-app/CoCreate-api/commit/0871919d6fbb510d346e02663b06fc2b5fde5879))
+
 ## [1.1.10](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.9...v1.1.10) (2021-09-08)
 
 
