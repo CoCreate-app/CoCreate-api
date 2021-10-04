@@ -63,10 +63,10 @@
   },
   "dependencies": {
     "@cocreate/action": "^1.2.23",
-    "@cocreate/crud-client": "^1.2.29",
-    "@cocreate/docs": "^1.2.26",
-    "@cocreate/hosting": "^1.2.22",
-    "@cocreate/render": "^1.1.21",
-    "@cocreate/socket-client": "^1.2.24"
+    "@cocreate/crud-client": "^1.2.30",
+    "@cocreate/docs": "^1.2.27",
+    "@cocreate/hosting": "^1.2.23",
+    "@cocreate/render": "^1.1.22",
+    "@cocreate/socket-client": "^1.2.25"
   }
 }
