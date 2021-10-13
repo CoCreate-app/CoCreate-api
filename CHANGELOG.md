@@ -1,3 +1,10 @@
+## [1.1.29](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.28...v1.1.29) (2021-10-13)
+
+
+### Bug Fixes
+
+* update descriptions ([6a7bb09](https://github.com/CoCreate-app/CoCreate-api/commit/6a7bb09eba0dd264e3fa99a509a17a795ffd1a62))
+
 ## [1.1.28](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.27...v1.1.28) (2021-10-13)
 
 
