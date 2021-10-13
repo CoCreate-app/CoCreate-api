@@ -1,6 +1,6 @@
 # CoCreate-api
 
-A simple api helper component in vanilla javascript used by JavaScript developers to create thirdparty api intergrations. CoCreate-api includes the client component and server side for api processing. Thirdparty apis can be accessible using HTML5 data-attributes and/or JavaScript API. Take it for a spin in our [playground!](https://cocreate.app/docs/api)
+A simple api helper component in vanilla javascript used by JavaScript developers to create thirdparty api intergrations. CoCreate-api includes the client component and server side for api processing. Thirdparty apis can be accessible using HTML5 attributes and/or JavaScript API. Take it for a spin in our [playground!](https://cocreate.app/docs/api)
 
 ![minified](https://img.badgesize.io/https://cdn.cocreate.app/api/latest/CoCreate-api.min.js?style=flat-square&label=minified&color=orange)
 ![gzip](https://img.badgesize.io/https://cdn.cocreate.app/api/latest/CoCreate-api.min.js?compression=gzip&style=flat-square&label=gzip&color=yellow)
