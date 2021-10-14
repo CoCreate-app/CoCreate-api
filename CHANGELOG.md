@@ -1,3 +1,11 @@
+## [1.1.30](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.29...v1.1.30) (2021-10-14)
+
+
+### Bug Fixes
+
+* added missing globals ([ff395c6](https://github.com/CoCreate-app/CoCreate-api/commit/ff395c6bca008ace31fb5994d80d375ed52899e4))
+* updated dependencies ([91f47a3](https://github.com/CoCreate-app/CoCreate-api/commit/91f47a319ce37f604ed237318be29ec7bd6b88f1))
+
 ## [1.1.29](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.28...v1.1.29) (2021-10-13)
 
 
