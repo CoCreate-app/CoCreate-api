@@ -1,6 +1,7 @@
-import CoCreateSocket from "@cocreate/socket-client"
-import CoCreateAction from '@cocreate/action'
-import CoCreateRender from '@cocreate/render'
+/*globals CustomEvent, config*/
+import CoCreateSocket from "@cocreate/socket-client";
+import CoCreateAction from '@cocreate/action';
+import CoCreateRender from '@cocreate/render';
 
 let socketApi = new CoCreateSocket('api');
 
@@ -8,7 +9,7 @@ const CoCreateApi = {
 	modules: { },
 	
 	init: function({name, module}) {
-		this.register(name, module)	
+		this.register(name, module);
 	},
 	
 	register: function(name, m_instance) {
@@ -18,7 +19,7 @@ const CoCreateApi = {
 			
 			socketApi.listen(name, (data) => {
 				self.__responseProcess(name, data);
-			})
+			});
 			
 			//. register actions
 			
@@ -26,8 +27,8 @@ const CoCreateApi = {
 				m_instance['actions'].forEach((action) => {
 					if (typeof m_instance[`action_${action}`] !== 'function') {
 						m_instance[`action_${action}`] = function(element) {
-							self.__commonAction(m_instance.id, action, element)
-						}
+							self.__commonAction(m_instance.id, action, element);
+						};
 					} 
 					CoCreateAction.init({
 						action: action,
@@ -35,15 +36,15 @@ const CoCreateApi = {
 						callback: (btn) => {
 							m_instance[`action_${action}`](btn);
 						},
-					})
-				})
+					});
+				});
 			}
 		}
 	},
 	
 	__responseProcess: function(m_name, data) {
 		const {type, response} = data;
-		const m_instance = this.modules[m_name]
+		const m_instance = this.modules[m_name];
 		
 		if (type && response && m_instance) {
 		
@@ -57,7 +58,7 @@ const CoCreateApi = {
 				detail: {
 					data: response
 				}
-			}))
+			}));
 		}
 	},
 	
@@ -73,13 +74,13 @@ const CoCreateApi = {
 		const self = this;
 		const elements = container.querySelectorAll(`[${mainAttr}^="${action}."]`);
 
-		let data = {}
+		let data = {};
 		elements.forEach(element => {
 			let name = element.getAttribute(mainAttr);
 			let array_name = element.getAttribute(mainAttr + "_array");
 			let value = self.__getElValue(element);
 			
-			if (!name) return
+			if (!name) return;
 
 			if (action) {
 				let re = new RegExp(`^${action}.`, 'i');
@@ -100,18 +101,18 @@ const CoCreateApi = {
 			}
 		});
 		
-		let keys = Object.keys(data)
+		let keys = Object.keys(data);
 		let objectData = {};
 		keys.forEach((k) => {
 			if (k.split('.').length > 1) {
 				let newData = self.__createObject(data[k], k);
-				delete data[k]
+				delete data[k];
 				
 				objectData = self.__mergeObject(objectData, newData);
 			} else {
 				objectData[k] = data[k];
 			}
-		})
+		});
 		return objectData;
 	},
 	
@@ -121,7 +122,7 @@ const CoCreateApi = {
 			switch (element.type.toLocaleLowerCase()) {
 				case 'checkbox':
 					if (element.checked) {
-						value = element.value
+						value = element.value;
 					}
 					break;
 				default:
@@ -142,22 +143,22 @@ const CoCreateApi = {
 		target = target || {};
 		for (let key of Object.keys(source)) {
 			if (source[key] instanceof Object) {
-				Object.assign(source[key], this.__mergeObject(target[key], source[key]))
+				Object.assign(source[key], this.__mergeObject(target[key], source[key]));
 			}
 		}
 		
-		Object.assign(target || {}, source)
-		return target
+		Object.assign(target || {}, source);
+		return target;
 	},
 	
 	__createObject: function (data, path) {
 		if (!path) return data;
 		
-		let keys = path.split('.')
+		let keys = path.split('.');
 		let newObject = data;
 
 		for (var  i = keys.length - 1; i >= 0; i--) {
-			newObject = {[keys[i]]: newObject}				
+			newObject = {[keys[i]]: newObject};				
 		}
 		return newObject;
 	},
@@ -196,7 +197,6 @@ const CoCreateApi = {
 	{
 		return {
 			"apiKey":           info.apiKey || config.apiKey,
-			"securityKey":      info.securityKey || config.securityKey,
 			"organization_id":  info.organization_id || config.organization_Id,
 		}
 	}
@@ -205,8 +205,6 @@ const CoCreateApi = {
 CoCreateApi.createApiSocket(
 	window.config.host ? window.config.host : 'server.cocreate.app',
 	window.config.organization_Id
-	// window.config.apiKey
-	// window.config.securityKey
 );
 
 export default CoCreateApi;
