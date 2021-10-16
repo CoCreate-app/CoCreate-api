@@ -32,7 +32,7 @@ var api = ( ()=> {
 	    
 	    console.log("Org_id => ",config["organization_id"])
 	    
-	    crud.readDocument({
+	    let org_row = await crud.readDocument({
 	        collection: "organizations",
 	        name:"name",
 	        document_id: config["organization_id"],
@@ -40,9 +40,9 @@ var api = ( ()=> {
 	        apiKey: config["apiKey"],
 		    organization_id: '5de0387b12e200ea63204d6c'
 	    });
-	    let org_row = await crud.listenAsync(event);
+
 	    try{
-			org_row =org_row["data"];
+			org_row = org_row["data"];
 		  }catch(e){
 			  console.log(module," Error GET ORG  in : ",e);
 			return false;
@@ -53,7 +53,6 @@ var api = ( ()=> {
  		var socket_config = {
   		    "config": {
   		        "apiKey": config["config"]["apiKey"],
-  		        // "securityKey": config["config"]["securityKey"],
   		        "organization_Id": config["config"]["organization_id"],
   		    },
   		    "prefix": "ws",
@@ -66,9 +65,8 @@ var api = ( ()=> {
 				host: socket_config.host
 			})
 	
-	  		let eventGetOrg = "getOrginMaster";
-	  		
-	  		 crud.readDocumentList({
+
+	  		 let data2 = await crud.readDocumentList({
 		        collection: "organizations",
 		        operator: {
 		  				filters: [{
@@ -80,14 +78,12 @@ var api = ( ()=> {
 		  				// startIndex: 0,
 		  				// search: { type: 'or', value: []}
 		        },
-		        event: eventGetOrg,
 		        is_collection: false,
 		        apiKey: config["config"]["apiKey"],
-			    // securityKey: config["config"]["securityKey"],
 			    organization_id: config["config"]["organization_id"]
 		    });
 
-	     let data2 = await crud.listenAsync(eventGetOrg);
+	     //let data2 = await crud.listenAsync(eventGetOrg);
 	     console.log("data2 ===",data2)
 	   
 		 var org = data2["data"][0]
@@ -108,25 +104,22 @@ var api = ( ()=> {
 			host: socket_config.host
 		})
 	    // socket.setGlobalScope(socket_config.config.organization_id)
-		 crud.readDocumentList({
-			      collection: "organizations",
-			      operator: {
-							filters: [{
-								name: '_id',
-								operator: "$eq",
-								value: [org["_id"].toString()]
-							}],
-							orders: [],
-			  				startIndex: 0,
-			  				search: { type: 'or', value: []}
-			      },
-	         "event": "getDataOrg",
+		 let myOrg = await crud.readDocumentList({
+		      collection: "organizations",
+		      operator: {
+					filters: [{
+						name: '_id',
+						operator: "$eq",
+						value: [org["_id"].toString()]
+					}],
+					orders: [],
+	  				startIndex: 0,
+	  				search: { type: 'or', value: []}
+		      },
 	         is_collection: false,
 	         apiKey: org["apiKey"],
-		    // securityKey: org["securityKey"],
-		    organization_id: org["_id"]
+		     organization_id: org["_id"]
 		});
-	    let myOrg = await crud.listenAsync("getDataOrg");
 	    let result = {'row':myOrg,'socket_config':socket_config};
 	    return result;
 	 }  
