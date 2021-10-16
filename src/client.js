@@ -10,6 +10,8 @@ const CoCreateApi = {
 	
 	init: function({name, module}) {
 		this.register(name, module);
+		if (!socketApi.sockets.size)
+			socketApi.create(window.config);
 	},
 	
 	register: function(name, m_instance) {
@@ -164,7 +166,7 @@ const CoCreateApi = {
 	},
 	
 	send : function(module, action, data){ 
-		let request_data = this.getCommonParamsExtend(data || {});
+		let request_data = this.getCommonParams(data || {});
 		request_data = {...request_data, data};
 		socketApi.send(module, {type: action, data: request_data});
 	},
@@ -176,24 +178,7 @@ const CoCreateApi = {
 		});
 	},
 	
-	createApiSocket: function(host, namespace) {
-		if (namespace) {
-			socketApi.create({
-				namespace: namespace, 
-				room: null,
-				host: host
-			});
-			socketApi.setGlobalScope(namespace);
-		} else {
-			socketApi.create({
-				namespace: null, 
-				room: null,
-				host: host
-			});
-		}
-	},
-	
-	getCommonParamsExtend: function(info) 
+	getCommonParams: function(info) 
 	{
 		return {
 			"apiKey":           info.apiKey || config.apiKey,
@@ -201,10 +186,5 @@ const CoCreateApi = {
 		}
 	}
 }
-
-CoCreateApi.createApiSocket(
-	window.config.host ? window.config.host : 'server.cocreate.app',
-	window.config.organization_Id
-);
-
+                
 export default CoCreateApi;
