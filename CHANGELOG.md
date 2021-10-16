@@ -1,3 +1,10 @@
+## [1.1.36](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.35...v1.1.36) (2021-10-16)
+
+
+### Bug Fixes
+
+* update socket package to fix bug in docs ([ad4cf54](https://github.com/CoCreate-app/CoCreate-api/commit/ad4cf54d06aa691e46014236940f6414d73a7761))
+
 ## [1.1.35](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.34...v1.1.35) (2021-10-16)
 
 
