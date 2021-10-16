@@ -1,3 +1,11 @@
+## [1.1.37](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.36...v1.1.37) (2021-10-16)
+
+
+### Bug Fixes
+
+* updated create socket ([623c743](https://github.com/CoCreate-app/CoCreate-api/commit/623c7438ee9a3434bb72021c04e6a16358183284))
+* updated dependency ([d5b6740](https://github.com/CoCreate-app/CoCreate-api/commit/d5b674081a59e56d4b359a62d00e321b93fad5c2))
+
 ## [1.1.36](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.35...v1.1.36) (2021-10-16)
 
 
