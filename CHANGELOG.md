@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.39...v1.2.0) (2021-11-02)
+
+
+### Features
+
+* now uses el.setValue and el.getValue... any new input componenets that want to intergrate with api needs to add the setValue and getValue function to the element ([7d2d980](https://github.com/CoCreate-app/CoCreate-api/commit/7d2d980a422884734dc3578636dd7851dd5378b1))
+
 ## [1.1.39](https://github.com/CoCreate-app/CoCreate-api/compare/v1.1.38...v1.1.39) (2021-10-29)
 
 
