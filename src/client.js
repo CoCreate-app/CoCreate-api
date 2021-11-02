@@ -120,7 +120,9 @@ const CoCreateApi = {
 	
 	__getElValue: function(element) {
 		let value = null;
-		if (typeof element.value !== "undefined") {
+		if(element.getValue)
+			element.getValue(element);
+		else if (typeof element.value !== "undefined") {
 			switch (element.type.toLocaleLowerCase()) {
 				case 'checkbox':
 					if (element.checked) {
