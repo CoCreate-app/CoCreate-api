@@ -67,6 +67,6 @@
     "@cocreate/docs": "^1.2.44",
     "@cocreate/hosting": "^1.2.39",
     "@cocreate/render": "^1.3.7",
-    "@cocreate/socket-client": "^1.3.9"
+    "@cocreate/socket-client": "^1.4.0"
   }
 }
