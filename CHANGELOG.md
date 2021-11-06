@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.3...v1.2.4) (2021-11-06)
+
+
+### Bug Fixes
+
+* typo with function getValues ([ce27c72](https://github.com/CoCreate-app/CoCreate-api/commit/ce27c723c171a73490c63af2cde9122ec45d8087))
+
 ## [1.2.3](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.2...v1.2.3) (2021-11-06)
 
 
