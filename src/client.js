@@ -120,25 +120,25 @@ const CoCreateApi = {
 	
 	__getElValue: function(element) {
 		let value = null;
-		// if(element.getValue)
+		if(element.getValue)
 			value = element.getValue(element);
-		// else if (typeof element.value !== "undefined") {
-		// 	switch (element.type.toLocaleLowerCase()) {
-		// 		case 'checkbox':
-		// 			if (element.checked) {
-		// 				value = element.value;
-		// 			}
-		// 			break;
-		// 		default:
-		// 			value = element.value;
-		// 			break;
-		// 	}
-		// } else {
-		// 	value = element.getAttribute('value');
-		// 	if (!value) {
-		// 		value = element.innerHTML;
-		// 	}
-		// }
+		else if (typeof element.value !== "undefined") {
+			switch (element.type.toLocaleLowerCase()) {
+				case 'checkbox':
+					if (element.checked) {
+						value = element.value;
+					}
+					break;
+				default:
+					value = element.value;
+					break;
+			}
+		} else {
+			value = element.getAttribute('value');
+			if (!value) {
+				value = element.innerHTML;
+			}
+		}
 		
 		return value;
 	},
