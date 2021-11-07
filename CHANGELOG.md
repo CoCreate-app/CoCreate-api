@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.4...v1.2.5) (2021-11-07)
+
+
+### Bug Fixes
+
+* getValue || element.value ([3271612](https://github.com/CoCreate-app/CoCreate-api/commit/3271612ebf78ce845dc972138f5be25e3f4f99d3))
+
 ## [1.2.4](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.3...v1.2.4) (2021-11-06)
 
 
