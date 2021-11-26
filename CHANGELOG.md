@@ -1,3 +1,11 @@
+## [1.2.13](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.12...v1.2.13) (2021-11-26)
+
+
+### Bug Fixes
+
+* docs sidenav width ([3205573](https://github.com/CoCreate-app/CoCreate-api/commit/3205573efb1b76925b591b9de80b6c170634fa8c))
+* updated action dependency to actions ([69b8950](https://github.com/CoCreate-app/CoCreate-api/commit/69b8950291d4b51b58fb04c5789f33de37119431))
+
 ## [1.2.12](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.11...v1.2.12) (2021-11-26)
 
 
