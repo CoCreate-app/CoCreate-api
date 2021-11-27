@@ -1,6 +1,6 @@
 /*globals CustomEvent, config*/
 import CoCreateSocket from "@cocreate/socket-client";
-import CoCreateAction from '@cocreate/action';
+import CoCreateAction from '@cocreate/actions';
 import CoCreateRender from '@cocreate/render';
 
 let socketApi = new CoCreateSocket('api');
