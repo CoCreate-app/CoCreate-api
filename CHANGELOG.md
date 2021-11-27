@@ -1,3 +1,10 @@
+## [1.2.17](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.16...v1.2.17) (2021-11-27)
+
+
+### Bug Fixes
+
+* actions import typo ([4030ac2](https://github.com/CoCreate-app/CoCreate-api/commit/4030ac2ea256133a5481d35731a5dcb38e9db4e1))
+
 ## [1.2.16](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.15...v1.2.16) (2021-11-27)
 
 
