@@ -2,6 +2,7 @@
 import CoCreateSocket from "@cocreate/socket-client";
 import CoCreateAction from '@cocreate/actions';
 import CoCreateRender from '@cocreate/render';
+import CoCreateElements from '@cocreate/elements';
 
 let socketApi = new CoCreateSocket('api');
 
@@ -44,9 +45,9 @@ const CoCreateApi = {
 		}
 	},
 	
-	__responseProcess: function(m_name, data) {
+	__responseProcess: function(id, data) {
 		const {type, response} = data;
-		const m_instance = this.modules[m_name];
+		const m_instance = this.modules[id];
 		
 		if (type && response && m_instance) {
 		
@@ -65,24 +66,29 @@ const CoCreateApi = {
 	},
 	
 	__commonAction: function(id, action, element) {
-		const container = element.closest("form") || document;
-		let data = CoCreateApi.getFormData(id, action,  container);
+		const form = element.closest("form") || document;
+		let data = CoCreateApi.getFormData(id, action,  form);
 		CoCreateApi.send(id, action, data);
 	},
 	
 	
-	getFormData : function(m_name, action, container){
-		const mainAttr = `data-${m_name}`;
+	getFormData : function(id, action, form){
+		const mainAttr = id
 		const self = this;
-		const elements = container.querySelectorAll(`[${mainAttr}^="${action}."]`);
+		const elements = form.querySelectorAll(`[${mainAttr}^="${action}."]`);
 
 		let data = {};
 		elements.forEach(element => {
 			let name = element.getAttribute(mainAttr);
-			let array_name = element.getAttribute(mainAttr + "_array");
-			let value = self.__getElValue(element);
-			
 			if (!name) return;
+			
+			let array_name = element.getAttribute(mainAttr + "_array");
+
+			let value;
+			if(element.getValue)
+				value = element.getValue(element);
+			else
+				value = CoCreateElements.getValue(element);
 
 			if (action) {
 				let re = new RegExp(`^${action}.`, 'i');
@@ -97,7 +103,7 @@ const CoCreateApi = {
 				if (!data[name]) {
 					data[name] = [];
 				}
-				data[name].push(self.getFormData(m_name, array_name, element));
+				data[name].push(self.getFormData(id, array_name, element));
 			} else if (value != null) {
 				data[name] = value;
 			}
@@ -116,31 +122,6 @@ const CoCreateApi = {
 			}
 		});
 		return objectData;
-	},
-	
-	__getElValue: function(element) {
-		let value = null;
-		if(element.getValue)
-			value = element.getValue(element);
-		else if (typeof element.value !== "undefined") {
-			switch (element.type.toLocaleLowerCase()) {
-				case 'checkbox':
-					if (element.checked) {
-						value = element.value;
-					}
-					break;
-				default:
-					value = element.value;
-					break;
-			}
-		} else {
-			value = element.getAttribute('value');
-			if (!value) {
-				value = element.innerHTML;
-			}
-		}
-		
-		return value;
 	},
 	
 	__mergeObject: function(target, source) {
