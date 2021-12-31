@@ -72,8 +72,8 @@ const CoCreateApi = {
 	},
 	
 	
-	getFormData : function(id, action, form){
-		const mainAttr = id
+	getFormData: function(id, action, form){
+		const mainAttr = id;
 		const self = this;
 		const elements = form.querySelectorAll(`[${mainAttr}^="${action}."]`);
 
@@ -161,13 +161,12 @@ const CoCreateApi = {
 		});
 	},
 	
-	getCommonParams: function(info) 
-	{
+	getCommonParams: function(info) {
 		return {
 			"apiKey":           info.apiKey || config.apiKey,
 			"organization_id":  info.organization_id || config.organization_Id,
-		}
+		};
 	}
-}
+};
                 
 export default CoCreateApi;
