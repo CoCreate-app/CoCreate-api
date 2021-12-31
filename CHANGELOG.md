@@ -1,3 +1,11 @@
+## [1.2.20](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.19...v1.2.20) (2021-12-31)
+
+
+### Bug Fixes
+
+* clean code ([a44ef95](https://github.com/CoCreate-app/CoCreate-api/commit/a44ef95a5fb2e0686d811fdd11144d093c2e0455))
+* removed data- and added elements.getValue ([d339cbd](https://github.com/CoCreate-app/CoCreate-api/commit/d339cbd783f9fe5f244337907dc3ec3cd2d2cf54))
+
 ## [1.2.19](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.18...v1.2.19) (2021-12-15)
 
 
