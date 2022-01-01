@@ -156,22 +156,22 @@
 								<p class="padding:10px_0px line-height:1.5">
 									<pre><code class="language-html">
 	&lt;form&gt;  
-	   &lt;input data-stripe=&quot;createCustomer.name&quot;&gt;
-	   &lt;div data-stripe=&quot;createCustomer.address&quot; data-stripe_array=&quot;address&quot;&gt;
-	    	&lt;input data-stripe=&quot;address.home.city&quot;&gt;
-	    	&lt;input data-stripe=&quot;address.work&quot;&gt;
+	   &lt;input stripe=&quot;createCustomer.name&quot;&gt;
+	   &lt;div stripe=&quot;createCustomer.address&quot; stripe_array=&quot;address&quot;&gt;
+	    	&lt;input stripe=&quot;address.home.city&quot;&gt;
+	    	&lt;input stripe=&quot;address.work&quot;&gt;
 	    &lt;/div&gt;
 	    
-	    &lt;div data-stripe=&quot;createCustomer.address&quot; data-xxx_array=&quot;address&quot;&gt;
-	    	&lt;input data-stripe=&quot;address.home.city&quot;&gt;
-	    	&lt;input data-stripe=&quot;address.name&quot;&gt;
-	    	&lt;input data-stripe=&quot;address.line1&quot;&gt;
+	    &lt;div stripe=&quot;createCustomer.address&quot; xxx_array=&quot;address&quot;&gt;
+	    	&lt;input stripe=&quot;address.home.city&quot;&gt;
+	    	&lt;input stripe=&quot;address.name&quot;&gt;
+	    	&lt;input stripe=&quot;address.line1&quot;&gt;
 	
-	    	&lt;div data-stripe=&quot;address.billing&quot; data-xxx_array=&quot;b&quot;&gt;
-	    	    &lt;input data-stripe=&quot;b.address1&quot;&gt;
-	    	    &lt;input data-stripe=&quot;b.city&quot;&gt;
-	    	    &lt;input data-stripe=&quot;b.code.zip&quot;&gt;
-	    	    &lt;input data-stripe=&quot;b.code.postal&quot;&gt;
+	    	&lt;div stripe=&quot;address.billing&quot; xxx_array=&quot;b&quot;&gt;
+	    	    &lt;input stripe=&quot;b.address1&quot;&gt;
+	    	    &lt;input stripe=&quot;b.city&quot;&gt;
+	    	    &lt;input stripe=&quot;b.code.zip&quot;&gt;
+	    	    &lt;input stripe=&quot;b.code.postal&quot;&gt;
 	    	&lt;/div&gt;
 	    &lt;/div&gt;
 	   &lt;button actions=&#39;createCustomer&#39;&gt;Create Form&lt;/button&gt;
