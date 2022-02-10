@@ -1,3 +1,10 @@
+## [1.2.26](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.25...v1.2.26) (2022-02-10)
+
+
+### Bug Fixes
+
+* bump dependencies ([19c4eb9](https://github.com/CoCreate-app/CoCreate-api/commit/19c4eb979a2605716a2ba7d4702a23242e06a9d5))
+
 ## [1.2.25](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.24...v1.2.25) (2022-02-07)
 
 

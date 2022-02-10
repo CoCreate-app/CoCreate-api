@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/api",
-  "version": "1.2.25",
+  "version": "1.2.26",
   "description": "A simple api helper component in vanilla javascript used by JavaScript developers to create thirdparty api intergrations. CoCreate-api includes the client component and server side for api processing. Thirdparty apis can be accessible using HTML5 attributes and/or JavaScript API. ",
   "keywords": [
     "thirdparty-api-intergration",
