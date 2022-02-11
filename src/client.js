@@ -165,6 +165,7 @@ const CoCreateApi = {
 		return {
 			"apiKey":           info.apiKey || config.apiKey,
 			"organization_id":  info.organization_id || config.organization_Id,
+			"host":  info.host || config.host
 		};
 	}
 };
