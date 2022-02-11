@@ -1,3 +1,10 @@
+## [1.2.27](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.26...v1.2.27) (2022-02-11)
+
+
+### Bug Fixes
+
+* define host will be used when creating socket ([e7c4a88](https://github.com/CoCreate-app/CoCreate-api/commit/e7c4a8846b1131c98150f923e76ab42ec8bfe821))
+
 ## [1.2.26](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.25...v1.2.26) (2022-02-10)
 
 
