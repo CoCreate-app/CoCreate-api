@@ -11,7 +11,7 @@ var api = ( ()=> {
 	    wsManager.send(socket, send_response, obj)
 	},
 	  
-	 handleError: (wsManager,socket, type, error,module_id)=>{
+	handleError: (wsManager,socket, type, error, module_id)=>{
 		const response = {
 			'object': 'error',
 			'data':error || error.response || error.response.data || error.response.body || error.message || error,
@@ -74,20 +74,21 @@ var api = ( ()=> {
 			organization_id: config["config"]["organization_id"]
 		});
 
-	     //let data2 = await crud.listenAsync(eventGetOrg);
-	     console.log("data2 ===",data2)
-	   
-		 var org = data2["data"][0]
+		//let data2 = await crud.listenAsync(eventGetOrg);
+		console.log("data2 ===",data2)
 	
-		 var socket_config = {
-			    "config": {
-			        "apiKey": org["apiKey"],
-			        "organization_Id": org["_id"].toString(),
-			    },
-			    "prefix": "ws",
-			    "host": "server.cocreate.app:8088"
-			}
-			//other connection
+		var org = data2["data"][0]
+
+		var socket_config = {
+			"config": {
+				"apiKey": org["apiKey"],
+				"organization_Id": org["_id"].toString(),
+			},
+			"prefix": "ws",
+			"host": "server.cocreate.app:8088"
+		}
+
+		//other connection
 		socket.create({
 		  	namespace: socket_config.config.organization_Id,
 			room: null,
