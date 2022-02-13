@@ -30,11 +30,11 @@ const CoCreateApi = {
 				m_instance['actions'].forEach((action) => {
 					if (typeof m_instance[`action_${action}`] !== 'function') {
 						m_instance[`action_${action}`] = function(element) {
-							self.__commonAction(m_instance.id, action, element);
+							self.__commonAction(m_instance.name, action, element);
 						};
 					} 
 					CoCreateAction.init({
-						action: action,
+						name: action,
 						endEvent: action,
 						callback: (btn) => {
 							m_instance[`action_${action}`](btn);
