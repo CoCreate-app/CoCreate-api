@@ -1,3 +1,11 @@
+## [1.2.28](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.27...v1.2.28) (2022-02-16)
+
+
+### Bug Fixes
+
+* update action param to name ([c20f956](https://github.com/CoCreate-app/CoCreate-api/commit/c20f95664270d652c4e9f3205b461c5a64b39c62))
+* update m_instance.id to m_instance.name ([38da5df](https://github.com/CoCreate-app/CoCreate-api/commit/38da5dfda83f2313463fb6f3e25e92f1a16bbf79))
+
 ## [1.2.27](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.26...v1.2.27) (2022-02-11)
 
 
