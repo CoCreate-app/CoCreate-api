@@ -11,7 +11,7 @@ var api = ( ()=> {
 	    wsManager.send(socket, send_response, obj)
 	},
 	  
-	handleError: (wsManager,socket, type, error, module_id)=>{
+	handleError: (wsManager, socket, type, error, module_id)=>{
 		const response = {
 			'object': 'error',
 			'data':error || error.response || error.response.data || error.response.body || error.message || error,

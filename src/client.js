@@ -21,56 +21,46 @@ const CoCreateApi = {
 			this.modules[name] = m_instance;
 			
 			socketApi.listen(name, (data) => {
-				self.__responseProcess(name, data);
+				self.__response(name, data);
 			});
 			
-			//. register actions
-			
-			if (Array.isArray(m_instance['actions'])) {
-				m_instance['actions'].forEach((action) => {
-					if (typeof m_instance[`action_${action}`] !== 'function') {
-						m_instance[`action_${action}`] = function(element) {
-							self.__commonAction(m_instance.name, action, element);
-						};
-					} 
-					CoCreateAction.init({
-						name: action,
-						endEvent: action,
-						callback: (btn) => {
-							m_instance[`action_${action}`](btn);
-						},
-					});
+			for (const [action, functions] of Object.entries(m_instance['actions'])){
+				if (typeof functions.request !== 'function') {
+					functions.request = self.__request;
+				} 
+				CoCreateAction.init({
+					name: action,
+					endEvent: action,
+					callback: (element) => {
+						functions.request(m_instance.name, action, element);
+					},
 				});
 			}
 		}
 	},
-	
-	__responseProcess: function(id, data) {
-		const {type, response} = data;
-		const m_instance = this.modules[id];
-		
-		if (type && response && m_instance) {
-		
-			if ( typeof m_instance[`render_${type}`] === 'function') {
-				m_instance[`render_${type}`](response);
-			}
-			
-			this.render(type, response);
-			
-			document.dispatchEvent(new CustomEvent(type, {
-				detail: {
-					data: response
-				}
-			}));
-		}
-	},
-	
-	__commonAction: function(id, action, element) {
+
+	__request: function(id, action, element) {
 		const form = element.closest("form") || document;
 		let data = CoCreateApi.getFormData(id, action,  form);
 		CoCreateApi.send(id, action, data);
 	},
-	
+
+	__response: function(id, data) {
+		const {type, response} = data;
+		const m_instance = this.modules[id];
+		const functions = m_instance.actions[type]
+		if (typeof functions.response === 'function') {
+			functions.response(response);
+		}
+		else
+			this.render(type, response);
+		
+		document.dispatchEvent(new CustomEvent(type, {
+			detail: {
+				data: response
+			}
+		}));
+	},	
 	
 	getFormData: function(id, action, form){
 		const mainAttr = id;
@@ -150,8 +140,9 @@ const CoCreateApi = {
 	
 	send : function(module, action, data){ 
 		let request_data = this.getCommonParams(data || {});
-		request_data = {...request_data, data};
-		socketApi.send(module, {type: action, data: request_data});
+		data = {...request_data, type: action, data};
+		socketApi.send(module, data);
+		console.log('data', data)
 	},
 	
 	render: function(action, data) {
@@ -163,9 +154,9 @@ const CoCreateApi = {
 	
 	getCommonParams: function(info) {
 		return {
-			"apiKey":           info.apiKey || config.apiKey,
-			"organization_id":  info.organization_id || config.organization_Id,
-			"host":  info.host || config.host
+			"apiKey": info.apiKey || config.apiKey,
+			"organization_id": info.organization_id || config.organization_Id,
+			"host": info.host || config.host
 		};
 	}
 };
