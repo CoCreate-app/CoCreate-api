@@ -7,16 +7,15 @@ crud.setSocket(socket);
 var api = ( ()=> {
   return {
   	send_response: (wsManager, socket, obj, send_response) => {
-    	console.log(send_response, " Response Sent")
 	    wsManager.send(socket, send_response, obj)
 	},
 	  
-	handleError: (wsManager, socket, type, error, module_id)=>{
+	handleError: (wsManager, socket, action, error, module_id)=>{
 		const response = {
 			'object': 'error',
 			'data':error || error.response || error.response.data || error.response.body || error.message || error,
 		};
-		wsManager.send(socket, module_id, { type, response })
+		wsManager.send(socket, module_id, { action, response })
 	},
 
 	getOrg: async (config, module) =>{
@@ -75,7 +74,7 @@ var api = ( ()=> {
 		});
 
 		//let data2 = await crud.listenAsync(eventGetOrg);
-		console.log("data2 ===",data2)
+		// console.log("data2 ===", data2)
 	
 		var org = data2["data"][0]
 

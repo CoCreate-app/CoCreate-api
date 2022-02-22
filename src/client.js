@@ -46,16 +46,16 @@ const CoCreateApi = {
 	},
 
 	__response: function(id, data) {
-		const {type, response} = data;
+		const {action, response} = data;
 		const m_instance = this.modules[id];
-		const functions = m_instance.actions[type]
+		const functions = m_instance.actions[action]
 		if (typeof functions.response === 'function') {
 			functions.response(response);
 		}
 		else
-			this.render(type, response);
+			this.render(action, response);
 		
-		document.dispatchEvent(new CustomEvent(type, {
+		document.dispatchEvent(new CustomEvent(action, {
 			detail: {
 				data: response
 			}
@@ -140,9 +140,8 @@ const CoCreateApi = {
 	
 	send : function(module, action, data){ 
 		let request_data = this.getCommonParams(data || {});
-		data = {...request_data, type: action, data};
+		data = {...request_data, action, data};
 		socketApi.send(module, data);
-		console.log('data', data)
 	},
 	
 	render: function(action, data) {
