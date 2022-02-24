@@ -1,3 +1,12 @@
+## [1.2.30](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.29...v1.2.30) (2022-02-24)
+
+
+### Bug Fixes
+
+* CoCreate.config replace CoCreate.app with * ([62ecf98](https://github.com/CoCreate-app/CoCreate-api/commit/62ecf980e1e0efdc237d0015fd041ebaceb954eb))
+* removed name param from getOrg crud function ([4d868b5](https://github.com/CoCreate-app/CoCreate-api/commit/4d868b58982d4fb635f6d040073fad23dc225533))
+* update param type to action ([3ee6cd7](https://github.com/CoCreate-app/CoCreate-api/commit/3ee6cd7c6f2f67b0d26c49c0b202554e828633b4))
+
 ## [1.2.29](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.28...v1.2.29) (2022-02-16)
 
 
