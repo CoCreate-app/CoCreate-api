@@ -10,7 +10,7 @@ var api = ( ()=> {
 	    wsManager.send(socket, send_response, obj)
 	},
 	  
-	handleError: (wsManager, socket, action, error, module_id)=>{
+	handleError: (wsManager, socket, action, error, module_id) => {
 		const response = {
 			'object': 'error',
 			'data':error || error.response || error.response.data || error.response.body || error.message || error,
@@ -18,7 +18,7 @@ var api = ( ()=> {
 		wsManager.send(socket, module_id, { action, response })
 	},
 
-	getOrg: async (config, module) =>{
+	getOrg: async (config, module) => {
 
 		socket.create({
 			namespace: config["organization_id"],
@@ -42,7 +42,7 @@ var api = ( ()=> {
 		return org;
 	},
 
-	getOrgInRoutesbyHostname : async (config, hostname) =>{
+	getOrgInRoutesbyHostname : async (config, hostname) => {
  		var socket_config = {
   		    "config": {
   		        "apiKey": config["config"]["apiKey"],
