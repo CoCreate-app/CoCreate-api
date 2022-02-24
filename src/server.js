@@ -28,7 +28,6 @@ var api = ( ()=> {
 
 		let org = await crud.readDocument({
 	        collection: "organizations",
-	        name:"name",
 	        document_id: config["organization_id"],
 	        apiKey: config["apiKey"],
 		    organization_id: config["organization_id"]
