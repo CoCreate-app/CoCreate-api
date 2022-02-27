@@ -10,15 +10,15 @@ var api = ( ()=> {
 	    wsManager.send(socket, send_response, obj)
 	},
 	  
-	handleError: (wsManager, socket, action, error, module_id) => {
+	handleError: (wsManager, socket, action, error, component) => {
 		const response = {
 			'object': 'error',
 			'data':error || error.response || error.response.data || error.response.body || error.message || error,
 		};
-		wsManager.send(socket, module_id, { action, response })
+		wsManager.send(socket, component, { action, response })
 	},
 
-	getOrg: async (config, module) => {
+	getOrg: async (config, component) => {
 
 		socket.create({
 			namespace: config["organization_id"],
@@ -36,7 +36,7 @@ var api = ( ()=> {
 	    try{
 			org = org["data"];
 		}catch(e){
-			console.log(module," Error GET ORG  in : ",e);
+			console.log(component," Error GET ORG  in : ",e);
 			return false;
 		}
 		return org;

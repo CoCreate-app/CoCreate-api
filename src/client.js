@@ -7,24 +7,24 @@ import CoCreateElements from '@cocreate/elements';
 let socketApi = new CoCreateSocket('api');
 
 const CoCreateApi = { 
-	modules: { },
+	components: { },
 	
-	init: function({name, module}) {
-		this.register(name, module);
+	init: function({name, component}) {
+		this.register(name || component.name, component);
 		if (!socketApi.sockets.size)
 			socketApi.create(window.config);
 	},
 	
-	register: function(name, m_instance) {
+	register: function(name, component) {
 		const self = this;
-		if (typeof this.modules[name] === 'undefined') {
-			this.modules[name] = m_instance;
-			
+		if (typeof this.components[name] === 'undefined') {
+			this.components[name] = component;
+
 			socketApi.listen(name, (data) => {
 				self.__response(name, data);
 			});
 			
-			for (const [action, functions] of Object.entries(m_instance['actions'])){
+			for (const [action, functions] of Object.entries(component['actions'])){
 				if (typeof functions.request !== 'function') {
 					functions.request = self.__request;
 				} 
@@ -32,7 +32,7 @@ const CoCreateApi = {
 					name: action,
 					endEvent: action,
 					callback: (element) => {
-						functions.request(m_instance.name, action, element);
+						functions.request(component.name, action, element);
 					},
 				});
 			}
@@ -47,8 +47,8 @@ const CoCreateApi = {
 
 	__response: function(id, data) {
 		const {action, response} = data;
-		const m_instance = this.modules[id];
-		const functions = m_instance.actions[action]
+		const component = this.components[id];
+		const functions = component.actions[action]
 		if (typeof functions.response === 'function') {
 			functions.response(response);
 		}
@@ -138,10 +138,10 @@ const CoCreateApi = {
 		return newObject;
 	},
 	
-	send : function(module, action, data){ 
+	send : function(component, action, data){ 
 		let request_data = this.getCommonParams(data || {});
 		data = {...request_data, action, data};
-		socketApi.send(module, data);
+		socketApi.send(component, data);
 	},
 	
 	render: function(action, data) {
