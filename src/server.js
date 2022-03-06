@@ -93,22 +93,11 @@ var api = ( ()=> {
 			host: socket_config.host
 		})
 
-	    // socket.setGlobalScope(socket_config.config.organization_id)
-		let myOrg = await crud.readDocumentList({
+		let myOrg = await crud.readDocument({
 			collection: "organizations",
-			operator: {
-				filters: [{
-					name: '_id',
-					operator: "$eq",
-					value: [org["_id"].toString()]
-				}],
-				orders: [],
-				startIndex: 0,
-				search: { type: 'or', value: []}
-			},
-	         is_collection: false,
-	         apiKey: org["apiKey"],
-		     organization_id: org["_id"]
+			document_id: org["_id"],
+			apiKey: org["apiKey"],
+			organization_id: org["_id"]
 		});
 	    let result = {'row':myOrg,'socket_config':socket_config};
 	    return result;
