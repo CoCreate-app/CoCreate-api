@@ -1,3 +1,10 @@
+## [1.2.32](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.31...v1.2.32) (2022-03-06)
+
+
+### Bug Fixes
+
+* use redocument ot get org if org_id is known ([7ef0d5c](https://github.com/CoCreate-app/CoCreate-api/commit/7ef0d5c3dd1ced316c83173bd3e8a0f02e6949b7))
+
 ## [1.2.31](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.30...v1.2.31) (2022-02-27)
 
 
