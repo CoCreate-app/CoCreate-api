@@ -46,14 +46,14 @@ var api = ( ()=> {
  		var socket_config = {
   		    "config": {
   		        "apiKey": config["config"]["apiKey"],
-  		        "organization_Id": config["config"]["organization_id"],
+  		        "organization_id": config["config"]["organization_id"],
   		    },
   		    "prefix": "ws",
   		    "host": "server.cocreate.app:8088"
   		};
   		
 		socket.create({
-			namespace: socket_config.config.organization_Id,
+			namespace: socket_config.config.organization_id,
 			room: null,
 			host: socket_config.host
 		})
@@ -80,7 +80,7 @@ var api = ( ()=> {
 		var socket_config = {
 			"config": {
 				"apiKey": org["apiKey"],
-				"organization_Id": org["_id"].toString(),
+				"organization_id": org["_id"].toString(),
 			},
 			"prefix": "ws",
 			"host": "server.cocreate.app:8088"
@@ -88,7 +88,7 @@ var api = ( ()=> {
 
 		//other connection
 		socket.create({
-		  	namespace: socket_config.config.organization_Id,
+		  	namespace: socket_config.config.organization_id,
 			room: null,
 			host: socket_config.host
 		})

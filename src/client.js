@@ -154,7 +154,7 @@ const CoCreateApi = {
 	getCommonParams: function(info) {
 		return {
 			"apiKey": info.apiKey || config.apiKey,
-			"organization_id": info.organization_id || config.organization_Id,
+			"organization_id": info.organization_id || config.organization_id,
 			"host": info.host || config.host
 		};
 	}
