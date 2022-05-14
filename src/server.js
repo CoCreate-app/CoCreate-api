@@ -58,7 +58,7 @@ var api = ( ()=> {
 			host: socket_config.host
 		})
 	
-		let data2 = await crud.readDocumentList({
+		let data2 = await crud.readDocuments({
 			collection: "organizations",
 			operator: {
 				filters: [{
