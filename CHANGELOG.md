@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/CoCreate-app/CoCreate-api/compare/v1.3.0...v1.3.1) (2022-05-17)
+
+
+### Bug Fixes
+
+* update document_id on link index.css ([d982522](https://github.com/CoCreate-app/CoCreate-api/commit/d98252264b1dbb1470598a5cc6621c841bccd7be))
+
 # [1.3.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.2.33...v1.3.0) (2022-05-14)
 
 
