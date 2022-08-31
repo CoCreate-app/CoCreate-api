@@ -76,9 +76,7 @@ const CoCreateApi = {
 
 			let value;
 			if(element.getValue)
-				value = element.getValue(element);
-			else
-				value = CoCreateElements.getValue(element);
+				value = element.getValue();
 
 			if (action) {
 				let re = new RegExp(`^${action}.`, 'i');
