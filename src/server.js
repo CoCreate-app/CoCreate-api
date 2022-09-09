@@ -60,8 +60,8 @@ var api = ( ()=> {
 	
 		let data2 = await crud.readDocuments({
 			collection: "organizations",
-			operator: {
-				filters: [{
+			filter: {
+				query: [{
 					name: 'domains',
 					operator: "$in",
 					value: [hostname]
