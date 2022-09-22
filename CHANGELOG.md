@@ -1,3 +1,10 @@
+## [1.3.7](https://github.com/CoCreate-app/CoCreate-api/compare/v1.3.6...v1.3.7) (2022-09-22)
+
+
+### Bug Fixes
+
+* readDocuments - operator.filters renamed to filter.query ([366bd53](https://github.com/CoCreate-app/CoCreate-api/commit/366bd53c609e49f8021c7aaf7cf037c495065b0b))
+
 ## [1.3.6](https://github.com/CoCreate-app/CoCreate-api/compare/v1.3.5...v1.3.6) (2022-09-01)
 
 
