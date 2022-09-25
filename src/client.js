@@ -136,10 +136,8 @@ const CoCreateApi = {
 		return newObject;
 	},
 	
-	send : function(component, action, data){ 
-		let request_data = this.getCommonParams(data || {});
-		data = {...request_data, action, data};
-		socketApi.send(component, data);
+	send: function(component, action, data) { 
+		socketApi.send(component, {action, data});
 	},
 	
 	render: function(action, data) {
@@ -149,13 +147,6 @@ const CoCreateApi = {
 		});
 	},
 	
-	getCommonParams: function(info) {
-		return {
-			"apiKey": info.apiKey || config.apiKey,
-			"organization_id": info.organization_id || config.organization_id,
-			"host": info.host || config.host
-		};
-	}
 };
                 
 export default CoCreateApi;
