@@ -12,7 +12,7 @@ const CoCreateApi = {
 	init: function({name, component}) {
 		this.register(name || component.name, component);
 		if (!socketApi.sockets.size)
-			socketApi.create(window.config);
+			socketApi.create();
 	},
 	
 	register: function(name, component) {
