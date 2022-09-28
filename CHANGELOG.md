@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.3.7...v1.4.0) (2022-09-28)
+
+
+### Bug Fixes
+
+* removed getCommonParams as socket applies defaults ([17f0a5d](https://github.com/CoCreate-app/CoCreate-api/commit/17f0a5daaad506ebe00200e31cea22aa9b0c1ae0))
+* socket connection refactor ([3fa9e60](https://github.com/CoCreate-app/CoCreate-api/commit/3fa9e60c6843d0bb0a2b52ee52b38aa0f49150d8))
+
+
+### Features
+
+* config is accessible from socket.config ([803a08a](https://github.com/CoCreate-app/CoCreate-api/commit/803a08a5e865f3e62ef79b1702391e4bb044be7c))
+
 ## [1.3.7](https://github.com/CoCreate-app/CoCreate-api/compare/v1.3.6...v1.3.7) (2022-09-22)
 
 
