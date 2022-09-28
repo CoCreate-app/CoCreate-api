@@ -1,18 +1,16 @@
 /*globals CustomEvent, config*/
-import CoCreateSocket from "@cocreate/socket-client";
+import socket from "@cocreate/socket-client";
 import CoCreateAction from '@cocreate/actions';
 import CoCreateRender from '@cocreate/render';
 import CoCreateElements from '@cocreate/elements';
 
-let socketApi = new CoCreateSocket('api');
-
 const CoCreateApi = { 
 	components: { },
-	
+ 
 	init: function({name, component}) {
 		this.register(name || component.name, component);
-		if (!socketApi.sockets.size)
-			socketApi.create();
+		if (!socket.sockets.size)
+			socket.create({prefix: 'api'});
 	},
 	
 	register: function(name, component) {
@@ -20,7 +18,7 @@ const CoCreateApi = {
 		if (typeof this.components[name] === 'undefined') {
 			this.components[name] = component;
 
-			socketApi.listen(name, (data) => {
+			socket.listen(name, (data) => {
 				self.__response(name, data);
 			});
 			
@@ -137,7 +135,7 @@ const CoCreateApi = {
 	},
 	
 	send: function(component, action, data) { 
-		socketApi.send(component, {action, data});
+		socket.send(component, {action, data});
 	},
 	
 	render: function(action, data) {
