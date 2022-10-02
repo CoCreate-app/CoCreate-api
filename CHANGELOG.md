@@ -1,3 +1,10 @@
+## [1.4.12](https://github.com/CoCreate-app/CoCreate-api/compare/v1.4.11...v1.4.12) (2022-10-02)
+
+
+### Bug Fixes
+
+* minor bug fixes ([e97cc4e](https://github.com/CoCreate-app/CoCreate-api/commit/e97cc4e91b4d88be9c1b35c9b8bd70a51dba3baa))
+
 ## [1.4.11](https://github.com/CoCreate-app/CoCreate-api/compare/v1.4.10...v1.4.11) (2022-10-02)
 
 
