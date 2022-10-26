@@ -1,6 +1,12 @@
-const crud = require('@cocreate/crud-client')
+const CRUD = require('@cocreate/crud-client')
 const socketClient = require('@cocreate/socket-client')
 let socket = new socketClient("ws");
+
+let crud
+if(CRUD && CRUD.default)
+	crud = CRUD.default
+else
+	crud = CRUD
 
 crud.setSocket(socket);
 
@@ -28,18 +34,20 @@ var api = ( ()=> {
 
 		let org = await crud.readDocument({
 	        collection: "organizations",
-	        document_id: config["organization_id"],
 	        apiKey: config["apiKey"],
-		    organization_id: config["organization_id"]
+		    organization_id: config["organization_id"],
+			data: {
+				_id: config["organization_id"]
+			}
+
 	    });
 
-	    try{
-			org = org["data"];
-		}catch(e){
+		if (!org || !org.data && !org.data[0]) {
 			console.log(component," Error GET ORG  in : ",e);
 			return false;
 		}
-		return org;
+
+		return org.data[0];
 	},
 
 	getOrgInRoutesbyHostname : async (config, hostname) => {
@@ -58,7 +66,7 @@ var api = ( ()=> {
 			host: socket_config.host
 		})
 	
-		let data2 = await crud.readDocuments({
+		let data2 = await crud.readDocument({
 			collection: "organizations",
 			filter: {
 				query: [{
@@ -67,7 +75,6 @@ var api = ( ()=> {
 					value: [hostname]
 				}],
 			},
-			is_collection: false,
 			apiKey: config["config"]["apiKey"],
 			organization_id: config["config"]["organization_id"]
 		});
@@ -95,9 +102,11 @@ var api = ( ()=> {
 
 		let myOrg = await crud.readDocument({
 			collection: "organizations",
-			document_id: org["_id"],
 			apiKey: org["apiKey"],
-			organization_id: org["_id"]
+			organization_id: org["_id"],
+			data: {
+				_id: org["_id"]
+			}
 		});
 	    let result = {'row':myOrg,'socket_config':socket_config};
 	    return result;
