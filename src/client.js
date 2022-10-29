@@ -2,7 +2,7 @@
 import socket from "@cocreate/socket-client";
 import CoCreateAction from '@cocreate/actions';
 import CoCreateRender from '@cocreate/render';
-import CoCreateElements from '@cocreate/elements';
+import '@cocreate/element-prototype';
 
 const CoCreateApi = { 
 	components: { },
