@@ -36,18 +36,18 @@ var api = ( ()=> {
 	        collection: "organizations",
 	        apiKey: config["apiKey"],
 		    organization_id: config["organization_id"],
-			data: {
+			document: {
 				_id: config["organization_id"]
 			}
 
 	    });
 
-		if (!org || !org.data && !org.data[0]) {
+		if (!org || !org.document && !org.document[0]) {
 			console.log(component," Error GET ORG  in : ",e);
 			return false;
 		}
 
-		return org.data[0];
+		return org.document[0];
 	},
 
 	getOrgInRoutesbyHostname : async (config, hostname) => {
@@ -78,11 +78,8 @@ var api = ( ()=> {
 			apiKey: config["config"]["apiKey"],
 			organization_id: config["config"]["organization_id"]
 		});
-
-		//let data2 = await crud.listenAsync(eventGetOrg);
-		// console.log("data2 ===", data2)
 	
-		var org = data2["data"][0]
+		var org = data2.document[0]
 
 		var socket_config = {
 			"config": {
@@ -104,7 +101,7 @@ var api = ( ()=> {
 			collection: "organizations",
 			apiKey: org["apiKey"],
 			organization_id: org["_id"],
-			data: {
+			document: {
 				_id: org["_id"]
 			}
 		});
