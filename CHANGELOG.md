@@ -1,3 +1,16 @@
+# [1.5.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.4.13...v1.5.0) (2022-11-21)
+
+
+### Bug Fixes
+
+* renamed data.data to data.document ([ba27705](https://github.com/CoCreate-app/CoCreate-api/commit/ba27705c60773631448b04b61adbad2bea0eaa0f))
+* update crud functions to receive an array of objects as the response ([4e2b817](https://github.com/CoCreate-app/CoCreate-api/commit/4e2b817c05a0843208b6e57adf055fd37926d875))
+
+
+### Features
+
+* Add @cocreate/element-prototype ([ca92d48](https://github.com/CoCreate-app/CoCreate-api/commit/ca92d48985897b6eecdac6ef60c4e74462d5fe19))
+
 ## [1.4.13](https://github.com/CoCreate-app/CoCreate-api/compare/v1.4.12...v1.4.13) (2022-10-02)
 
 
