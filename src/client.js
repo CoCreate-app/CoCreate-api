@@ -73,7 +73,7 @@ const CoCreateApi = {
 			let array_name = element.getAttribute(mainAttr + "_array");
 
 			let value;
-			if(element.getValue)
+			if (element.getValue)
 				value = element.getValue();
 
 			if (action) {
