@@ -2,12 +2,6 @@ const CRUD = require('@cocreate/crud-client')
 const socketClient = require('@cocreate/socket-client')
 let socket = new socketClient("ws");
 
-let crud
-if (CRUD && CRUD.default)
-	crud = CRUD.default
-else
-	crud = CRUD
-
 crud.setSocket(socket);
 
 var api = ( ()=> {
