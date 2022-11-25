@@ -1,3 +1,11 @@
+## [1.5.10](https://github.com/CoCreate-app/CoCreate-api/compare/v1.5.9...v1.5.10) (2022-11-25)
+
+
+### Bug Fixes
+
+* bump dependencies ([ee917d7](https://github.com/CoCreate-app/CoCreate-api/commit/ee917d7ee3bc64593b40abd084a76b504f619112))
+* CoCreate.crud.default removed bug causing default object ([9fc63e2](https://github.com/CoCreate-app/CoCreate-api/commit/9fc63e2cca813e6e3c66ed0000d4b86e12680f74))
+
 ## [1.5.9](https://github.com/CoCreate-app/CoCreate-api/compare/v1.5.8...v1.5.9) (2022-11-24)
 
 
