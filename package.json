@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/api",
-  "version": "1.5.10",
+  "version": "1.5.11",
   "description": "A simple api helper component in vanilla javascript used by JavaScript developers to create thirdparty api intergrations. CoCreate-api includes the client component and server side for api processing. Thirdparty apis can be accessible using HTML5 attributes and/or JavaScript API. ",
   "keywords": [
     "thirdparty-api-intergration",
@@ -21,7 +21,9 @@
     "html5-framework",
     "javascript-framework"
   ],
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "npx webpack --config webpack.config.js",
     "build": "NODE_ENV=production npx webpack --config webpack.config.js",
@@ -35,7 +37,9 @@
   },
   "author": "CoCreate LLC",
   "license": "GPL-3.0",
-  "bugs": { "url": "https://github.com/CoCreate-app/CoCreate-api/issues" },
+  "bugs": {
+    "url": "https://github.com/CoCreate-app/CoCreate-api/issues"
+  },
   "homepage": "https://cocreate.app/docs/api",
   "funding": {
     "type": "GitHub Sponsors ❤",
