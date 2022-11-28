@@ -21,9 +21,7 @@
     "html5-framework",
     "javascript-framework"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
+  "publishConfig": { "access": "public" },
   "scripts": {
     "start": "npx webpack --config webpack.config.js",
     "build": "NODE_ENV=production npx webpack --config webpack.config.js",
@@ -37,9 +35,7 @@
   },
   "author": "CoCreate LLC",
   "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/CoCreate-app/CoCreate-api/issues"
-  },
+  "bugs": { "url": "https://github.com/CoCreate-app/CoCreate-api/issues" },
   "homepage": "https://cocreate.app/docs/api",
   "funding": {
     "type": "GitHub Sponsors ❤",
@@ -62,12 +58,12 @@
     "webpack-log": "^3.0.1"
   },
   "dependencies": {
-    "@cocreate/actions": "^1.5.25",
-    "@cocreate/crud-client": "^1.15.6",
-    "@cocreate/docs": "^1.4.7",
-    "@cocreate/element-prototype": "^1.1.12",
-    "@cocreate/hosting": "^1.6.6",
-    "@cocreate/render": "^1.16.12",
-    "@cocreate/socket-client": "^1.11.8"
+    "@cocreate/actions": "^1.5.26",
+    "@cocreate/crud-client": "^1.15.8",
+    "@cocreate/docs": "^1.4.8",
+    "@cocreate/element-prototype": "^1.1.13",
+    "@cocreate/hosting": "^1.6.7",
+    "@cocreate/render": "^1.16.13",
+    "@cocreate/socket-client": "^1.11.10"
   }
 }
