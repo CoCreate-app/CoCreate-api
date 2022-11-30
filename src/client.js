@@ -135,7 +135,7 @@ const CoCreateApi = {
 	},
 	
 	send: function(component, action, data) { 
-		socket.send(component, {action, data});
+		socket.send(component, {action, data, broadcastBrowser: false});
 	},
 	
 	render: function(action, data) {
