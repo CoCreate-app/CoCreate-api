@@ -1,3 +1,11 @@
+## [1.5.15](https://github.com/CoCreate-app/CoCreate-api/compare/v1.5.14...v1.5.15) (2022-12-02)
+
+
+### Bug Fixes
+
+* bump dependencies ([b5f7467](https://github.com/CoCreate-app/CoCreate-api/commit/b5f74678b46b51c0590ec38d76b1a6984c2761f9))
+* set broadcastBrowser to false ([bf7a6de](https://github.com/CoCreate-app/CoCreate-api/commit/bf7a6dece8d5a4e479803e66125f4b1129ba249e))
+
 ## [1.5.14](https://github.com/CoCreate-app/CoCreate-api/compare/v1.5.13...v1.5.14) (2022-11-28)
 
 
