@@ -1,3 +1,10 @@
+## [1.5.24](https://github.com/CoCreate-app/CoCreate-api/compare/v1.5.23...v1.5.24) (2022-12-13)
+
+
+### Bug Fixes
+
+* removed un used devDependencies ([ade4014](https://github.com/CoCreate-app/CoCreate-api/commit/ade40144132a3b76801991d55f0856018cf1cfa1))
+
 ## [1.5.23](https://github.com/CoCreate-app/CoCreate-api/compare/v1.5.22...v1.5.23) (2022-12-13)
 
 
