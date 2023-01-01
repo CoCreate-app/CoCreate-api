@@ -1,3 +1,10 @@
+## [1.5.36](https://github.com/CoCreate-app/CoCreate-api/compare/v1.5.35...v1.5.36) (2023-01-01)
+
+
+### Bug Fixes
+
+* docs sanbox overflow ([8125e25](https://github.com/CoCreate-app/CoCreate-api/commit/8125e25fac2f9baca4a522d106a69a6d7c7f8e0d))
+
 ## [1.5.35](https://github.com/CoCreate-app/CoCreate-api/compare/v1.5.34...v1.5.35) (2022-12-31)
 
 
