@@ -1,3 +1,11 @@
+## [1.6.2](https://github.com/CoCreate-app/CoCreate-api/compare/v1.6.1...v1.6.2) (2023-01-06)
+
+
+### Bug Fixes
+
+* bump dependencies, worklow [@v3](https://github.com/v3) ([5b91e6a](https://github.com/CoCreate-app/CoCreate-api/commit/5b91e6ac367bcfaad9a500da952e99f9b4922760))
+* edit in github btn styles ([aa82d15](https://github.com/CoCreate-app/CoCreate-api/commit/aa82d15d4d69e506305887e5beedcebf0825dd6b))
+
 ## [1.6.1](https://github.com/CoCreate-app/CoCreate-api/compare/v1.6.0...v1.6.1) (2023-01-05)
 
 
