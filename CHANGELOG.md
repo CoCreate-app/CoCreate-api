@@ -1,3 +1,10 @@
+## [1.6.7](https://github.com/CoCreate-app/CoCreate-api/compare/v1.6.6...v1.6.7) (2023-01-28)
+
+
+### Bug Fixes
+
+* bump depndcencies ([5f7407a](https://github.com/CoCreate-app/CoCreate-api/commit/5f7407a82d29b217e761550f8579da4d02847db1))
+
 ## [1.6.6](https://github.com/CoCreate-app/CoCreate-api/compare/v1.6.5...v1.6.6) (2023-01-27)
 
 
