@@ -1,11 +1,12 @@
 /*globals CustomEvent, config*/
+import { getValueFromObject, dotNotationToObject} from "@cocreate/utils";
 import socket from "@cocreate/socket-client";
 import CoCreateAction from '@cocreate/actions';
 import CoCreateRender from '@cocreate/render';
 import '@cocreate/element-prototype';
 
 const CoCreateApi = { 
-	components: { },
+	components: {},
  
 	init: function({name, component}) {
 		this.register(name || component.name, component);
@@ -37,10 +38,10 @@ const CoCreateApi = {
 		}
 	},
 
-	__request: function(id, action, element) {
-		const form = element.closest("form") || document;
-		let data = CoCreateApi.getFormData(id, action,  form);
-		CoCreateApi.send(id, action, data);
+	__request: function(name, action, element) {
+		let form = element.closest('form');
+		let data = this.getData(name, action, form);
+		this.send(name, action, data[action]);
 	},
 
 	__response: function(id, data) {
@@ -58,82 +59,8 @@ const CoCreateApi = {
 				data: response
 			}
 		}));
-	},	
-	
-	getFormData: function(id, action, form){
-		const mainAttr = id;
-		const self = this;
-		const elements = form.querySelectorAll(`[${mainAttr}^="${action}."]`);
-
-		let data = {};
-		elements.forEach(element => {
-			let name = element.getAttribute(mainAttr);
-			if (!name) return;
-			
-			let array_name = element.getAttribute(mainAttr + "_array");
-
-			let value;
-			if (element.getValue)
-				value = element.getValue();
-
-			if (action) {
-				let re = new RegExp(`^${action}.`, 'i');
-				if (re.test(name)) {
-					name = name.replace(re, "");
-				} else {
-					return;
-				}
-			}
-			
-			if (array_name) {
-				if (!data[name]) {
-					data[name] = [];
-				}
-				data[name].push(self.getFormData(id, array_name, element));
-			} else if (value != null) {
-				data[name] = value;
-			}
-		});
-		
-		let keys = Object.keys(data);
-		let objectData = {};
-		keys.forEach((k) => {
-			if (k.split('.').length > 1) {
-				let newData = self.__createObject(data[k], k);
-				delete data[k];
-				
-				objectData = self.__mergeObject(objectData, newData);
-			} else {
-				objectData[k] = data[k];
-			}
-		});
-		return objectData;
 	},
-	
-	__mergeObject: function(target, source) {
-		target = target || {};
-		for (let key of Object.keys(source)) {
-			if (source[key] instanceof Object) {
-				Object.assign(source[key], this.__mergeObject(target[key], source[key]));
-			}
-		}
-		
-		Object.assign(target || {}, source);
-		return target;
-	},
-	
-	__createObject: function (data, path) {
-		if (!path) return data;
-		
-		let keys = path.split('.');
-		let newObject = data;
 
-		for (var  i = keys.length - 1; i >= 0; i--) {
-			newObject = {[keys[i]]: newObject};				
-		}
-		return newObject;
-	},
-	
 	send: function(component, action, data) { 
 		socket.send(component, {action, data, broadcastBrowser: false});
 	},
@@ -144,6 +71,43 @@ const CoCreateApi = {
 			data: data
 		});
 	},
+	
+	getData: function(attribute, action, form) {
+		let data = {}
+		const selector = `[${attribute}^="${action}."]`
+		if (!form)
+			form = document;
+		let elements = form.querySelectorAll(selector);
+		if (!elements || elements.length == 0) return
+	
+		for (let el of elements) {
+			let name = el.getAttribute(attribute)
+			let value = el.getValue();
+			if (name)
+				data[name] = value
+		}
+		return dotNotationToObject(data);
+	},
+
+	setData: function(attribute, action, form) {
+		const selector = `[${attribute}^="${action}."]`
+		if (!form)
+			form = document;
+		let elements = form.querySelectorAll(selector);
+		if (!elements || elements.length == 0) return
+	
+		for (let el of elements) {
+			let name = el.getAttribute(attribute)
+			const { isRead, isUpdate, isCrdt } = crud.getAttributes(el);
+			if (!name || isRead == "false" || isUpdate == "false" || isCrdt == "true") continue;
+			
+			if (el.hasAttribute('actions')) continue;
+
+			let value = getValueFromObject({[action]: data}, name);
+			el.setValue(value);
+		}
+
+	}	
 	
 };
                 
