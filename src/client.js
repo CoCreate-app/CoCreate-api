@@ -8,22 +8,39 @@ import '@cocreate/element-prototype';
 const CoCreateApi = { 
 	components: {},
  
-	init: function({name, component}) {
-		this.register(name || component.name, component);
+	init: function({name, actions, realtime}) {
+		this.register({name, actions});
 		if (!socket.sockets.size)
 			socket.create({prefix: 'api'});
+		document.addEventListener('input', (e)=> {
+			let action = e.target.getAttribute(name)
+			if (action) {
+				action = action.split('.', 1)
+				action = action[0]
+				if (actions[action].realtime !== false) {
+					if (realtime !== false && actions[action].realtime !== undefined) {
+						let functions = actions[action]
+						if (typeof functions.request === 'function') {
+							functions.request(name, action, e.target)
+						}
+					}
+				}
+			}
+
+		})
 	},
 	
-	register: function(name, component) {
+	register: function({name, actions}) {
 		const self = this;
 		if (typeof this.components[name] === 'undefined') {
-			this.components[name] = component;
+			this.components[name] = {name, actions};
 
 			socket.listen(name, (data) => {
 				self.__response(name, data);
 			});
 			
-			for (const [action, functions] of Object.entries(component['actions'])){
+			for (const action of Object.keys(actions)) {
+				let functions = actions[action]
 				if (typeof functions.request !== 'function') {
 					functions.request = self.__request;
 				} 
@@ -31,7 +48,7 @@ const CoCreateApi = {
 					name: action,
 					endEvent: action,
 					callback: (element) => {
-						functions.request(component.name, action, element);
+						functions.request(name, action, element);
 					},
 				});
 			}
@@ -44,9 +61,9 @@ const CoCreateApi = {
 		this.send(name, action, data[action]);
 	},
 
-	__response: function(id, data) {
+	__response: function(name, data) {
 		const {action, response} = data;
-		const component = this.components[id];
+		const component = this.components[name];
 		const functions = component.actions[action]
 		if (typeof functions.response === 'function') {
 			functions.response(response);
@@ -61,8 +78,8 @@ const CoCreateApi = {
 		}));
 	},
 
-	send: function(component, action, data) { 
-		socket.send(component, {action, data, broadcastBrowser: false});
+	send: function(name, action, data) { 
+		socket.send(name, {action, data, broadcastBrowser: false});
 	},
 	
 	render: function(action, data) {
