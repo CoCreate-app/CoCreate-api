@@ -1,3 +1,11 @@
+# [1.7.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.6.12...v1.7.0) (2023-02-11)
+
+
+### Features
+
+* getData and setData functions, added @cocreate/utils functions getValueFromObject, dotNotationToObject ([88e8170](https://github.com/CoCreate-app/CoCreate-api/commit/88e81703f3138c80b3060e07ccf428a19c09f381))
+* spport realtime  api request. defaults to true ([21f9621](https://github.com/CoCreate-app/CoCreate-api/commit/21f9621b6a4e724f4b21539521df38214183b871))
+
 ## [1.6.12](https://github.com/CoCreate-app/CoCreate-api/compare/v1.6.11...v1.6.12) (2023-02-01)
 
 
