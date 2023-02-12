@@ -121,7 +121,7 @@ const CoCreateApi = {
 			
 			if (el.hasAttribute('actions')) continue;
 
-			let value = getValueFromObject({[action]: data}, name);
+			let value = getValueFromObject({[action]: {[name]: data}}, name);
 			el.setValue(value);
 		}
 
