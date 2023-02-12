@@ -1,9 +1,10 @@
 /*globals CustomEvent, config*/
-import { getValueFromObject, dotNotationToObject} from "@cocreate/utils";
+import {getAttributes, getValueFromObject, dotNotationToObject} from "@cocreate/utils";
 import socket from "@cocreate/socket-client";
 import CoCreateAction from '@cocreate/actions';
 import CoCreateRender from '@cocreate/render';
 import '@cocreate/element-prototype';
+import utils from "@cocreate/utils/src/utils";
 
 const CoCreateApi = { 
 	components: {},
@@ -115,7 +116,7 @@ const CoCreateApi = {
 	
 		for (let el of elements) {
 			let name = el.getAttribute(attribute)
-			const { isRead, isUpdate, isCrdt } = crud.getAttributes(el);
+			const { isRead, isUpdate, isCrdt } = getAttributes(el);
 			if (!name || isRead == "false" || isUpdate == "false" || isCrdt == "true") continue;
 			
 			if (el.hasAttribute('actions')) continue;
