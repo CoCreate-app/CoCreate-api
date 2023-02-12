@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/CoCreate-app/CoCreate-api/compare/v1.7.0...v1.7.1) (2023-02-12)
+
+
+### Bug Fixes
+
+* setData missng data param ([ff9c158](https://github.com/CoCreate-app/CoCreate-api/commit/ff9c1586ea2cabe0f8bb1428b4046afa20bedfcd))
+
 # [1.7.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.6.12...v1.7.0) (2023-02-11)
 
 
