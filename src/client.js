@@ -106,7 +106,7 @@ const CoCreateApi = {
 		return dotNotationToObject(data);
 	},
 
-	setData: function(attribute, action, form) {
+	setData: function(attribute, action, data, form) {
 		const selector = `[${attribute}^="${action}."]`
 		if (!form)
 			form = document;
