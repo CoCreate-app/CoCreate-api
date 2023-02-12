@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/CoCreate-app/CoCreate-api/compare/v1.7.2...v1.7.3) (2023-02-12)
+
+
+### Bug Fixes
+
+* getValueFromObject ([d326bb6](https://github.com/CoCreate-app/CoCreate-api/commit/d326bb6baa49c170ac70a9b15b2d57a501aaf2cc))
+
 ## [1.7.2](https://github.com/CoCreate-app/CoCreate-api/compare/v1.7.1...v1.7.2) (2023-02-12)
 
 
