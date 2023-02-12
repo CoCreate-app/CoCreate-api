@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/CoCreate-app/CoCreate-api/compare/v1.7.1...v1.7.2) (2023-02-12)
+
+
+### Bug Fixes
+
+* import getAttributes from utils ([0782ede](https://github.com/CoCreate-app/CoCreate-api/commit/0782edef09f271b1beb3da859c8358240471e5b6))
+
 ## [1.7.1](https://github.com/CoCreate-app/CoCreate-api/compare/v1.7.0...v1.7.1) (2023-02-12)
 
 
