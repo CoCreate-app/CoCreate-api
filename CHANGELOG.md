@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.8.0...v1.9.0) (2023-03-16)
+
+
+### Features
+
+* replaced get-value and set-value with a super charged version of CoCreate-events ([6f93361](https://github.com/CoCreate-app/CoCreate-api/commit/6f933619b24cd021bb0b5b4972ee21cf5f969696))
+
 # [1.8.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.7.3...v1.8.0) (2023-03-15)
 
 
