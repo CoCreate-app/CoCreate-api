@@ -1,3 +1,10 @@
+## [1.9.7](https://github.com/CoCreate-app/CoCreate-api/compare/v1.9.6...v1.9.7) (2023-04-13)
+
+
+### Bug Fixes
+
+* check if undefined ([3ac208f](https://github.com/CoCreate-app/CoCreate-api/commit/3ac208fa3f5a68f18d8cedb5a7fbff11fa13984c))
+
 ## [1.9.6](https://github.com/CoCreate-app/CoCreate-api/compare/v1.9.5...v1.9.6) (2023-04-11)
 
 
