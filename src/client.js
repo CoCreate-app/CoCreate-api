@@ -147,7 +147,7 @@ const CoCreateApi = {
 		if (!elements || elements.length == 0)
 			elements = [element]
 		for (let el of elements) {
-			if (el.closest('[template]')) continue
+			if (!el || el.closest('[template]')) continue
 			let attribute = el.getAttribute(name)
 			if (attribute)
 				data[attribute] = el.getValue()
