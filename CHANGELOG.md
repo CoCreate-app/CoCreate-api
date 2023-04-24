@@ -1,3 +1,10 @@
+## [1.10.4](https://github.com/CoCreate-app/CoCreate-api/compare/v1.10.3...v1.10.4) (2023-04-24)
+
+
+### Bug Fixes
+
+* updated worrkflows to v3 and node version 16 ([20cdc65](https://github.com/CoCreate-app/CoCreate-api/commit/20cdc659cf2513100b9d0f5aebae6777ef7673db))
+
 ## [1.10.3](https://github.com/CoCreate-app/CoCreate-api/compare/v1.10.2...v1.10.3) (2023-04-24)
 
 
