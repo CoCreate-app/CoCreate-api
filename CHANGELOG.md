@@ -1,3 +1,11 @@
+## [1.10.9](https://github.com/CoCreate-app/CoCreate-api/compare/v1.10.8...v1.10.9) (2023-05-10)
+
+
+### Bug Fixes
+
+* apikey renamed to key ([81bdb4b](https://github.com/CoCreate-app/CoCreate-api/commit/81bdb4bf945c1c9e74440264659b0024cebe3898))
+* apikey renamed to key ([2a2f48b](https://github.com/CoCreate-app/CoCreate-api/commit/2a2f48bf165f59f1e699a9a51155c0afae99ca34))
+
 ## [1.10.8](https://github.com/CoCreate-app/CoCreate-api/compare/v1.10.7...v1.10.8) (2023-05-06)
 
 
