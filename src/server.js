@@ -28,7 +28,7 @@ var api = ( ()=> {
 
 		let org = await crud.readDocument({
 	        collection: "organizations",
-	        apiKey: config["apiKey"],
+	        key: config["key"],
 		    organization_id: config["organization_id"],
 			document: {
 				_id: config["organization_id"]
@@ -47,7 +47,7 @@ var api = ( ()=> {
 	getOrgInRoutesbyHostname : async (config, hostname) => {
  		var socket_config = {
   		    "config": {
-  		        "apiKey": config["config"]["apiKey"],
+  		        "key": config["config"]["key"],
   		        "organization_id": config["config"]["organization_id"],
   		    },
   		    "prefix": "ws",
@@ -69,7 +69,7 @@ var api = ( ()=> {
 					value: [hostname]
 				}],
 			},
-			apiKey: config["config"]["apiKey"],
+			key: config["config"]["key"],
 			organization_id: config["config"]["organization_id"]
 		});
 	
@@ -77,7 +77,7 @@ var api = ( ()=> {
 
 		var socket_config = {
 			"config": {
-				"apiKey": org["apiKey"],
+				"key": org["key"],
 				"organization_id": org["_id"].toString(),
 			},
 			"prefix": "ws",
@@ -93,7 +93,7 @@ var api = ( ()=> {
 
 		let myOrg = await crud.readDocument({
 			collection: "organizations",
-			apiKey: org["apiKey"],
+			key: org["key"],
 			organization_id: org["_id"],
 			document: {
 				_id: org["_id"]
