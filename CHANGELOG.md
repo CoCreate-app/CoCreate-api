@@ -1,3 +1,10 @@
+## [1.10.12](https://github.com/CoCreate-app/CoCreate-api/compare/v1.10.11...v1.10.12) (2023-05-20)
+
+
+### Bug Fixes
+
+* updated dependencies to their latest versions ([7100983](https://github.com/CoCreate-app/CoCreate-api/commit/710098302b67e483a843da1e2528bd1bf6fd9893))
+
 ## [1.10.11](https://github.com/CoCreate-app/CoCreate-api/compare/v1.10.10...v1.10.11) (2023-05-20)
 
 
