@@ -34,23 +34,23 @@
 					<div class="display:flex align-items:center transition:0.3s padding-left:10px" share-network="true" share-text="An api helper component in vanilla javascript to setup thirdparty api intergrations. Apis can be accessible using HTML5 attributes and/or JavaScript API"
 					 share-title="CoCreate API form" share-height="600" share-width="700" share-media="https://cdn.cocreate.app/docs/api.png" hover="display:block!important" hover-target=".social-networks">
 						<div class="display:none social-networks">
-							<a class="margin-right:15px" share-network='twitter' title="Share on twitter"><i class="height:20px fill:#505050" src="/assets/svg/twitter.svg"></i></a>
-							<a class="margin-right:15px" share-network='facebook' title="Share on Facebook"><i class="height:20px fill:#505050" src="/assets/svg/facebook.svg"></i></a>
-							<a class="margin-right:15px" share-network='instagram' title="Share on instagram"><i class="height:20px fill:#505050" src="/assets/svg/instagram.svg"></i></a>
+							<a class="margin-right:15px" share-network="twitter" title="Share on twitter"><i class="height:20px fill:#505050" src="/assets/svg/twitter.svg"></i></a>
+							<a class="margin-right:15px" share-network="facebook" title="Share on Facebook"><i class="height:20px fill:#505050" src="/assets/svg/facebook.svg"></i></a>
+							<a class="margin-right:15px" share-network="instagram" title="Share on instagram"><i class="height:20px fill:#505050" src="/assets/svg/instagram.svg"></i></a>
 						</div>
-						<a class="margin-right:15px" share-network='share' title="Share on share"><i class="height:20px fill:#505050" src="/assets/svg/share-alt.svg"></i></a>
+						<a class="margin-right:15px" share-network="share" title="Share on share"><i class="height:20px fill:#505050" src="/assets/svg/share-alt.svg"></i></a>
 					</div>
 					<a href="https://github.com/CoCreate-app/CoCreate-dnd" target="_blank" class=""><i class="height:20px fill:#505050" src="/assets/svg/github.svg"></i></a>
 				</div>
 			</div>
 			<h1 class="max-width:500px margin:20px_10px line-height:1.5 font-size:16px font-weight:100">CoCreate-api is a simple api helper component in vanilla javascript used by JavaScript developers to create thirdparty api intergrations. Thirdparty apis can be accessible using HTML5 attributes and/or JavaScript API. CoCreate-api includes the
-				client component and server side for api processing.</p>
+				client component and server side for api processing.</h1>
 			<div id="api-section" class="display:flex flex-wrap:wrap">
 				<div class="flex-grow:1 width:400px width:300px@xs padding:0px_10px margin-top:60px">
 	
 	
 					<div id="api-install" class="border-bottom:1px_solid_lightgrey" scroll scroll-intersect="color:dodgerblue" scroll-target="#api-install-section">
-						<span class="display:flex align-items:center width:fit-content" hover="display:block!important" hover-target='[href="#api-install"]'>
+						<span class="display:flex align-items:center width:fit-content" hover="display:block!important" hover-target="[href='#api-install']">
 		                            <h2 class="padding:5px_0px">Install</h2>
 		                            <a class="margin-left:10px display:none" href="#api-install"><i class="height:20px fill:#505050" src="/assets/svg/link.svg"></i></a>
 		                        </span>
@@ -115,7 +115,7 @@
 			init() {
 				if (this.wsManager) {
 					//. endpoint = module_name (ex: stripe)
-					this.wsManager.on(this.module_id, (socket, data) => this.sendStripe(socket, data));
+					this.wsManager.on(this.module_id, (socket, data) = this.sendStripe(socket, data));
 				}
 			}
 			async sendStripe(socket, data) {
@@ -171,7 +171,7 @@
 	
 					<!-- SandBox -->
 					<div id="api-demo" class="border-bottom:1px_solid_lightgrey" scroll scroll-intersect="color:dodgerblue" scroll-target="#api-demo-section">
-						<span class="display:flex align-items:center width:fit-content" hover="display:block!important" hover-target='[href="#api-demo"]'>
+						<span class="display:flex align-items:center width:fit-content" hover="display:block!important" hover-target="[href='#api-demo']">
 		                            <h2 class="padding:5px_0px">Demo</h2>
 		                            <a class="margin-left:10px display:none" href="#api-demo"><i class="height:20px fill:#505050" src="/assets/svg/link.svg"></i></a>
 		                        </span>
@@ -187,7 +187,7 @@
                             </div>
         
                             <div id="demo-preview" class="position:relative overflow:auto background-color:white">
-                                <div class="demopreview" class="padding:20px"></div>
+                                <div class="demopreview padding:20px"></div>
                             </div>
                             
                             <div class="font-size:20px position:absolute top:10px right:10px opacity:0.6">

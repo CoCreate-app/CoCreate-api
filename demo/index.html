@@ -1,52 +1,60 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Api | CoCreateJS</title>
         <!-- CoCreate Favicon -->
-        <link rel="icon" href="https://cdn.cocreate.app/favicon.ico" type="image/ico" sizes="16x16">
-		<link rel="manifest" href="/manifest.webmanifest" />
-	</head>
+        <link
+            rel="icon"
+            href="https://cdn.cocreate.app/favicon.ico"
+            type="image/ico"
+            sizes="16x16" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+    </head>
     <body>
-        
         <h1>Form Demo</h1>
-        
+
         <form>
-            <input xxx="xxxCreateRequest.name">
-        
+            <input xxx="xxxCreateRequest.name" />
+
             <div xxx="xxxCreateRequest.address" xxx_array="address">
-            	<input xxx="address.home.city">
-            	<input xxx="address.work">
+                <input xxx="address.home.city" />
+                <input xxx="address.work" />
             </div>
-            
+
             <div xxx="xxxCreateRequest.address" xxx_array="address">
-            	<input xxx="address.home.city">
-            	<input xxx="address.name">
-            	<input xxx="address.line1">
-        
-            	<div xxx="address.billing" xxx_array="b">
-            	    <input xxx="b.address1">
-            	    <input xxx="b.city">
-            	    <input xxx="b.code.zip">
-            	    <input xxx="b.code.postal">
-            	</div>
+                <input xxx="address.home.city" />
+                <input xxx="address.name" />
+                <input xxx="address.line1" />
+
+                <div xxx="address.billing" xxx_array="b">
+                    <input xxx="b.address1" />
+                    <input xxx="b.city" />
+                    <input xxx="b.code.zip" />
+                    <input xxx="b.code.postal" />
+                </div>
             </div>
-            <input xxx="xxxCreateRequest.email">
-            
-            <div template_id="xxxCreateCard" render-array="data.card" render-key="c"  xxx="xxxCreateCard.card" xxx_array="card">
-                <input xxx="card.number" value="c.number">
-                <input xxx="card.cvv" value="c.cvv">
-                <input xxx="card.expiry" value="c.expiry">
+            <input xxx="xxxCreateRequest.email" />
+
+            <div
+                template_id="xxxCreateCard"
+                render-array="data.card"
+                render-key="c"
+                xxx="xxxCreateCard.card"
+                xxx_array="card">
+                <input xxx="card.number" value="c.number" />
+                <input xxx="card.cvv" value="c.cvv" />
+                <input xxx="card.expiry" value="c.expiry" />
             </div>
-            
-            
-            <button actions='xxxCreateRequest, xxxCreateCard'>Create Form</button>
+
+            <button actions="xxxCreateRequest, xxxCreateCard">
+                Create Form
+            </button>
         </form>
-        
+
         <h1>Result</h1>
-                
+
         <!--CoCreateJS   CDN-->
         <!-- <script src="https://cdn.cocreate.app/api/latest/CoCreate-api.min.js"></script> -->
         <script src="../dist/CoCreate-api.js"></script>
-    
     </body>
 </html>
