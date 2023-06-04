@@ -1,3 +1,10 @@
+## [1.10.15](https://github.com/CoCreate-app/CoCreate-api/compare/v1.10.14...v1.10.15) (2023-06-04)
+
+
+### Bug Fixes
+
+* [@v3](https://github.com/v3) ([90d4122](https://github.com/CoCreate-app/CoCreate-api/commit/90d412253f584bf4715292925151d9f44bed83f0))
+
 ## [1.10.14](https://github.com/CoCreate-app/CoCreate-api/compare/v1.10.13...v1.10.14) (2023-06-04)
 
 
