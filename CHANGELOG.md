@@ -1,3 +1,10 @@
+## [1.10.23](https://github.com/CoCreate-app/CoCreate-api/compare/v1.10.22...v1.10.23) (2023-06-11)
+
+
+### Bug Fixes
+
+* postintall error ([1929ea3](https://github.com/CoCreate-app/CoCreate-api/commit/1929ea3d3709c4b6c55d5d6403171e854e6e3f9b))
+
 ## [1.10.22](https://github.com/CoCreate-app/CoCreate-api/compare/v1.10.21...v1.10.22) (2023-06-11)
 
 
