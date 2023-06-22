@@ -21,7 +21,7 @@
 <body>
 	<nav class="nav display:flex align-items:center left:0px background:whitesmoke padding-top:10px padding-bottom:10px" content_id="content" scroll="sticky-nav,hide-nav" scroll-up="10" scroll-down="10" collection="files" document_id="60395ef42b3ac232657040fd" name="src">
 	</nav>
-	<sidenav id="menuL" class="position:fixed top:0px left:0px overflow:hidden background:whitesmoke height:100vh width:0px width:300px@xl" resizable resize-target="[content_id='content']" resize-property="margin-left" resize-value="width">
+	<sidenav id="menuL" class="position:fixed top:0px left:0px overflow:hidden background:whitesmoke height:100vh width:0px width:300px@xl" resizable resize-selector="[content_id='content']" resize-property="margin-left" resize-value="width">
 		<menu collection="files" document_id="603717b07de7fb350ae9fec8" name="src"></menu>
 		<div resize="right"></div>
 	</sidenav>
@@ -38,8 +38,8 @@
 		<div id="api-section" class="display:flex flex-wrap:wrap">
 			<div class="flex-grow:1 width:400px width:300px@xs padding:0px_10px margin-top:60px">
 
-				<div id="api-install" class="border-bottom:1px_solid_lightgrey" scroll scroll-intersect="color:dodgerblue" scroll-target="#api-install-section">
-					<span class="display:flex align-items:center width:fit-content" hover="display:block!important" hover-target="[href='#api-install']">
+				<div id="api-install" class="border-bottom:1px_solid_lightgrey" scroll scroll-intersect="color:dodgerblue" scroll-selector="#api-install-section">
+					<span class="display:flex align-items:center width:fit-content" hover="display:block!important" hover-selector="[href='#api-install']">
 	                            <h2 class="padding:5px_0px">Install</h2>
 	                            <a class="margin-left:10px display:none" href="#api-install"><i class="height:20px fill:#505050" src="/assets/svg/link.svg"></i></a>
 	                        </span>
@@ -52,7 +52,7 @@
 				<pre><code class="language-html">&lt;script&gt;https://cdn.cocreate.app/api/latest/CoCreate-api.min.js&lt;/script&gt;</code></pre>
 
 				<div>
-					<h2 id="api-dependencies" hover="display:block" hover-target="" class="border-bottom:1px_solid_lightgrey margin-top:80px padding:5px_0px">Dependencies components</h2>
+					<h2 id="api-dependencies" hover="display:block" hover-selector="" class="border-bottom:1px_solid_lightgrey margin-top:80px padding:5px_0px">Dependencies components</h2>
 					<a class="display:none" href="#api-dependencies"><i class="height:20px fill:#505050" src="/assets/svg/link.svg"></i></a>
 				</div>
 				<p class="padding:10px_0px line-height:1.5">
@@ -62,7 +62,7 @@
 
 
 				<div>
-					<h2 id="api-development" hover="display:block" hover-target="" class="border-bottom:1px_solid_lightgrey margin-top:80px padding:5px_0px">Development Guide</h2>
+					<h2 id="api-development" hover="display:block" hover-selector="" class="border-bottom:1px_solid_lightgrey margin-top:80px padding:5px_0px">Development Guide</h2>
 					<a class="display:none" href="#api-development"><i class="height:20px fill:#505050" src="/assets/svg/link.svg"></i></a>
 				</div>
 
@@ -159,8 +159,8 @@
 			<div class="flex-grow:1 width:300px padding:0px_10px margin-top:60px border-bottom:1px_solid_lightgrey">
 
 				<!-- SandBox -->
-				<div id="api-demo" class="border-bottom:1px_solid_lightgrey" scroll scroll-intersect="color:dodgerblue" scroll-target="#api-demo-section">
-					<span class="display:flex align-items:center width:fit-content" hover="display:block!important" hover-target="[href='#api-demo']">
+				<div id="api-demo" class="border-bottom:1px_solid_lightgrey" scroll scroll-intersect="color:dodgerblue" scroll-selector="#api-demo-section">
+					<span class="display:flex align-items:center width:fit-content" hover="display:block!important" hover-selector="[href='#api-demo']">
 	                            <h2 class="padding:5px_0px">Demo</h2>
 	                            <a class="margin-left:10px display:none" href="#api-demo"><i class="height:20px fill:#505050" src="/assets/svg/link.svg"></i></a>
 	                        </span>
@@ -181,11 +181,11 @@
                             </div>
                             
                             <div class="font-size:20px position:absolute top:10px right:10px opacity:0.6">
-                                <a class="margin-right:10px" id="eye" show="#eye-slash" hide="#eye, #demo-preview" toggle="code-height" toggle-target="#demo-code"><i class="height:18px fill:#505050" src="/assets/svg/eye.svg"></i></a>
-                                <a class="margin-right:10px" hidden id="eye-slash" show="#eye, #demo-preview" hide="#eye-slash" toggle="code-height" toggle-target="#demo-code"><i class="height:20px fill:#505050" src="/assets/svg/eye-slash.svg"></i></a>
+                                <a class="margin-right:10px" id="eye" show="#eye-slash" hide="#eye, #demo-preview" toggle="code-height" toggle-selector="#demo-code"><i class="height:18px fill:#505050" src="/assets/svg/eye.svg"></i></a>
+                                <a class="margin-right:10px" hidden id="eye-slash" show="#eye, #demo-preview" hide="#eye-slash" toggle="code-height" toggle-selector="#demo-code"><i class="height:20px fill:#505050" src="/assets/svg/eye-slash.svg"></i></a>
                                 <a class="margin-right:10px" id="code" show="#code-slash" hide="#code, #demo-code"><i class="height:20px fill:#505050" src="/assets/svg/code.svg"></i></a>
                                 <a class="margin-right:10px" hidden id="code-slash" show="#code, #demo-code" hide="#code-slash"><i class="display:flex height:18px fill:#505050" src="/assets/svg/code.svg"></i></a>
-                                <a class="margin-right:5px" fullscreen fullscreen-target="#playground"></a>
+                                <a class="margin-right:5px" fullscreen fullscreen-selector="#playground"></a>
                             </div>
         
                         </div>
