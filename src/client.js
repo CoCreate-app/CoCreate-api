@@ -122,7 +122,8 @@ const CoCreateApi = {
     },
 
     send: function (name, endPoint, data) {
-        socket.send(name, { endPoint, data, broadcastBrowser: false });
+        let method = name + '.' + endPoint
+        socket.send({ method, endPoint, data, broadcastBrowser: false });
     },
 
     parseParams: function ({ name, endPoint, element }) {

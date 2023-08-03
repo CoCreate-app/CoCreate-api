@@ -26,22 +26,23 @@ var api = (() => {
                 host: config["host"]
             })
 
-            let org = await crud.readDocument({
-                collection: "organizations",
+            let org = await crud.send({
+                method: 'read.object',
+                array: "organizations",
                 key: config["key"],
                 organization_id: config["organization_id"],
-                document: {
+                object: {
                     _id: config["organization_id"]
                 }
 
             });
 
-            if (!org || !org.document && !org.document[0]) {
+            if (!org || !org.object && !org.object[0]) {
                 console.log(component, " Error GET ORG  in : ", e);
                 return false;
             }
 
-            return org.document[0];
+            return org.object[0];
         },
 
         getOrgInRoutesbyHostname: async (config, hostname) => {
@@ -60,8 +61,9 @@ var api = (() => {
                 host: socket_config.host
             })
 
-            let data2 = await crud.readDocument({
-                collection: "organizations",
+            let data2 = await crud.send({
+                method: 'read.object',
+                array: "organizations",
                 filter: {
                     query: [{
                         name: 'host',
@@ -73,7 +75,7 @@ var api = (() => {
                 organization_id: config["config"]["organization_id"]
             });
 
-            var org = data2.document[0]
+            var org = data2.object[0]
 
             var socket_config = {
                 "config": {
@@ -91,11 +93,12 @@ var api = (() => {
                 host: socket_config.host
             })
 
-            let myOrg = await crud.readDocument({
-                collection: "organizations",
+            let myOrg = await crud.send({
+                method: 'read.object',
+                array: "organizations",
                 key: org["key"],
                 organization_id: org["_id"],
-                document: {
+                object: {
                     _id: org["_id"]
                 }
             });
