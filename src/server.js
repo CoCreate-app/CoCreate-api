@@ -66,7 +66,7 @@ var api = (() => {
                 array: "organizations",
                 filter: {
                     query: [{
-                        name: 'host',
+                        key: 'host',
                         operator: "$in",
                         value: [hostname]
                     }],
