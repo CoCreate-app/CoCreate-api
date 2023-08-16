@@ -1,3 +1,20 @@
+# [1.11.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.10.31...v1.11.0) (2023-08-16)
+
+
+### Bug Fixes
+
+* crud attributes renamed ([739fd2e](https://github.com/CoCreate-app/CoCreate-api/commit/739fd2ec4db058f064561373395adeaf5da2265e))
+* render-array and render-object attributes renamed to render ([558b8cd](https://github.com/CoCreate-app/CoCreate-api/commit/558b8cd0b3ca4c648ea39dbea9de4bf37ea5adeb))
+* replace -target -selector ([8daf241](https://github.com/CoCreate-app/CoCreate-api/commit/8daf24163608a51eb0daad64fc4f430a56e14be9))
+* updated actions callback data object ([8034616](https://github.com/CoCreate-app/CoCreate-api/commit/803461695887e239074761ecf52a5240313699fa))
+* webpack.config and package.json make use of mode=production instead of process.env ([af618e8](https://github.com/CoCreate-app/CoCreate-api/commit/af618e8b4c9f2369f91f7486d94ab7f974ede83f))
+
+
+### Features
+
+* name attribute and variable renamed to key ([9e8016d](https://github.com/CoCreate-app/CoCreate-api/commit/9e8016d583d02fb9a0e0dfa0b8c1e153e56b0981))
+* update template_id to render-selector attribute. update filter attributes to filter selector-attributes ([d22a5be](https://github.com/CoCreate-app/CoCreate-api/commit/d22a5beb7e6afe50c41f4dccde6a92000366d219))
+
 ## [1.10.31](https://github.com/CoCreate-app/CoCreate-api/compare/v1.10.30...v1.10.31) (2023-06-14)
 
 
