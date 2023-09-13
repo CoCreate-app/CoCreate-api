@@ -64,12 +64,14 @@ var api = (() => {
             let data2 = await crud.send({
                 method: 'read.object',
                 array: "organizations",
-                filter: {
-                    query: [{
-                        key: 'host',
-                        operator: "$in",
-                        value: [hostname]
-                    }],
+                object: {
+                    $filter: {
+                        query: [{
+                            key: 'host',
+                            operator: "$in",
+                            value: [hostname]
+                        }],
+                    },
                 },
                 key: config["config"]["key"],
                 organization_id: config["config"]["organization_id"]
