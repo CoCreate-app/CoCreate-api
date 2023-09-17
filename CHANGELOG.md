@@ -1,3 +1,10 @@
+## [1.13.2](https://github.com/CoCreate-app/CoCreate-api/compare/v1.13.1...v1.13.2) (2023-09-17)
+
+
+### Bug Fixes
+
+* object.$filter ([a0478fd](https://github.com/CoCreate-app/CoCreate-api/commit/a0478fd279797da26b0713eae4aea02e473e3c4c))
+
 ## [1.13.1](https://github.com/CoCreate-app/CoCreate-api/compare/v1.13.0...v1.13.1) (2023-08-21)
 
 
