@@ -97,9 +97,9 @@ const CoCreateApi = {
         }
     },
 
-    __request: function ({ name, endPoint, element }) {
+    __request: async function ({ name, endPoint, element }) {
         let form = element.closest('form');
-        let data = this.getData({ name, endPoint, form });
+        let data = await this.getData({ name, endPoint, form });
         this.send(name, endPoint, data[endPoint]);
     },
 
@@ -140,7 +140,7 @@ const CoCreateApi = {
     },
 
 
-    getData: function ({ name, endPoint, element, form }) {
+    getData: async function ({ name, endPoint, element, form }) {
         const data = {}
         const selector = `[${name}^="${endPoint}."]`
         let elements
@@ -152,7 +152,7 @@ const CoCreateApi = {
             if (!el || el.closest('[template]')) continue
             let attribute = el.getAttribute(name)
             if (attribute)
-                data[attribute] = el.getValue()
+                data[attribute] = await el.getValue()
         }
 
         return dotNotationToObject(data);
