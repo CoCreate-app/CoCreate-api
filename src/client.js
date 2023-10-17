@@ -3,7 +3,7 @@ import { getAttributes, getValueFromObject, dotNotationToObject } from "@cocreat
 import observer from "@cocreate/observer";
 import socket from "@cocreate/socket-client";
 import action from '@cocreate/actions';
-import render from '@cocreate/render';
+import { render } from '@cocreate/render';
 import '@cocreate/element-prototype';
 
 const CoCreateApi = {
@@ -174,7 +174,7 @@ const CoCreateApi = {
                     let items = document.querySelectorAll(`[templateid="${templateid}"]`)
                     for (let item of items)
                         item.remove()
-                    render.data({
+                    render({
                         selector: `[template="${templateid}"]`,
                         data
                     });
