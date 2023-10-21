@@ -2,7 +2,7 @@ const CRUD = require('@cocreate/crud-client')
 const socketClient = require('@cocreate/socket-client')
 let socket = new socketClient("ws");
 
-crud.setSocket(socket);
+CRUD.setSocket(socket);
 
 var api = (() => {
     return {
@@ -26,7 +26,7 @@ var api = (() => {
                 host: config["host"]
             })
 
-            let org = await crud.send({
+            let org = await CRUD.send({
                 method: 'read.object',
                 array: "organizations",
                 key: config["key"],
@@ -61,7 +61,7 @@ var api = (() => {
                 host: socket_config.host
             })
 
-            let data2 = await crud.send({
+            let data2 = await CRUD.send({
                 method: 'read.object',
                 array: "organizations",
                 object: {
@@ -95,7 +95,7 @@ var api = (() => {
                 host: socket_config.host
             })
 
-            let myOrg = await crud.send({
+            let myOrg = await CRUD.send({
                 method: 'read.object',
                 array: "organizations",
                 key: org["key"],
