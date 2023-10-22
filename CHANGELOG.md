@@ -1,3 +1,10 @@
+## [1.15.8](https://github.com/CoCreate-app/CoCreate-api/compare/v1.15.7...v1.15.8) (2023-10-22)
+
+
+### Bug Fixes
+
+* CRUD declaration ([dcd6f71](https://github.com/CoCreate-app/CoCreate-api/commit/dcd6f71129a89600a1c54f822aae9d990adedb0c))
+
 ## [1.15.7](https://github.com/CoCreate-app/CoCreate-api/compare/v1.15.6...v1.15.7) (2023-10-19)
 
 
