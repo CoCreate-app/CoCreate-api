@@ -27,7 +27,7 @@ var api = (() => {
             })
 
             let org = await CRUD.send({
-                method: 'read.object',
+                method: 'object.read',
                 array: "organizations",
                 key: config["key"],
                 organization_id: config["organization_id"],
@@ -62,7 +62,7 @@ var api = (() => {
             })
 
             let data2 = await CRUD.send({
-                method: 'read.object',
+                method: 'object.read',
                 array: "organizations",
                 object: {
                     $filter: {
@@ -96,7 +96,7 @@ var api = (() => {
             })
 
             let myOrg = await CRUD.send({
-                method: 'read.object',
+                method: 'object.read',
                 array: "organizations",
                 key: org["key"],
                 organization_id: org["_id"],
