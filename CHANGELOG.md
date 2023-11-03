@@ -1,3 +1,13 @@
+## [1.15.10](https://github.com/CoCreate-app/CoCreate-api/compare/v1.15.9...v1.15.10) (2023-11-03)
+
+
+### Bug Fixes
+
+* favicon.ico path ([dfdeee5](https://github.com/CoCreate-app/CoCreate-api/commit/dfdeee51fe79a7ebcb0a7731da4f11c5ddcfa088))
+* removed apikey.js ([cd25fd4](https://github.com/CoCreate-app/CoCreate-api/commit/cd25fd4255878abdae1ec228d76dd55a8c201e19))
+* update dependencies to the lates versions ([2282be8](https://github.com/CoCreate-app/CoCreate-api/commit/2282be8c474fd185676cea83e702642e5eeef4a5))
+* update method to use object.update etc ([b9b7709](https://github.com/CoCreate-app/CoCreate-api/commit/b9b7709015256a22eedb154ed49b48f7a0b3b716))
+
 ## [1.15.9](https://github.com/CoCreate-app/CoCreate-api/compare/v1.15.8...v1.15.9) (2023-10-25)
 
 
