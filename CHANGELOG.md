@@ -1,3 +1,10 @@
+## [1.15.11](https://github.com/CoCreate-app/CoCreate-api/compare/v1.15.10...v1.15.11) (2023-11-09)
+
+
+### Bug Fixes
+
+* update host ([0761fb9](https://github.com/CoCreate-app/CoCreate-api/commit/0761fb97072dce7fe7934e37d6a857e5001ca7ed))
+
 ## [1.15.10](https://github.com/CoCreate-app/CoCreate-api/compare/v1.15.9...v1.15.10) (2023-11-03)
 
 
