@@ -6,18 +6,6 @@ CRUD.setSocket(socket);
 
 var api = (() => {
     return {
-        send_response: (wsManager, socket, obj, send_response) => {
-            wsManager.send(socket, send_response, obj)
-        },
-
-        handleError: (wsManager, socket, action, error, component) => {
-            const response = {
-                'object': 'error',
-                'data': error || error.response || error.response.data || error.response.body || error.message || error,
-            };
-            wsManager.send(socket, component, { action, response })
-        },
-
         getOrg: async (config, component) => {
 
             socket.create({
