@@ -1,3 +1,15 @@
+# [1.16.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.15.12...v1.16.0) (2023-11-19)
+
+
+### Bug Fixes
+
+* removed dead code ([0664289](https://github.com/CoCreate-app/CoCreate-api/commit/06642893d1f77217b23960eabc99cd657b84470a))
+
+
+### Features
+
+* update dependecies for th latest features and bug fixes ([9cf019c](https://github.com/CoCreate-app/CoCreate-api/commit/9cf019c4072a0881781006b7530205ca9ea62524))
+
 ## [1.15.12](https://github.com/CoCreate-app/CoCreate-api/compare/v1.15.11...v1.15.12) (2023-11-12)
 
 
