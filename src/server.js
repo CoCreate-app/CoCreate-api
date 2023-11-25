@@ -1,102 +1,60 @@
-const CRUD = require('@cocreate/crud-client')
-const socketClient = require('@cocreate/socket-client')
-let socket = new socketClient("ws");
+class CoCreateApi {
+    constructor(crud) {
+        this.wsManager = crud.wsManager
+        this.crud = crud
+        this.init()
+    }
 
-CRUD.setSocket(socket);
+    async getOrganization(config, component) {
 
-var api = (() => {
-    return {
-        getOrg: async (config, component) => {
-
-            socket.create({
-                namespace: config["organization_id"],
-                room: null,
-                host: config["host"]
-            })
-
-            let org = await CRUD.send({
-                method: 'object.read',
-                array: "organizations",
-                key: config["key"],
-                organization_id: config["organization_id"],
-                object: {
-                    _id: config["organization_id"]
-                }
-
-            });
-
-            if (!org || !org.object && !org.object[0]) {
-                console.log(component, " Error GET ORG  in : ", e);
-                return false;
+        let org = await CRUD.send({
+            method: 'object.read',
+            array: "organizations",
+            key: config["key"],
+            organization_id: config["organization_id"],
+            object: {
+                _id: config["organization_id"]
             }
 
-            return org.object[0];
-        },
+        });
 
-        getOrgInRoutesbyHostname: async (config, hostname) => {
-            var socket_config = {
-                "config": {
-                    "key": config["config"]["key"],
-                    "organization_id": config["config"]["organization_id"],
-                },
-                "prefix": "ws",
-                "host": "server.cocreate.app:8088"
-            };
+        if (!org || !org.object && !org.object[0]) {
+            console.log(component, " Error GET ORG  in : ", e);
+            return false;
+        }
 
-            socket.create({
-                namespace: socket_config.config.organization_id,
-                room: null,
-                host: socket_config.host
-            })
+        return org.object[0];
+    }
 
-            let data2 = await CRUD.send({
-                method: 'object.read',
-                array: "organizations",
-                object: {
-                    $filter: {
-                        query: [{
-                            key: 'host',
-                            operator: "$in",
-                            value: [hostname]
-                        }],
-                    },
-                },
-                key: config["config"]["key"],
-                organization_id: config["config"]["organization_id"]
-            });
+    async getApiKey(organization_id, name) {
+        this.organizations[organization_id] = this.getOrganization(organization_id, name)
+        this.organizations[organization_id] = await this.organizations[organization_id]
+        return this.organizations[organization_id]
+    }
 
-            var org = data2.object[0]
+    async getOrganizationNew(organization_id, name) {
+        let organization = await this.crud.send({
+            method: 'object.read',
+            database: organization_id,
+            array: 'organizations',
+            object: [{ _id: organization_id }],
+            organization_id
+        })
 
-            var socket_config = {
-                "config": {
-                    "key": org["key"],
-                    "organization_id": org["_id"].toString(),
-                },
-                "prefix": "ws",
-                "host": "server.cocreate.app:8088"
-            }
-
-            //other connection
-            socket.create({
-                namespace: socket_config.config.organization_id,
-                room: null,
-                host: socket_config.host
-            })
-
-            let myOrg = await CRUD.send({
-                method: 'object.read',
-                array: "organizations",
-                key: org["key"],
-                organization_id: org["_id"],
-                object: {
-                    _id: org["_id"]
-                }
-            });
-            let result = { 'row': myOrg, 'socket_config': socket_config };
-            return result;
+        if (organization
+            && organization.object
+            && organization.object[0]) {
+            if (organization.object[0].apis && organization.object[0].apis[name]) {
+                return organization.object[0].apis && organization.object[0].apis[name]
+            } else
+                return { [this.name]: false, error: 'An apikey could not be found' }
+        } else {
+            return { serverOrganization: false, error: 'An organization could not be found' }
         }
 
     }
-})();
 
-module.exports = api;
+}
+
+
+module.exports = CoCreateApi;
