@@ -1,3 +1,15 @@
+# [1.18.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.17.0...v1.18.0) (2023-11-25)
+
+
+### Bug Fixes
+
+* update licensing details ([7ba9214](https://github.com/CoCreate-app/CoCreate-api/commit/7ba9214f494a5ae71e056853edb6bb730e6d666d))
+
+
+### Features
+
+* upgrade dependencies for latest features and fixes ([22a8e3a](https://github.com/CoCreate-app/CoCreate-api/commit/22a8e3ae85d8f73d203978ca9a3529e6d7babc94))
+
 # [1.17.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.16.0...v1.17.0) (2023-11-25)
 
 
