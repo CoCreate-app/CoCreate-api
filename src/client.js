@@ -11,7 +11,7 @@ const CoCreateApi = {
 
     init: function ({ name, endPoints, options }) {
         this.register({ name, endPoints, options });
-        if (options.socket !== false && !socket.sockets.size)
+        if (options && options.socket !== false && !socket.sockets.size)
             socket.create({ prefix: 'api' });
     },
 
