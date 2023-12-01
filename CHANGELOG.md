@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/CoCreate-app/CoCreate-api/compare/v1.18.0...v1.18.1) (2023-12-01)
+
+
+### Bug Fixes
+
+* added constructor ([cfd4f49](https://github.com/CoCreate-app/CoCreate-api/commit/cfd4f4960b48f48a4ef3b4bc75272cb192800480))
+
 # [1.18.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.17.0...v1.18.0) (2023-11-25)
 
 
