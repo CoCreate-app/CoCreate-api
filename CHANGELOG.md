@@ -1,3 +1,15 @@
+# [1.19.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.18.2...v1.19.0) (2024-01-08)
+
+
+### Bug Fixes
+
+* applied host to define environment/branch ([93d0288](https://github.com/CoCreate-app/CoCreate-api/commit/93d028877f4c2bdccc6c02ee7435620c8c8b2bab))
+
+
+### Features
+
+* bumped CoCreate dependencies to their latest versions ([c4e4a48](https://github.com/CoCreate-app/CoCreate-api/commit/c4e4a4826419af23da119063be0e56eb9fcc3ff9))
+
 ## [1.18.2](https://github.com/CoCreate-app/CoCreate-api/compare/v1.18.1...v1.18.2) (2023-12-09)
 
 
