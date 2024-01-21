@@ -7,7 +7,7 @@ class CoCreateApi {
 
     async getOrganization(config, component) {
 
-        let organization = await this.crud.getOrganization(config.organization_id);
+        let organization = await this.crud.getOrganization(config);
 
         if (!organization.error)
             return false;
