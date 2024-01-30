@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/CoCreate-app/CoCreate-api/compare/v1.19.0...v1.19.1) (2024-01-30)
+
+
+### Bug Fixes
+
+* update getOrganization param ([bdcfb79](https://github.com/CoCreate-app/CoCreate-api/commit/bdcfb79d6437b86900a9157a06e50df13c04c22d))
+
 # [1.19.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.18.2...v1.19.0) (2024-01-08)
 
 
