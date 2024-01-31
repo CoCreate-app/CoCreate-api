@@ -25,6 +25,10 @@ const CoCreateApi = {
             });
 
             for (const endPoint of Object.keys(endPoints)) {
+                socket.listen(name + '.' + endPoint, (data) => {
+                    self.__response(name, data);
+                });
+
                 let functions = endPoints[endPoint]
                 if (typeof functions.request !== 'function') {
                     functions.request = self.__request;
@@ -33,13 +37,12 @@ const CoCreateApi = {
                     name: endPoint,
                     endEvent: endPoint,
                     callback: (data) => {
-                        let params
                         const element = data.element
-                        let form = element.closest('form') || document
+                        let form = data.form || document
                         const selector = `[${name}^="${endPoint}."]`
                         let el = form.querySelector(selector)
                         if (!el) return
-                        params = self.parseParams({ name, element: el })
+                        let params = self.parseParams({ name, element: el })
                         if (params) {
                             functions.request({ name, ...params, element, form, type: 'action' })
                         }
@@ -97,33 +100,47 @@ const CoCreateApi = {
         }
     },
 
-    __request: async function ({ name, endPoint, element }) {
-        let form = element.closest('form');
-        let data = await this.getData({ name, endPoint, form });
-        this.send(name, endPoint, data[endPoint]);
+
+    __request: async function (object) {
+        if (object.type !== 'action')
+            return
+        if (!object.form)
+            object.form = element.closest('form');
+        let data = await CoCreateApi.getData(object);
+        CoCreateApi.send(object.name, object.endPoint, data);
     },
 
     __response: function (name, data) {
-        const { endPoint, response } = data;
+        const endPoint = data.method.substring(name.length + 1);
         const component = this.components[name];
         const functions = component.endPoints[endPoint]
         if (functions.listen !== false) {
             if (typeof functions.response === 'function') {
-                functions.response(response);
-            } else
-                this.setData({ name, endPoint, data })
+                functions.response(data[name]);
+            } else if (data.error) {
+                render({
+                    selector: `[template*='${name}']`,
+                    data: [{
+                        type: name,
+                        status: 'failed',
+                        message: data.error
+                    }]
+                });
+            } else {
+                CoCreateApi.setData({ name, endPoint, data })
 
-            document.dispatchEvent(new CustomEvent(endPoint, {
-                detail: {
-                    data: response
-                }
-            }));
+                document.dispatchEvent(new CustomEvent(endPoint, {
+                    detail: {
+                        data: data[name]
+                    }
+                }));
+            }
         }
     },
 
     send: function (name, endPoint, data) {
         let method = name + '.' + endPoint
-        socket.send({ method, endPoint, data, broadcastBrowser: false });
+        socket.send({ method, endPoint, [name]: data, broadcastBrowser: false, status: 'await' });
     },
 
     parseParams: function ({ name, endPoint, element }) {
@@ -131,11 +148,16 @@ const CoCreateApi = {
         if (!attribute)
             return false
 
-        let dotNotation = attribute
-        let params = attribute.split('.')
-        endPoint = params[0]
-        let key = params[1]
-        return { endPoint, key, dotNotation, params }
+        let endPoints = this.components[name].endPoints
+        for (let k of Object.keys(endPoints)) {
+            if (attribute.startsWith(k)) {
+                endPoint = k
+                break;
+            }
+        }
+
+        let key = attribute.substring(endPoint.length + 1);
+        return { endPoint, key, dotNotation: attribute }
 
     },
 
@@ -150,9 +172,10 @@ const CoCreateApi = {
             elements = [element]
         for (let el of elements) {
             if (!el || el.closest('[template]')) continue
-            let attribute = el.getAttribute(name)
-            if (attribute)
-                data[attribute] = await el.getValue()
+            let params = this.parseParams({ name, element: el })
+            if (params.key) {
+                data[params.key] = await el.getValue()
+            }
         }
 
         return dotNotationToObject(data);
