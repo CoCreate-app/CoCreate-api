@@ -1,198 +1,168 @@
 /*globals CustomEvent, config*/
-import { getAttributes, getValueFromObject, dotNotationToObject } from "@cocreate/utils";
-import observer from "@cocreate/observer";
-import socket from "@cocreate/socket-client";
-import action from '@cocreate/actions';
+import { getValueFromObject, dotNotationToObject } from "@cocreate/utils";
+import Observer from "@cocreate/observer";
+import Socket from "@cocreate/socket-client";
+import Actions from '@cocreate/actions';
 import { render } from '@cocreate/render';
 import '@cocreate/element-prototype';
 
 const CoCreateApi = {
-    components: {},
+    modules: {},
 
-    init: function ({ name, endPoints, options }) {
-        this.register({ name, endPoints, options });
-        if (options && options.socket !== false && !socket.sockets.size)
-            socket.create({ prefix: 'api' });
+    init: function (moduleConfig) {
+        if (!moduleConfig) {
+            let elements = document.querySelectorAll('[api], [module]')
+            for (let i = 0; i < elements.length; i++) {
+                let name = elements[i].getAttribute('api') || elements[i].getAttribute('module')
+                this.register({ name, endPoints: {} });
+            }
+        } else {
+            let { name, endPoints, options } = moduleConfig
+            this.register({ name, endPoints, options });
+            if (options && options.socket !== false && !Socket.sockets.size)
+                Socket.create({ prefix: 'api' });
+        }
     },
 
     register: function ({ name, endPoints, options }) {
         const self = this;
-        if (typeof this.components[name] === 'undefined') {
-            this.components[name] = { name, endPoints, options };
+        if (typeof this.modules[name] === 'undefined') {
+            this.modules[name] = { name, endPoints, options };
 
-            socket.listen(name, (data) => {
-                self.__response(name, data);
+            Socket.listen(name, (data) => {
+                self.response(name, data);
             });
 
-            for (const endPoint of Object.keys(endPoints)) {
-                socket.listen(name + '.' + endPoint, (data) => {
-                    self.__response(name, data);
-                });
-
-                let functions = endPoints[endPoint]
-                if (typeof functions.request !== 'function') {
-                    functions.request = self.__request;
+            Actions.init({
+                name,
+                callback: (action) => {
+                    action.form = action.form || document
+                    self.request({ ...action, type: 'action' })
                 }
-                action.init({
-                    name: endPoint,
-                    endEvent: endPoint,
-                    callback: (data) => {
-                        const element = data.element
-                        let form = data.form || document
-                        const selector = `[${name}^="${endPoint}."]`
-                        let el = form.querySelector(selector)
-                        if (!el) return
-                        let params = self.parseParams({ name, element: el })
-                        if (params) {
-                            functions.request({ name, ...params, element, form, type: 'action' })
-                        }
-                    },
-                });
-            }
+            });
 
             const inputEvent = (element) => {
-                const self = this
                 element.addEventListener('input', (e) => {
-                    if (element.hasAttribute(name)) {
-                        let params = self.parseParams({ name, element })
-                        if (params) {
-                            if (!e.detail || e.detail && e.detail.skip != true) {
-                                endPoints[params.endPoint].request({ name, ...params, element, type: 'input' })
-                            }
-                        }
+                    if (!e.detail || e.detail && e.detail.skip != true) {
+                        self.request({ name, element, type: 'input' })
                     }
                 });
             }
 
             let elements = document.querySelectorAll(`[${name}]`)
-            for (let element of elements) {
-                let params = this.parseParams({ name, element })
-                if (params) {
-                    endPoints[params.endPoint].request({ name, ...params, element, type: 'onload' })
-                    inputEvent(element)
-                }
+            for (let i = 0; i < elements.length; i++) {
+                inputEvent(elements[i])
+                this.request({ name, element: elements[i], type: 'onload' })
             }
 
-            observer.init({
+            Observer.init({
                 name: `${name}NodeObserver`,
                 observe: ['addedNodes'],
                 target: `[${name}]`,
                 callback: function (mutation) {
-                    let params = self.parseParams({ name, element: mutation.target })
-                    if (params) {
-                        endPoints[params.endPoint].request({ name, ...params, element: mutation.target, type: 'nodeObserver' });
-                        inputEvent(mutation.target)
-                    }
+                    inputEvent(mutation.target)
+                    self.request({ name, element: mutation.target, type: 'nodeObserver' })
                 }
             });
 
-            observer.init({
+            Observer.init({
                 name: `${name}AttributeObserver`,
                 observe: ['attributes'],
                 attributeName: [name],
                 callback: function (mutation) {
-                    let params = self.parseParams({ name, element: mutation.target })
-                    if (params) {
-                        endPoints[params.endPoint].request({ name, ...params, element: mutation.target, type: 'attributeObserver' });
-                    }
+                    self.request({ name, element: mutation.target, type: 'attributeObserver' })
                 }
             });
         }
     },
 
 
-    __request: async function (object) {
-        if (object.type !== 'action')
-            return
-        if (!object.form)
-            object.form = element.closest('form');
-        let data = await CoCreateApi.getData(object);
-        CoCreateApi.send(object.name, object.endPoint, data);
-    },
+    request: async function (object) {
+        if (object.element) {
+            if (!object.method)
+                object.method = object.element.getAttribute(object.name)
+            if (!object.key)
+                object.key = object.element.getAttribute(`${object.name}-key`)
+            if (!object.event)
+                object.event = object.element.getAttribute(`${object.name}-event`)
+        }
 
-    __response: function (name, data) {
-        const endPoint = data.method.substring(name.length + 1);
-        const component = this.components[name];
-        const functions = component.endPoints[endPoint]
-        if (functions.listen !== false) {
-            if (typeof functions.response === 'function') {
-                functions.response(data[name]);
-            } else if (data.error) {
-                render({
-                    selector: `[template*='${name}']`,
-                    data: [{
-                        type: name,
-                        status: 'failed',
-                        message: data.error
-                    }]
-                });
-            } else {
-                CoCreateApi.setData({ name, endPoint, data })
-
-                document.dispatchEvent(new CustomEvent(endPoint, {
-                    detail: {
-                        data: data[name]
-                    }
-                }));
-            }
+        if (this.modules[object.name][object.method] && this.modules[object.name][object.method].request)
+            this.modules[object.name][object.method].request(object)
+        else if (!object.event && object.type === 'action' || object.event && object.event.includes(object.type)) {
+            let data = await CoCreateApi.getData(object);
+            CoCreateApi.send(object.name, object.method, data);
         }
     },
 
-    send: function (name, endPoint, data) {
-        let method = name + '.' + endPoint
-        socket.send({ method, endPoint, [name]: data, broadcastBrowser: false, status: 'await' });
-    },
+    response: function (name, data) {
+        const method = data.method.substring(name.length + 1);
+        if (this.modules[name][method] && this.modules[name][method].response)
+            this.modules[name][method].response(data[name])
+        else if (data.error) {
+            render({
+                selector: `[template*='${name}']`,
+                data: [{
+                    type: name,
+                    method,
+                    status: 'failed',
+                    message: data.error
+                }]
+            });
+        } else {
+            CoCreateApi.setData({ name, method, data })
 
-    parseParams: function ({ name, endPoint, element }) {
-        let attribute = element.getAttribute(name)
-        if (!attribute)
-            return false
-
-        let endPoints = this.components[name].endPoints
-        for (let k of Object.keys(endPoints)) {
-            if (attribute.startsWith(k)) {
-                endPoint = k
-                break;
-            }
+            document.dispatchEvent(new CustomEvent(name, {
+                detail: {
+                    data: data[name]
+                }
+            }));
         }
-
-        let key = attribute.substring(endPoint.length + 1);
-        return { endPoint, key, dotNotation: attribute }
-
     },
 
+    send: function (name, method, data) {
+        Socket.send({ method: name + '.' + method, [name]: data, broadcastBrowser: false, status: 'await' });
+    },
 
-    getData: async function ({ name, endPoint, element, form }) {
+    // TODO: handle $param operator
+    getData: async function ({ name, method, element, form }) {
         const data = {}
-        const selector = `[${name}^="${endPoint}."]`
+
+        if (!form && element)
+            form = element.closest('form');
+
         let elements
         if (form)
-            elements = form.querySelectorAll(selector);
+            elements = form.querySelectorAll(`[${name}="${method}"]`);
         if (!elements || elements.length == 0)
             elements = [element]
-        for (let el of elements) {
-            if (!el || el.closest('[template]')) continue
-            let params = this.parseParams({ name, element: el })
-            if (params.key) {
-                data[params.key] = await el.getValue()
+
+        for (let i = 0; i < elements.length; i++) {
+            if (!elements[i] || elements[i].closest('[template]'))
+                continue
+            let key = elements[i].getAttribute(`${name}-key`)
+            if (key) {
+                data[key] = await elements[i].getValue()
             }
         }
 
         return dotNotationToObject(data);
     },
 
-    setData: function ({ name, endPoint, data, form }) {
-        const selector = `[${name}^="${endPoint}."]`
+    // TODO: handle $param operator
+    setData: function ({ name, method, data, form }) {
         if (!form)
             form = document;
-        let elements = form.querySelectorAll(selector);
-        if (!elements || elements.length == 0) return
 
-        for (let el of elements) {
-            let attribute = el.getAttribute(name)
+        let elements = form.querySelectorAll(`[${name}="${method}"]`);
+        if (!elements || elements.length == 0)
+            return
+
+        for (let i = 0; i < elements.length; i++) {
+            let attribute = elements[i].getAttribute(name)
             if (attribute) {
-                if (el.hasAttribute('actions')) continue;
-                let templateid = el.getAttribute('template_id')
+                if (elements[i].hasAttribute('actions')) continue;
+                let templateid = elements[i].getAttribute('template_id')
                 if (templateid) {
                     let items = document.querySelectorAll(`[templateid="${templateid}"]`)
                     for (let item of items)
@@ -202,8 +172,9 @@ const CoCreateApi = {
                         data
                     });
                 } else {
-                    let value = getValueFromObject(data, attribute);
-                    el.setValue(value);
+                    let key = elements[i].getAttribute(`${name}-key`)
+                    let value = getValueFromObject(data[name], key);
+                    elements[i].setValue(value);
                 }
             }
         }
@@ -211,5 +182,17 @@ const CoCreateApi = {
     }
 
 };
+
+Observer.init({
+    name: `apiNodeObserver`,
+    observe: ['addedNodes'],
+    target: '[module], [api]',
+    callback: function (mutation) {
+        let name = mutation.target.getAttribute('api') || mutation.target.getAttribute('module')
+        CoCreateApi.register({ name, endPoints: {} });
+    }
+});
+
+CoCreateApi.init()
 
 export default CoCreateApi;
