@@ -1,3 +1,15 @@
+# [1.20.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.19.2...v1.20.0) (2024-02-03)
+
+
+### Bug Fixes
+
+* now used in client only ([bad8ddd](https://github.com/CoCreate-app/CoCreate-api/commit/bad8ddd4aac147056e59255ef5de5af984ece845))
+
+
+### Features
+
+* init a module and its attributes using ([1238015](https://github.com/CoCreate-app/CoCreate-api/commit/1238015b42861f3be0488efcf950f5f3717f55e1))
+
 ## [1.19.2](https://github.com/CoCreate-app/CoCreate-api/compare/v1.19.1...v1.19.2) (2024-02-02)
 
 
