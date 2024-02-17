@@ -133,7 +133,7 @@ const CoCreateApi = {
 
         let elements
         if (form)
-            elements = form.querySelectorAll(`[${name}="${method}"]`);
+            elements = form.querySelectorAll(`[${name}="${method}"]:not([${name}-request="false"])`);
         if (!elements || elements.length == 0)
             elements = [element]
 
