@@ -121,7 +121,7 @@ const CoCreateApi = {
     },
 
     send: function (name, method, data) {
-        Socket.send({ method: name + '.' + method, [name]: data, broadcastBrowser: false, status: 'await' });
+        Socket.send({ method: name + '.' + method, [name]: data, broadcast: false, broadcastBrowser: false, status: 'await' });
     },
 
     // TODO: handle $param operator
