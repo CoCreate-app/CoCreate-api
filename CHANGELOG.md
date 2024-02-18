@@ -1,3 +1,10 @@
+## [1.20.3](https://github.com/CoCreate-app/CoCreate-api/compare/v1.20.2...v1.20.3) (2024-02-18)
+
+
+### Bug Fixes
+
+* broadcast false ([f74f7a4](https://github.com/CoCreate-app/CoCreate-api/commit/f74f7a4b138fcfe2e436b7dfd6f9edbd3c428bcd))
+
 ## [1.20.2](https://github.com/CoCreate-app/CoCreate-api/compare/v1.20.1...v1.20.2) (2024-02-05)
 
 
