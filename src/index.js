@@ -126,7 +126,7 @@ const CoCreateApi = {
 
     // TODO: handle $param operator
     getData: async function ({ name, method, element, form }) {
-        const data = {}
+        let data = {}
 
         if (!form && element)
             form = element.closest('form');
@@ -148,9 +148,9 @@ const CoCreateApi = {
 
         let params = {}, hasParams = false
         for (let i = 0; true; i++) {
-            if (`$param[${i}]` in data[name]) {
-                params[`$param[${i}]`] = data[name][`$param[${i}]`]
-                delete data[name][`$param[${i}]`]
+            if (`$param[${i}]` in data) {
+                params[`$param[${i}]`] = data[`$param[${i}]`]
+                delete data[`$param[${i}]`]
                 hasParams = true
             } else {
                 break;
@@ -158,7 +158,7 @@ const CoCreateApi = {
         }
         data = dotNotationToObject(data);
         if (hasParams)
-            data[name] = { ...params, ...data[name] }
+            data = { ...params, ...data }
 
         return data
     },
