@@ -1,3 +1,11 @@
+## [1.20.5](https://github.com/CoCreate-app/CoCreate-api/compare/v1.20.4...v1.20.5) (2024-04-27)
+
+
+### Bug Fixes
+
+* bug in param handeling ([083b77e](https://github.com/CoCreate-app/CoCreate-api/commit/083b77eebec53f5523fd228ccfb1a88911e6132b))
+* handeling of params ([9685e08](https://github.com/CoCreate-app/CoCreate-api/commit/9685e080d0bd0f3940aab9a7f277324c00526750))
+
 ## [1.20.4](https://github.com/CoCreate-app/CoCreate-api/compare/v1.20.3...v1.20.4) (2024-02-18)
 
 
