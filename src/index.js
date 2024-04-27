@@ -146,7 +146,21 @@ const CoCreateApi = {
             }
         }
 
-        return dotNotationToObject(data);
+        let params = {}, hasParams = false
+        for (let i = 0; true; i++) {
+            if (`$param[${i}]` in data[name]) {
+                params[`$param[${i}]`] = data[name][`$param[${i}]`]
+                delete data[name][`$param[${i}]`]
+                hasParams = true
+            } else {
+                break;
+            }
+        }
+        data = dotNotationToObject(data);
+        if (hasParams)
+            data[name] = { ...params, ...data[name] }
+
+        return data
     },
 
     // TODO: handle $param operator
