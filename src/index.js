@@ -124,7 +124,36 @@ const CoCreateApi = {
         Socket.send({ method: name + '.' + method, [name]: data, broadcast: false, broadcastBrowser: false, status: 'await' });
     },
 
-    // TODO: handle $param operator
+    /**
+     * TODO: Implement Enhanced API Configuration Handling
+     * 
+     * Description:
+     * - Implement functionality to dynamically handle API configurations, supporting both complete and base URL endpoints with automatic method-based path appending.
+     * - Enable dynamic generation of query parameters from a designated object (`stripe` in the examples) when `query` is true.
+     * 
+     * Requirements:
+     * 1. Dynamic Endpoint Handling:
+     *    - Check if the endpoint configuration is a complete URL or a base URL.
+     *    - If the `method` derived path is not already included in the endpoint, append it dynamically.
+     *    Example:
+     *    `{ "method": "stripe.accounts.retrieve", "endpoint": "https://api.stripe.com", "query": true, "stripe": { "acct": "acct_123", "name": "John Doe" } }`
+     *    `{ "method": "stripe.accounts.retrieve", "endpoint": "https://api.stripe.com/accounts/retrieve", "query": true, "stripe": { "acct": "acct_123", "name": "John Doe" } }`
+     *    - Develop logic to parse the `method` and check against the endpoint. If necessary, append the appropriate API method segment.
+     * 
+     * 2. Query Parameter Handling:
+     *    - Dynamically construct and append query parameters from the `stripe` object if `query` is true. Ensure proper URL-encoding of keys and values.
+     * 
+     * 3. Security:
+     *    - Use the `method` for permission checks, ensuring that each API request complies with security protocols.
+     * 
+     * 4. Testing:
+     *    - Test both scenarios where the endpoint may or may not include the method path to ensure the dynamic construction works correctly.
+     *    - Ensure that all query parameters are correctly formatted and appended.
+     * 
+     * Notes:
+     * - Consider utility functions for parsing and modifying URLs, as well as for encoding parameters.
+     * - Maintain clear and detailed documentation for each part of the implementation to assist future development and troubleshooting.
+     */
     getData: async function ({ name, method, element, form }) {
         let data = {}
 
@@ -163,7 +192,6 @@ const CoCreateApi = {
         return data
     },
 
-    // TODO: handle $param operator
     setData: function ({ name, method, data, form }) {
         if (!form)
             form = document;
