@@ -59,11 +59,11 @@
     "webpack-log": "^3.0.1"
   },
   "dependencies": {
-    "@cocreate/actions": "^1.15.1",
-    "@cocreate/crud-client": "^1.32.2",
-    "@cocreate/element-prototype": "^1.15.0",
-    "@cocreate/render": "^1.37.1",
-    "@cocreate/socket-client": "^1.36.1",
-    "@cocreate/utils": "^1.30.0"
+    "@cocreate/actions": "^1.18.1",
+    "@cocreate/crud-client": "^1.33.8",
+    "@cocreate/element-prototype": "^1.22.2",
+    "@cocreate/render": "^1.40.3",
+    "@cocreate/socket-client": "^1.39.0",
+    "@cocreate/utils": "^1.33.6"
   }
 }
