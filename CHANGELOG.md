@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.20.6...v1.21.0) (2024-05-19)
+
+
+### Features
+
+* attributes to handle endpoint and query ([f6aa450](https://github.com/CoCreate-app/CoCreate-api/commit/f6aa4502147e5ef9e6f6d24daf326de14829b710))
+
 ## [1.20.6](https://github.com/CoCreate-app/CoCreate-api/compare/v1.20.5...v1.20.6) (2024-04-29)
 
 
