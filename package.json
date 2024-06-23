@@ -63,7 +63,7 @@
     "@cocreate/crud-client": "^1.33.9",
     "@cocreate/element-prototype": "^1.23.0",
     "@cocreate/render": "^1.41.0",
-    "@cocreate/socket-client": "^1.39.1",
+    "@cocreate/socket-client": "^1.5.7",
     "@cocreate/utils": "^1.33.7"
   }
 }
