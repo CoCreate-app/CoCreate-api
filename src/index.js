@@ -29,10 +29,6 @@ const CoCreateApi = {
         if (typeof this.modules[name] === 'undefined') {
             this.modules[name] = { name, endPoints, options };
 
-            Socket.listen(name, (data) => {
-                self.response(name, data);
-            });
-
             Actions.init({
                 name,
                 callback: (action) => {
@@ -91,12 +87,13 @@ const CoCreateApi = {
             this.modules[object.name][object.method].request(object)
         else if (!object.event && object.type === 'action' || object.event && object.event.includes(object.type)) {
             let data = await CoCreateApi.getData(object);
-            CoCreateApi.send(object.name, object.method, data);
+            CoCreateApi.send(object, data);
         }
     },
 
-    response: function (name, data) {
-        const method = data.method.substring(name.length + 1);
+    response: function (object, data) {
+        const name = object.name
+        const method = object.method;
         if (this.modules[name][method] && this.modules[name][method].response)
             this.modules[name][method].response(data[name])
         else if (data.error) {
@@ -110,7 +107,7 @@ const CoCreateApi = {
                 }]
             });
         } else {
-            CoCreateApi.setData({ name, method, data })
+            CoCreateApi.setData(object, data)
 
             document.dispatchEvent(new CustomEvent(name, {
                 detail: {
@@ -120,8 +117,9 @@ const CoCreateApi = {
         }
     },
 
-    send: function (name, method, data) {
-        Socket.send({ method: name + '.' + method, [name]: data, broadcast: false, broadcastBrowser: false, status: 'await' });
+    send: async function (object, data) {
+        data = await Socket.send({ method: object.name + '.' + object.method, [object.name]: data, broadcast: false, broadcastBrowser: false, status: 'await' });
+        this.response(object, data);
     },
 
     getData: async function ({ name, method, element, form }) {
@@ -171,11 +169,13 @@ const CoCreateApi = {
         return data
     },
 
-    setData: function ({ name, method, data, form }) {
+    setData: function (object, data) {
+        const name = object.name
+        let form = object.form
         if (!form)
             form = document;
 
-        let elements = form.querySelectorAll(`[${name}="${method}"]`);
+        let elements = form.querySelectorAll(`[${name}="${object.method}"]`);
         if (!elements || elements.length == 0)
             return
 
