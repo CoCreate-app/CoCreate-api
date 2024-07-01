@@ -109,7 +109,7 @@ const CoCreateApi = {
         } else {
             CoCreateApi.setData(object, data)
 
-            document.dispatchEvent(new CustomEvent(name, {
+            document.dispatchEvent(new CustomEvent(object.endEvent, {
                 detail: {
                     data: data[name]
                 }
