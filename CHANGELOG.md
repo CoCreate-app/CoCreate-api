@@ -1,3 +1,12 @@
+## [1.21.3](https://github.com/CoCreate-app/CoCreate-api/compare/v1.21.2...v1.21.3) (2024-08-24)
+
+
+### Bug Fixes
+
+* dynaically fire endEvent provided by action ([ad8084e](https://github.com/CoCreate-app/CoCreate-api/commit/ad8084e5e5822c9f1f49e0acd00676b57c1e4f2b))
+* removed listener and use await with request to get response ([db14d2c](https://github.com/CoCreate-app/CoCreate-api/commit/db14d2cdcc17d0edd967f660ec5206ab0172fd4d))
+* update doc ([d68a2e2](https://github.com/CoCreate-app/CoCreate-api/commit/d68a2e207c8f3e3d497ccff4f6cece3eb5639488))
+
 ## [1.21.2](https://github.com/CoCreate-app/CoCreate-api/compare/v1.21.1...v1.21.2) (2024-06-23)
 
 
