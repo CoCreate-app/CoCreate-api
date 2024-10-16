@@ -139,7 +139,18 @@ const CoCreateApi = {
                 continue
             let key = elements[i].getAttribute(`${name}-key`)
             if (key) {
-                data[key] = await elements[i].getValue()
+                let value = await elements[i].getValue()
+                if (key.endsWith('[]')) {
+                    if (!data[key])
+                        data[key] = [];
+
+                    if (Array.isArray(value))
+                        data[key].push(...value);
+                    else
+                        data[key].push(value);
+                } else
+                    data[key] = await elements[i].getValue()
+
             }
 
             let endpoint = elements[i].getAttribute('endpoint')
