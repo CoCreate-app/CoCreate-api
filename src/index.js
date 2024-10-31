@@ -54,7 +54,7 @@ const CoCreateApi = {
             Observer.init({
                 name: `${name}NodeObserver`,
                 observe: ['addedNodes'],
-                target: `[${name}]`,
+                selector: `[${name}]`,
                 callback: function (mutation) {
                     inputEvent(mutation.target)
                     self.request({ name, element: mutation.target, type: 'nodeObserver' })
@@ -222,7 +222,7 @@ const CoCreateApi = {
 Observer.init({
     name: `apiNodeObserver`,
     observe: ['addedNodes'],
-    target: '[module], [api]',
+    selector: '[module], [api]',
     callback: function (mutation) {
         let name = mutation.target.getAttribute('api') || mutation.target.getAttribute('module')
         CoCreateApi.register({ name, endPoints: {} });
