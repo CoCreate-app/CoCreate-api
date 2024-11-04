@@ -1,3 +1,17 @@
+# [1.22.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.21.3...v1.22.0) (2024-11-04)
+
+
+### Bug Fixes
+
+* handling array[] ([93bafda](https://github.com/CoCreate-app/CoCreate-api/commit/93bafdaab1712ae1c99a408142c8ec9e912a34c5))
+* observer taget has been renamed to selector ([9802a6c](https://github.com/CoCreate-app/CoCreate-api/commit/9802a6c96b0f37de1166f240720544652eb5666b))
+* pretier.config.js and file formating ([12031c1](https://github.com/CoCreate-app/CoCreate-api/commit/12031c1ea0db05ae7881fdca959ec022ee2cae86))
+
+
+### Features
+
+* add prettier.config.js and format files ([090db4f](https://github.com/CoCreate-app/CoCreate-api/commit/090db4f1d7c2e26d0b76b82ab70b83c58be49323))
+
 ## [1.21.3](https://github.com/CoCreate-app/CoCreate-api/compare/v1.21.2...v1.21.3) (2024-08-24)
 
 
