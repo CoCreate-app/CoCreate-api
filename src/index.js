@@ -103,14 +103,15 @@ const CoCreateApi = {
 			(!object.event && object.type === "action") ||
 			(object.event && object.event.includes(object.type))
 		) {
-			let data = await CoCreateApi.getData(object);
-			if (Object.keys(data).length) CoCreateApi.send(object, data);
+			object.data = await CoCreateApi.getData(object);
+			if (Object.keys(object.data).length) CoCreateApi.send(object);
 		}
 	},
 
-	response: function (object, data) {
+	response: function (object) {
 		const name = object.name;
 		const method = object.method;
+		const data = object.data;
 		if (this.modules[name][method] && this.modules[name][method].response)
 			this.modules[name][method].response(data[name]);
 		else if (data.error) {
@@ -126,33 +127,34 @@ const CoCreateApi = {
 				]
 			});
 		} else {
-			CoCreateApi.setData(object, data);
+			CoCreateApi.setData(object);
 
 			document.dispatchEvent(
 				new CustomEvent(object.endEvent, {
 					detail: {
-						data: data[name]
+						data: object
 					}
 				})
 			);
 		}
 	},
 
-	send: async function (object, data) {
-		data = await Socket.send({
+	send: async function (object) {
+		object.data = await Socket.send({
 			method: object.name + "." + object.method,
-			[object.name]: data,
+			[object.name]: object.data,
 			broadcast: false,
 			broadcastBrowser: false,
 			status: "await"
 		});
-		this.response(object, data);
+		this.response(object);
 	},
 
 	getData: async function ({ name, method, element, form }) {
 		let data = {};
 
 		if (!form && element) form = element.closest("form");
+		if (!form) form = document;
 
 		let elements;
 		if (form)
@@ -204,8 +206,9 @@ const CoCreateApi = {
 		return data;
 	},
 
-	setData: function (object, data) {
+	setData: function (object) {
 		const name = object.name;
+		const data = object.data;
 		let form = object.form;
 		if (!form) form = document;
 
