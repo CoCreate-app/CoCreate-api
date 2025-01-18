@@ -1,3 +1,11 @@
+## [1.22.1](https://github.com/CoCreate-app/CoCreate-api/compare/v1.22.0...v1.22.1) (2025-01-18)
+
+
+### Bug Fixes
+
+* Call the function and assign its return value ([5102f60](https://github.com/CoCreate-app/CoCreate-api/commit/5102f60e13b07f4bcb6d84be18ae629489656cc7))
+* moved data in to object ([168bb0a](https://github.com/CoCreate-app/CoCreate-api/commit/168bb0a5694dec3feb5d14b67e4ff911cfd88c9c))
+
 # [1.22.0](https://github.com/CoCreate-app/CoCreate-api/compare/v1.21.3...v1.22.0) (2024-11-04)
 
 
