@@ -129,7 +129,7 @@ const CoCreateApi = {
 		} else {
 			CoCreateApi.setData(object);
 
-			document.dispatchEvent(
+			object.element.dispatchEvent(
 				new CustomEvent(object.endEvent, {
 					detail: {
 						data: object
@@ -167,13 +167,14 @@ const CoCreateApi = {
 			if (!elements[i] || elements[i].closest("[template]")) continue;
 			let key = elements[i].getAttribute(`${name}-key`);
 			if (key) {
-				let value = await elements[i].getValue();
+				let value =
+					elements[i].stripeElement || (await elements[i].getValue());
 				if (key.endsWith("[]")) {
 					if (!data[key]) data[key] = [];
 
 					if (Array.isArray(value)) data[key].push(...value);
 					else data[key].push(value);
-				} else data[key] = await elements[i].getValue();
+				} else data[key] = value;
 			}
 
 			let endpoint = elements[i].getAttribute("endpoint");
@@ -212,7 +213,9 @@ const CoCreateApi = {
 		let form = object.form;
 		if (!form) form = document;
 
-		let elements = form.querySelectorAll(`[${name}="${object.method}"]`);
+		let elements = form.querySelectorAll(
+			`[${name}="${object.method}"]:not([${name}-response="false"])`
+		);
 		if (!elements || elements.length == 0) return;
 
 		for (let i = 0; i < elements.length; i++) {
@@ -229,13 +232,24 @@ const CoCreateApi = {
 						selector: `[template="${templateid}"]`,
 						data
 					});
+				} else if (elements[i].renderValue) {
+					let key = elements[i].getAttribute(`${name}-key`);
+					if (key === "{}") {
+						elements[i].renderValue(data[name]);
+					} else {
+						let value = getValueFromObject(data[name], key);
+						if (typeof value === "function") {
+							value = value(); // Call the function and assign its return value.
+						}
+						elements[i].renderValue(value);
+					}
 				} else {
 					let key = elements[i].getAttribute(`${name}-key`);
 					if (key === "{}") elements[i].setValue(data[name]);
 					else {
 						let value = getValueFromObject(data[name], key);
 						if (typeof value === "function") {
-							value = value(); // Call the function and assign its return value
+							value = value(); // Call the function and assign its return value.
 						}
 						elements[i].setValue(value);
 					}
