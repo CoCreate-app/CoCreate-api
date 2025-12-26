@@ -1,3 +1,10 @@
+## [1.22.5](https://github.com/CoCreate-app/CoCreate-api/compare/v1.22.4...v1.22.5) (2025-12-26)
+
+
+### Bug Fixes
+
+* update worklow ([45cb3bc](https://github.com/CoCreate-app/CoCreate-api/commit/45cb3bc8b3aa8328a7dbce98a2b908eb2ba14a2e))
+
 ## [1.22.4](https://github.com/CoCreate-app/CoCreate-api/compare/v1.22.3...v1.22.4) (2025-05-01)
 
 
